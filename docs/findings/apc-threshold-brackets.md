@@ -4,7 +4,7 @@
 > `ground_truth.csv` — **367 ride-along check-ins** (the councillor brief's
 > on-board audit cited the first 277; collection continued through the
 > following week). Companion to the per-vehicle bias table
-> (`apc_bias_by_vehicle.csv`). Vintage: 2026-09-04. Promoted to the findings
+> ([APC bias by vehicle](apc-bias-by-vehicle.md), also in this lane). Vintage: 2026-09-04. Promoted to the findings
 > lane 2026-09-11.
 >
 > **What this adds:** the councillor brief told the vignette (5 vs 12

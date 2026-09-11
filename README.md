@@ -51,8 +51,17 @@ It wins on 100% of 500 simulated days. **The gains are modeled, not field-proven
 
 The headline numbers above rest on full evidence tables — published, not summarized away:
 
-- **[APC threshold brackets](docs/findings/apc-threshold-brackets.md)** — the systematic cut behind the sensor-honesty finding: 35 bracketed flip thresholds across 13 vehicles, the 41-of-78 cross-vehicle overlap test, and display-lag quantification (median 4.7 min stale after a real load change).
-- **[Just-miss shifts](docs/findings/just-miss-shifts.md)** — the transfer tool's engine: every missed Meadowvale connection, ranked by conversions per shifted minute (4,949 misses across 156 pairings; a 3-minute network-wide shift converts 1,347).
+**Sensors (APC honesty)**
+- **[APC threshold brackets](docs/findings/apc-threshold-brackets.md)** — 35 bracketed flip thresholds across 13 vehicles, the 41-of-78 cross-vehicle overlap test, and display-lag quantification (median 4.7 min stale after a real load change).
+- **[APC bias by vehicle](docs/findings/apc-bias-by-vehicle.md)** — the fleet-level table: 302 complete observations across 15 vehicles; 74% of qualifying load moves produced no display change.
+
+**Transfers (Meadowvale Town Centre)**
+- **[Just-miss shifts](docs/findings/just-miss-shifts.md)** — every missed connection ranked by conversions per shifted minute (4,949 misses across 156 pairings; a 3-minute network-wide shift converts 1,347).
+- **[Realized vs scheduled waits](docs/findings/realized-vs-scheduled-waits.md)** — the same pairings once buses run as observed: where lateness eats scheduled sync, pairing by pairing.
+
+**Network structure**
+- **[Street-level service gaps](docs/findings/street-service-gaps.md)** — 47 busy corridors ranked by activity vs night/Sunday coverage; 9 flagged with zero or near-zero evening grid.
+- **[Shared-corridor runtime audit](docs/findings/corridor-runtime-audit.md)** — where two routes book different times for the identical street: 61,526 segment-pairs audited, 277 flagged.
 
 ## The correction (the part I'm proudest of)
 
