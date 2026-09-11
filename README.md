@@ -54,6 +54,7 @@ The headline numbers above rest on full evidence tables — published, not summa
 **Sensors (APC honesty)**
 - **[APC threshold brackets](docs/findings/apc-threshold-brackets.md)** — 35 bracketed flip thresholds across 13 vehicles, the 41-of-78 cross-vehicle overlap test, and display-lag quantification (median 4.7 min stale after a real load change).
 - **[APC bias by vehicle](docs/findings/apc-bias-by-vehicle.md)** — the fleet-level table: 302 complete observations across 15 vehicles; 74% of qualifying load moves produced no display change.
+- **[APC fleet infrastructure package](docs/findings/apc-fleet-audit-package.md)** — the fleet map behind the sensor findings: a feed-ID-to-fleet-number translation key across 19 procurement cohorts (an undocumented offset scheme, stress-tested against cross-era collisions), per-route articulated shares (Route 61's crowding data rests 82% on the least-trustworthy sensors), a 505-vehicle census with ~13% of the fleet unavailable, and the garage-territory analysis with a designed field experiment.
 
 **Transfers (Meadowvale Town Centre)**
 - **[Just-miss shifts](docs/findings/just-miss-shifts.md)** — every missed connection ranked by conversions per shifted minute (4,949 misses across 156 pairings; a 3-minute network-wide shift converts 1,347).
