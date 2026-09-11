@@ -63,6 +63,16 @@ The headline numbers above rest on full evidence tables — published, not summa
 - **[Street-level service gaps](docs/findings/street-service-gaps.md)** — 47 busy corridors ranked by activity vs night/Sunday coverage; 9 flagged with zero or near-zero evening grid.
 - **[Shared-corridor runtime audit](docs/findings/corridor-runtime-audit.md)** — where two routes book different times for the identical street: 61,526 segment-pairs audited, 277 flagged.
 
+**Data quality (how far the numbers can be trusted — measured, not assumed)**
+- **[The precision ceiling of vehicle-side ridership data](docs/findings/precision-ceiling.md)** — with all 8.55M APC load polls, per-route boardings top out at ±23% median accuracy no matter the method; five refinements built, five measured failures. The quantified case for tap-level data.
+- **[Corridor ridership cross-check](docs/findings/corridor-ridership-crosscheck.md)** — the measured data does *not* corroborate the Q1 2026 corridor-decline story; published so it isn't re-litigated.
+- **[Optimizer validation study](docs/findings/validation-study.md)** — the predicted worst-missed transfers are stable across service periods, and the gains survive realistic lateness noise.
+
+**Impact modeling (external numbers, honestly banded)**
+- **[Ridership band from Lyu & Yan (2025)](docs/findings/ridership-band-lyu.md)** — re-deriving the ridership projection from post-pandemic on-time-performance elasticities: +4.3% central (2.8–6.1%), and what would make that optimistic.
+- **[Equity report](docs/findings/equity-report.md)** — per-stop winners and losers of the proposed re-timing, with the APC-quantization caveat that keeps stop weights honest.
+- **[Trunk-and-feeder brief](docs/findings/trunk-feeder-brief.md)** — the zero-cost network redesign option: 36 winding routes (~80,000 daily riders) rebuilt as trunk + feeder, every stop kept, ~170 km/day less dead running.
+
 ## The correction (the part I'm proudest of)
 
 My first public figure for never-run trips was **1 in 32**. Before anyone challenged it, I found a bug in my own post-midnight trip handling, fixed it, and re-published as **~1 in 60** — with both numbers and the reason kept on the record ([v1 snapshot, finding 2 note](docs/findings-v1-n7-aug17-23.md)). Measurement means your own error rate is part of the dataset. The correction log is public; a `check_claim.py` CLI now greps every published figure against the artifacts before anything is quoted.
