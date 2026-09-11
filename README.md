@@ -47,6 +47,13 @@ The centerpiece is a constraint optimizer (OR-Tools CP-SAT, ~900 lines — [solv
 
 It wins on 100% of 500 simulated days. **The gains are modeled, not field-proven** — the honest framing is "conservative, pending a real-world pilot," and that sentence appears wherever the number does. Full analysis: [councillor brief](docs/councillor-brief.md).
 
+## Findings in depth
+
+The headline numbers above rest on full evidence tables — published, not summarized away:
+
+- **[APC threshold brackets](docs/findings/apc-threshold-brackets.md)** — the systematic cut behind the sensor-honesty finding: 35 bracketed flip thresholds across 13 vehicles, the 41-of-78 cross-vehicle overlap test, and display-lag quantification (median 4.7 min stale after a real load change).
+- **[Just-miss shifts](docs/findings/just-miss-shifts.md)** — the transfer tool's engine: every missed Meadowvale connection, ranked by conversions per shifted minute (4,949 misses across 156 pairings; a 3-minute network-wide shift converts 1,347).
+
 ## The correction (the part I'm proudest of)
 
 My first public figure for never-run trips was **1 in 32**. Before anyone challenged it, I found a bug in my own post-midnight trip handling, fixed it, and re-published as **~1 in 60** — with both numbers and the reason kept on the record ([v1 snapshot, finding 2 note](docs/findings-v1-n7-aug17-23.md)). Measurement means your own error rate is part of the dataset. The correction log is public; a `check_claim.py` CLI now greps every published figure against the artifacts before anything is quoted.
