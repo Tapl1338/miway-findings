@@ -51,6 +51,10 @@ It wins on 100% of 500 simulated days. **The gains are modeled, not field-proven
 
 My first public figure for never-run trips was **1 in 32**. Before anyone challenged it, I found a bug in my own post-midnight trip handling, fixed it, and re-published as **~1 in 60** — with both numbers and the reason kept on the record ([v1 snapshot, finding 2 note](docs/findings-v1-n7-aug17-23.md)). Measurement means your own error rate is part of the dataset. The correction log is public; a `check_claim.py` CLI now greps every published figure against the artifacts before anything is quoted.
 
+## The data, publicly
+
+A 250,000-departure random sample of the observed-lateness corpus (schema, collection method, processing rules, and caveats in [data/README.md](data/README.md)) — download it, run the same computations, check the findings. The full set (3.2M+ departures) is available on request via an issue.
+
 ## Operations postmortem
 
 The platform watches its own data age, and on Sept 11 that watch caught a silent three-day sync stall no alert had been configured for — root-caused to a single file-permission bit, fixed in one command, verified within the minute. Written up the same day: [postmortem — lateness sync stall](docs/postmortem-lateness-sync-stall.md). Measurement infrastructure fails the same way measurement does; both get corrected on the record.
