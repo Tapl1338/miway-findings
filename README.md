@@ -59,6 +59,10 @@ A 250,000-departure random sample of the observed-lateness corpus (schema, colle
 
 The platform watches its own data age, and on Sept 11 that watch caught a silent three-day sync stall no alert had been configured for — root-caused to a single file-permission bit, fixed in one command, verified within the minute. Written up the same day: [postmortem — lateness sync stall](docs/postmortem-lateness-sync-stall.md). Measurement infrastructure fails the same way measurement does; both get corrected on the record.
 
+### Data-quality appendix: the ghost-ledger vintage audit
+
+Pre-scoring the pre-registered September 7 predictions surfaced a subtler failure: the live ghost ledger had silently re-based — a backfill over snapshot-pruned history reported August's ghost rate as ~0.5% where the frozen cut says 3.08%. This appendix walks the day-by-day forensic (which days to trust, which are structurally broken, and the per-day coverage gauge that tells them apart), fixes the ownership gap that let it happen, and states the resulting rule: **never delete bad rows — stamp them.** Read it: [ghost-ledger vintage audit](docs/ghost-ledger-vintage-audit.md).
+
 ## Pre-registration
 
 Before the September 7 schedule change, I committed to falsifiable predictions — written and frozen **before** the post-change data existed, so the analysis couldn't curve-fit: [pre-registration-sept7.md](docs/pre-registration-sept7.md). (It uses seat labels like "alpha-8": the project was built under a multi-agent AI development protocol I directed — task claiming, cross-authored tests, dispute ledgers, a 5→3 right-sizing. I specified what to measure, audited every claim, and own every number.)
