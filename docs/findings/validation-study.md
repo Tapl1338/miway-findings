@@ -4,6 +4,14 @@
 > [data dictionary](../../data/README.md)). Published as-found: early errors
 > are kept honestly per the [vintage audit](../ghost-ledger-vintage-audit.md).
 
+> **Re-promoted 2026-09-11** after the private source gained a basis-
+> provenance box (Monte Carlo section) — restored following the DEC-13
+> retroactive audit; the promotion follows its source.
+
+> **Re-promoted 2026-09-11 (2nd):** private source corrected the canonical
+> Monte Carlo p5 to +696.6 / p95 +876.3 (the run's own JSON values; the
+> raw historical -10.5 was already superseded by the Sept 5 erratum).
+
 # MiWay Transit Optimizer — validation study
 
 Run on the bundled weekday feed, **Midday** period, solver **OPTIMAL**, 6,000 connections. Complements `docs/validation-report.md` (closed-form sensitivity) and `docs/exec-summary.md` (council one-pager).
@@ -61,6 +69,16 @@ The worst misses are a stable, recurring set — a single-day ranking is not a f
 | City Centre Transit Terminal Platform D | 26 → 6 | 13 min | 45.1 min | 32 | too long |
 
 ## 2. Realized gain under lateness — Monte Carlo distribution
+
+> **Basis provenance (restored 2026-09-11, per DEC13-retroactive-audit):** the
+> **canonical** Monte Carlo basis cited by `RUN-OF-RECORD.md` (DEC-04) is the
+> pre-Sept-7 run: **338,667 observed departures, 500 simulated days, median
+> +785 min/day saved (p5 +696.6, p95 +876.3), 100% of simulated days positive**
+> — computed on the frozen Aug 17–23 lateness pool. A Sept 9 regeneration
+> replaced this section's table on a newer lateness pool; that newer table
+> is a *different-vintage measurement*, not a correction of the canonical
+> run. Quote the canonical basis for pre-Sept-7 claims; quote the newer
+> table only with its own vintage stated.
 
 Simulated operating days where each connection's wait is perturbed by realistic lateness. Savings use the solver's own metric (passenger-facing wait, missed connection = +1 headway) — the same quantity the dashboard's "passenger-minutes saved" reports. Positive = the re-timed plan beat today's schedule that day.
 
