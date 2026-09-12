@@ -69,6 +69,11 @@ The headline numbers above rest on full evidence tables — published, not summa
 - **[Corridor ridership cross-check](docs/findings/corridor-ridership-crosscheck.md)** — the measured data does *not* corroborate the Q1 2026 corridor-decline story; published so it isn't re-litigated.
 - **[Optimizer validation study](docs/findings/validation-study.md)** — the predicted worst-missed transfers are stable across service periods, and the gains survive realistic lateness noise.
 
+**Network history & redundancy-claim audits**
+- **[Route 87 Skymark: auditing "service redundancy"](docs/findings/route-87-redundancy-audit.md)** — three GTFS vintages (2017/2023/2024) against one cancellation notice: every stop really did have a replacement, yet the cut deleted the only bell-time pass serving a secondary school's morning trip, leaving a 31-minute hole where double coverage had existed. Includes the PM mirror proof (the afternoon direction *is* bell-timed, so the planners knew) and a pre-registered load prediction.
+- **[Route 34 Credit Valley: auditing "resources reinvested"](docs/findings/route-34-redundancy-audit.md)** — the 34 was cut at 15-minute all-day headways, and the route that supposedly absorbed its resources runs *fewer* weekday trips today (159) than on the cancellation day (175). The durable ask: historical APC data for cancelled routes, so "low demand" claims can be audited at all.
+- **[2017 vs 2026: did the network shrink or re-shape?](docs/findings/feed-era-2017-vs-2026.md)** — pinned-date comparison of the wayback 2017 vintage against the live feed: −9.6% weekday trips but flat vehicle-hours, 22 routes culled and 7 added, and exactly 2 locations (of 3,436 stops) left farther than an 800 m walk. A frequency-for-coverage redesign, measured stop by stop.
+
 **Impact modeling (external numbers, honestly banded)**
 - **[Ridership band from Lyu & Yan (2025)](docs/findings/ridership-band-lyu.md)** — re-deriving the ridership projection from post-pandemic on-time-performance elasticities: +4.3% central (2.8–6.1%), and what would make that optimistic.
 - **[Equity report](docs/findings/equity-report.md)** — per-stop winners and losers of the proposed re-timing, with the APC-quantization caveat that keeps stop weights honest.
