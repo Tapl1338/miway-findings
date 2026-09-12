@@ -58,6 +58,8 @@ The headline numbers above rest on full evidence tables — published, not summa
 
 **Reliability (the September 7 retime, measured both ways)**
 - **[The retime worked where it mattered most](docs/findings/school-stop-retime-win.md)** - at school-door stops, early departures fell from 62% to 39% after the September 7 schedule change - a 2.5x larger improvement than the no-school control group. The first finding in this repo that credits MiWay, on the same measured standard as the critiques.
+- **[The definitive schedule diff](docs/findings/sept7-schedule-diff.md)** — exactly what MiWay changed on Sept 7, computable three weeks early from one published zip: +166 weekday trips (+3.1%), route 110's headway 21→12 min, a 5-hour midday hole widened on route 18, and 13 "lost" stops that all turned out to be ≤230 m consolidations. Includes the standing lesson: a stop lost in id-space is not a stop lost in street-space.
+- **[School crowding is a trip-level phenomenon](docs/findings/school-wave-crowding-v2.md)** — the v2 re-analysis: labeling whole routes "school" hides the effect; deriving each trip's flag from the timetable and cutting to the 25-min delivery window shows specific bell trips running p90 60–80% full while the route-level view shows nothing. One school's 14:32/14:34/14:41 bell burst reproduces from the feed.
 
 **Transfers (Meadowvale Town Centre)**
 - **[Just-miss shifts](docs/findings/just-miss-shifts.md)** — every missed connection ranked by conversions per shifted minute (4,949 misses across 156 pairings; a 3-minute network-wide shift converts 1,347).
