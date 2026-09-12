@@ -56,6 +56,9 @@ The headline numbers above rest on full evidence tables — published, not summa
 - **[APC bias by vehicle](docs/findings/apc-bias-by-vehicle.md)** — the fleet-level table: 302 complete observations across 15 vehicles; 74% of qualifying load moves produced no display change.
 - **[APC fleet infrastructure package](docs/findings/apc-fleet-audit-package.md)** — the fleet map behind the sensor findings: a feed-ID-to-fleet-number translation key across 19 procurement cohorts (an undocumented offset scheme, stress-tested against cross-era collisions), per-route articulated shares (Route 61's crowding data rests 82% on the least-trustworthy sensors), a 505-vehicle census with ~13% of the fleet unavailable, and the garage-territory analysis with a designed field experiment.
 
+**Reliability (the September 7 retime, measured both ways)**
+- **[The retime worked where it mattered most](docs/findings/school-stop-retime-win.md)** - at school-door stops, early departures fell from 62% to 39% after the September 7 schedule change - a 2.5x larger improvement than the no-school control group. The first finding in this repo that credits MiWay, on the same measured standard as the critiques.
+
 **Transfers (Meadowvale Town Centre)**
 - **[Just-miss shifts](docs/findings/just-miss-shifts.md)** — every missed connection ranked by conversions per shifted minute (4,949 misses across 156 pairings; a 3-minute network-wide shift converts 1,347).
 - **[Realized vs scheduled waits](docs/findings/realized-vs-scheduled-waits.md)** — the same pairings once buses run as observed: where lateness eats scheduled sync, pairing by pairing.
