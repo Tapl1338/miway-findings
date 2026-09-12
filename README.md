@@ -1,6 +1,6 @@
 # MiWay Findings — an independent measurement of Mississauga's bus network
 
-By a Grade 12 student in Mississauga. Built summer 2026, running 24/7 since.
+An independent, student-run measurement project. Built summer 2026, running 24/7 since.
 
 **The question:** MiWay publishes a timetable and a real-time feed. How well does the actual service match what riders are promised — and what would a small, data-driven re-timing buy them?
 
@@ -54,6 +54,7 @@ The headline numbers above rest on full evidence tables — published, not summa
 **Sensors (APC honesty)**
 - **[APC threshold brackets](docs/findings/apc-threshold-brackets.md)** — 35 bracketed flip thresholds across 13 vehicles, the 41-of-78 cross-vehicle overlap test, and display-lag quantification (median 4.7 min stale after a real load change).
 - **[APC bias by vehicle](docs/findings/apc-bias-by-vehicle.md)** — the fleet-level table: 302 complete observations across 15 vehicles; 74% of qualifying load moves produced no display change.
+- **[No fleet-level capacity constant is fair](docs/findings/capacity-calibration-findings.md)** — the implied-capacity arithmetic from the ride-along check-ins: two same-type 60-ft artics that behave nothing alike, assumed constants reading ~15% high where standard buses dominate, and the descent-lag trap — the quantified case for MiWay publishing per-vehicle APC capacities.
 - **[APC fleet infrastructure package](docs/findings/apc-fleet-audit-package.md)** — the fleet map behind the sensor findings: a feed-ID-to-fleet-number translation key across 19 procurement cohorts (an undocumented offset scheme, stress-tested against cross-era collisions), per-route articulated shares (Route 61's crowding data rests 82% on the least-trustworthy sensors), a 505-vehicle census with ~13% of the fleet unavailable, and the garage-territory analysis with a designed field experiment.
 
 **Reliability (the September 7 retime, measured both ways)**
@@ -118,4 +119,4 @@ Every figure in the snapshots regenerates from frozen artifacts: SHA-256 evidenc
 
 ---
 
-*Built and maintained by **Ethan Lin** (Mississauga, ON) under a directed multi-agent AI development protocol — task specification, code review, and every published number are human-owned; see the pre-registration note above for how the work is governed. Data and findings released under the [MIT license](LICENSE).*
+*Built and maintained by the project author under a directed multi-agent AI development protocol — task specification, code review, and every published number are human-owned; see the pre-registration note above for how the work is governed. Data and findings released under the [MIT license](LICENSE).*

@@ -1,0 +1,46 @@
+# Drift gate for the promoted findings.
+#
+# Every document in docs/findings/ is a verbatim-in-numbers copy of a private
+# twin (see the provenance banner on each doc). When a private source
+# regenerates, a stale copy would quietly publish retired numbers — the same
+# vintage-drift disease caught in the ghost ledger. This workflow re-runs the
+# private repo's token-diff verifier on every push so drift can never hide.
+#
+# The private repo is checked out read-only via the PRIVATE_TWIN_DEPLOY_KEY
+# repo secret (a read-only deploy key registered on Tapl1338/miway-transit-optimizer).
+# Revoke by deleting that deploy key; the key grants nothing beyond read.
+
+name: Findings drift gate
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  drift:
+    name: Public findings vs private twins
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check out private twin sources (read-only deploy key)
+        uses: actions/checkout@v4
+        with:
+          repository: Tapl1338/miway-transit-optimizer
+          ref: master
+          ssh-key: ${{ secrets.PRIVATE_TWIN_DEPLOY_KEY }}
+          path: private-source
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Verify every public doc against its private twin
+        run: |
+          python private-source/backend/scripts/verify_public_findings.py \
+            --public docs/findings
