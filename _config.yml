@@ -1,0 +1,30 @@
+# GitHub Pages configuration for the miway-findings showcase.
+#
+# Built by .github/workflows/pages.yml with actions/jekyll-build-pages (the
+# official Pages builder), so only github-pages-whitelisted plugins work.
+#
+# * jekyll-readme-index  — README.md becomes the site index (the README IS
+#   the site map: groups, one-line summaries, links into docs/findings/).
+# * jekyll-relative-links — relative .md links in the README resolve to the
+#   rendered pages (docs/findings/x.md -> /miway-findings/docs/findings/x/).
+# * jekyll-optional-front-matter — the promoted findings start with a
+#   blockquote banner, not YAML front matter; without this plugin Jekyll
+#   would copy those files verbatim instead of rendering the markdown.
+
+title: MiWay Findings
+description: >-
+  An independent measurement of Mississauga's bus network: recorded
+  departures, occupancy, and real-time feed observations, published with
+  full evidence tables and reproducible methods.
+url: https://tapl1338.github.io
+baseurl: /miway-findings
+lang: en
+
+markdown: kramdown
+kramdown:
+  input: GFM
+
+plugins:
+  - jekyll-readme-index
+  - jekyll-relative-links
+  - jekyll-optional-front-matter
