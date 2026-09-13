@@ -111,6 +111,8 @@ The findings went to the Ward 9 Councillor's office in August 2026, which **form
 
 ## Reproducibility
 
+Read [how every number is measured](docs/findings/methodology.md) — the data, the pipelines, and the four verification layers behind every figure.
+
 Every figure in the snapshots regenerates from frozen artifacts: SHA-256 evidence manifests, dedup rules pinned as code constants, and regeneration commands in each snapshot's header. 1,200+ backend tests with a CI-enforced coverage floor run on the analysis code. The full platform source remains private while I finish the pilot work; this repository contains the evidence layer.
 
 ---
