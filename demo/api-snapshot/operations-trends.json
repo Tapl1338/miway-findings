@@ -1,0 +1,34 @@
+{
+  "available": true,
+  "file": "weekly_rollup.csv",
+  "updated_at": "2026-09-15 00:30:05",
+  "rows": [
+    {
+      "date": "2026-09-14",
+      "is_holiday": false,
+      "schedule_block": "post",
+      "windows_completed": 4,
+      "windows_partial": 0,
+      "windows_missed": 0,
+      "am_polled": 1,
+      "observations": 2148032,
+      "verifiable_trips": 4672,
+      "ghost_trips": 25,
+      "boardings_lower_pax": 82683,
+      "n_recorded": 474182,
+      "pct_early_gt2": 26.5,
+      "ghost_rate_pct": 0.5
+    }
+  ],
+  "schedule_block_boundary": "20260907",
+  "week_over_week": null,
+  "wow_unavailable_reason": "Week-over-week needs two weeks of comparable weekdays from the same schedule era. The timetable changed on Sep 07, so the first usable comparison is Tue Sep 15.",
+  "rolling": [
+    {
+      "date": "2026-09-14",
+      "ghost_rate_pct": 0.5,
+      "pct_early_gt2": 26.5
+    }
+  ],
+  "anomalies": []
+}

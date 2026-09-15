@@ -1,0 +1,95 @@
+{
+  "available": true,
+  "wards": [
+    {
+      "ward": 1,
+      "population": 43155,
+      "median_income_individual_2020": 47200,
+      "transit_mode_share_pct": 9,
+      "low_income_LIMAT_pct": 8.6,
+      "senior_share_pct": 20.2
+    },
+    {
+      "ward": 2,
+      "population": 47070,
+      "median_income_individual_2020": 48000,
+      "transit_mode_share_pct": 8.9,
+      "low_income_LIMAT_pct": 6.7,
+      "senior_share_pct": 19.6
+    },
+    {
+      "ward": 3,
+      "population": 56740,
+      "median_income_individual_2020": 38400,
+      "transit_mode_share_pct": 13,
+      "low_income_LIMAT_pct": 10.4,
+      "senior_share_pct": 21.6
+    },
+    {
+      "ward": 4,
+      "population": 74865,
+      "median_income_individual_2020": 37200,
+      "transit_mode_share_pct": 14.9,
+      "low_income_LIMAT_pct": 13.4,
+      "senior_share_pct": 18.1
+    },
+    {
+      "ward": 5,
+      "population": 78155,
+      "median_income_individual_2020": 34000,
+      "transit_mode_share_pct": 16.2,
+      "low_income_LIMAT_pct": 10.1,
+      "senior_share_pct": 15.3
+    },
+    {
+      "ward": 6,
+      "population": 76005,
+      "median_income_individual_2020": 36400,
+      "transit_mode_share_pct": 10.6,
+      "low_income_LIMAT_pct": 7.7,
+      "senior_share_pct": 16
+    },
+    {
+      "ward": 7,
+      "population": 80285,
+      "median_income_individual_2020": 36800,
+      "transit_mode_share_pct": 14.8,
+      "low_income_LIMAT_pct": 14.4,
+      "senior_share_pct": 17.3
+    },
+    {
+      "ward": 8,
+      "population": 70375,
+      "median_income_individual_2020": 40800,
+      "transit_mode_share_pct": 9.3,
+      "low_income_LIMAT_pct": 9.5,
+      "senior_share_pct": 19.7
+    },
+    {
+      "ward": 9,
+      "population": 57585,
+      "median_income_individual_2020": 42800,
+      "transit_mode_share_pct": 9.2,
+      "low_income_LIMAT_pct": 7.8,
+      "senior_share_pct": 15
+    },
+    {
+      "ward": 10,
+      "population": 73990,
+      "median_income_individual_2020": 40000,
+      "transit_mode_share_pct": 7.5,
+      "low_income_LIMAT_pct": 6.3,
+      "senior_share_pct": 9.7
+    },
+    {
+      "ward": 11,
+      "population": 59735,
+      "median_income_individual_2020": 40400,
+      "transit_mode_share_pct": 7.7,
+      "low_income_LIMAT_pct": 5.6,
+      "senior_share_pct": 13.4
+    }
+  ],
+  "source": "Statistics Canada 2021 Census, ward cut via City of Mississauga Open Data",
+  "note": "Transit mode share = % of commuters using public transit to work. Income is median individual total income (2020, $). Low income = LIM-AT share of the population in private households."
+}

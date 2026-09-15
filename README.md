@@ -12,6 +12,8 @@ An independent, student-run measurement project. Built summer 2026, running 24/7
 
 Every finding renders as an interactive view (FastAPI + React, deep-linkable by URL). A few frames, captured live from the running system:
 
+> 🖥️ **[Try the interactive demo](demo/) — no install, no backend.** The full dashboard frontend replaying frozen API snapshots (pre-computed optimizer, measured lateness/crowding data), captured from the live system.
+
 ![Home — biggest wins and where to start](docs/screenshots/home.png)
 ![Service quality — measured lateness, crowding and boardings](docs/screenshots/service-quality.png)
 ![Councillor brief — the one-pager sent to the ward office](docs/screenshots/councillor-brief.png)
