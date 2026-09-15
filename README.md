@@ -88,13 +88,19 @@ The headline numbers above rest on full evidence tables — published, not summa
 - **[Equity report](docs/findings/equity-report.md)** — per-stop winners and losers of the proposed re-timing, with the APC-quantization caveat that keeps stop weights honest.
 - **[Trunk-and-feeder brief](docs/findings/trunk-feeder-brief.md)** — the zero-cost network redesign option: 36 winding routes (~80,000 daily riders) rebuilt as trunk + feeder, every stop kept, ~170 km/day less dead running.
 
+**How the platform is run (engineering discipline)**
+
+- **[System topology](docs/findings/topology.md)** — how the collection pipeline stays up 24/7: a cloud VPS collector under systemd with a watchdog timer, send-only Syncthing to the analysis machine, a 15-minute API watchdog, and an explicit write-ownership map. The full ops story of the "operating 24/7" claim.
+- **[Frozen run of record](docs/findings/run-of-record.md)** — the project's canonical-numbers discipline: regeneration commands pinned as code, frozen values that prose must quote, determinism notes (the solver is FEASIBLE, so its variance is documented), and every errata kept on the record — including the self-caught detector bug that moved the headline ghost rate from 1-in-32 to 1-in-63.
+- **[Quality improvement plan](docs/findings/quality-plan.md)** — a formal engineering-quality scorecard: measured baselines, phased targets (coverage, typing, monolith splits, one owner for error handling), acceptance criteria per phase, and an explicit "what this plan deliberately does NOT do" list. Published as-is because the honesty is the point.
+
 ## The correction (the part I'm proudest of)
 
 My first public figure for never-run trips was **1 in 32**. Before anyone challenged it, I found a bug in my own post-midnight trip handling, fixed it, and re-published as **~1 in 60** — with both numbers and the reason kept on the record ([v1 snapshot, finding 2 note](docs/findings-v1-n7-aug17-23.md)). Measurement means your own error rate is part of the dataset. The correction log is public; a `check_claim.py` CLI now greps every published figure against the artifacts before anything is quoted.
 
 ## The data, publicly
 
-A 250,000-departure random sample of the observed-lateness corpus (schema, collection method, processing rules, and caveats in [data/README.md](data/README.md)) — download it, run the same computations, check the findings. The full set (3.2M+ departures) is available on request via an issue.
+A 250,000-departure random sample of the observed-lateness corpus (schema, collection method, processing rules, and caveats in [data/README.md](data/README.md)) — download it, run the same computations, check the findings. The full set (3.9M+ departures) is available on request via an issue.
 
 ## Operations postmortem
 
