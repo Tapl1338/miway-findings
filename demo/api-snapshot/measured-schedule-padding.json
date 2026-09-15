@@ -1,0 +1,207 @@
+{
+  "available": true,
+  "file": "ground_truth.csv",
+  "n_holds": 12,
+  "n_zero_wait": 2,
+  "total_hold_min": 11.5,
+  "mean_hold_min": 3.8,
+  "median_hold_min": 4,
+  "by_route": [
+    {
+      "route": "109",
+      "n_holds": 1,
+      "vehicles": [
+        "2116"
+      ],
+      "zero_wait_holds": 0,
+      "median_hold_min": null,
+      "median_early_min": null
+    },
+    {
+      "route": "22",
+      "n_holds": 1,
+      "vehicles": [
+        "2657"
+      ],
+      "zero_wait_holds": 0,
+      "median_hold_min": 5,
+      "median_early_min": null
+    },
+    {
+      "route": "42",
+      "n_holds": 5,
+      "vehicles": [
+        "2459",
+        "3282",
+        "3289"
+      ],
+      "zero_wait_holds": 2,
+      "median_hold_min": 2.5,
+      "median_early_min": 2
+    },
+    {
+      "route": "45",
+      "n_holds": 1,
+      "vehicles": [
+        "2263"
+      ],
+      "zero_wait_holds": 0,
+      "median_hold_min": 4,
+      "median_early_min": null
+    },
+    {
+      "route": "57",
+      "n_holds": 3,
+      "vehicles": [
+        "4455"
+      ],
+      "zero_wait_holds": 0,
+      "median_hold_min": null,
+      "median_early_min": 3.5
+    },
+    {
+      "route": "66",
+      "n_holds": 1,
+      "vehicles": [
+        "3234"
+      ],
+      "zero_wait_holds": 0,
+      "median_hold_min": null,
+      "median_early_min": null
+    }
+  ],
+  "events": [
+    {
+      "service_date": "20260818",
+      "route": "22",
+      "vehicle_id": "2657",
+      "location": "Westwood (22 boarding ÃƒÂƒÃ‚ÂƒÃƒÂ‚Ã‚Â‚ÃƒÂƒÃ‚Â‚ÃƒÂ‚Ã‚Â— pre-departure)",
+      "sched_min": null,
+      "zero_wait": false,
+      "hold_min": 5,
+      "early_min": null,
+      "n_rows": 1
+    },
+    {
+      "service_date": "20260818",
+      "route": "42",
+      "vehicle_id": "3289",
+      "location": "Maxwell Rd (holding for time)",
+      "sched_min": null,
+      "zero_wait": true,
+      "hold_min": 2.5,
+      "early_min": null,
+      "n_rows": 2
+    },
+    {
+      "service_date": "20260821",
+      "route": "45",
+      "vehicle_id": "2263",
+      "location": "Winston Churchill Station West Platform 3 (0 on, 1 off)",
+      "sched_min": null,
+      "zero_wait": false,
+      "hold_min": 4,
+      "early_min": null,
+      "n_rows": 1
+    },
+    {
+      "service_date": "20260821",
+      "route": "57",
+      "vehicle_id": "4455",
+      "location": "Courtneypark Dr At Ordan Dr (4 on, 0 off)",
+      "sched_min": null,
+      "zero_wait": false,
+      "hold_min": null,
+      "early_min": 4,
+      "n_rows": 1
+    },
+    {
+      "service_date": "20260821",
+      "route": "57",
+      "vehicle_id": "4455",
+      "location": "Courtneypark Dr At Vipond Dr (3 on, 0 off)",
+      "sched_min": null,
+      "zero_wait": false,
+      "hold_min": null,
+      "early_min": 3,
+      "n_rows": 1
+    },
+    {
+      "service_date": "20260821",
+      "route": "57",
+      "vehicle_id": "4455",
+      "location": "Courtneypark Dr at Vipond Dr area (1 on, 0 off)",
+      "sched_min": null,
+      "zero_wait": false,
+      "hold_min": null,
+      "early_min": null,
+      "n_rows": 1
+    },
+    {
+      "service_date": "20260821",
+      "route": "66",
+      "vehicle_id": "3234",
+      "location": "McLaughlin Rd At Courtneypark Dr (holding for time)",
+      "sched_min": null,
+      "zero_wait": false,
+      "hold_min": null,
+      "early_min": null,
+      "n_rows": 1
+    },
+    {
+      "service_date": "20260827",
+      "route": "42",
+      "vehicle_id": "2459",
+      "location": "Derry Rd At John Watt Blvd (time hold)",
+      "sched_min": null,
+      "zero_wait": false,
+      "hold_min": null,
+      "early_min": 1.7,
+      "n_rows": 1
+    },
+    {
+      "service_date": "20260827",
+      "route": "42",
+      "vehicle_id": "2459",
+      "location": "Derry Rd At Mclaughlin Rd (1 off, 2 on)",
+      "sched_min": null,
+      "zero_wait": false,
+      "hold_min": null,
+      "early_min": null,
+      "n_rows": 1
+    },
+    {
+      "service_date": "20260827",
+      "route": "42",
+      "vehicle_id": "2459",
+      "location": "Financial Dr South Of Syntex Crt (time hold)",
+      "sched_min": null,
+      "zero_wait": true,
+      "hold_min": null,
+      "early_min": 2,
+      "n_rows": 1
+    },
+    {
+      "service_date": "20260829",
+      "route": "42",
+      "vehicle_id": "3282",
+      "location": "Derry Rd At Edwards Blvd (LAYOVER)",
+      "sched_min": null,
+      "zero_wait": false,
+      "hold_min": null,
+      "early_min": 5,
+      "n_rows": 1
+    },
+    {
+      "service_date": "20260912",
+      "route": "109",
+      "vehicle_id": "2116",
+      "location": "Winston Churchill Blvd At Thomas St (holding for time - load 11)",
+      "sched_min": null,
+      "zero_wait": false,
+      "hold_min": null,
+      "early_min": null,
+      "n_rows": 1
+    }
+  ]
+}
