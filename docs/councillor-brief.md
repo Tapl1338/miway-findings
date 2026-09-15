@@ -1,5 +1,7 @@
 # MiWay Transfer-Sync Tool — Councillor Brief (one page)
 
+<p align="right"><img src="demo-qr.png" width="110" alt="QR: interactive demo" /><br /><sub><b>Try the interactive demo</b> — scan or visit<br /><span style="font-size:8pt">tapl1338.github.io/miway-findings/demo</span></sub></p>
+
 **What this is.** A data tool that analyses MiWay's published timetable,
 identifies every scheduled transfer connection in the network, and surfaces
 where riders face the worst waits — the stops with 20+ minute transfer gaps,
