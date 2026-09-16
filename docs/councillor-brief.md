@@ -37,7 +37,7 @@ solver reruns (unified `--time-limit 120`, post phantom-filter model) agree
 at 9,737.7 vs 9,737.6 pax-min (within 0.01%), so quote it rounded. Older
 pre-unified runs ran far lower (a ~3,400/day figure briefly circulated from
 an uncapped-connections run); do not mix vintages.
-This is a modelal savings depend on actual
+These are modeled savings; realized savings depend on actual
 on-time performance, which a pilot would measure. The ridership and farebox
 projections from the exec summary are **not included here** because they rely
 on literature elasticities that haven't been calibrated to MiWay. If council
@@ -67,7 +67,7 @@ The worst-case model (each bus independently late; common-mode lateness cancels)
 The plan keeps beating today's schedule until buses average ~**9.75 minutes of mean
 lateness** in this model. Driven by real observed lateness instead
 (`validation-study.md`: 338,667 observed GTFS-RT departures, all-period
-all-period bootstrap, 500 simulated days), it wins on **100% of simulated
+bootstrap, 500 simulated days), it wins on **100% of simulated
 days** (median +785 net
 saved/day) — every simulated day, though the realized gain never matches the deterministic paper gain, and the reports say so.
 
@@ -149,7 +149,7 @@ standard or MiWay's own documents.
   docs/councillor-email-draft.md (one display reading "20% full" anywhere
   from 5 to 29 passengers) exceed any of these tolerances by an order of
   magnitude.
-- Cut by vehicle, three buses account for most of the failures in the 277
+- Cut by vehicle, three buses account for most of the failures in the 399
   check-ins: vehicle 3289 missed all 4 of its qualifying load changes,
   vehicle 2302 missed 4 of 6, vehicle 2240 missed 4 of 5
   (`backend/app/data/apc_bias_by_vehicle.csv`, regenerable via

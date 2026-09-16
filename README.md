@@ -12,7 +12,7 @@ An independent, student-run measurement project. Built summer 2026, running 24/7
 
 Every finding renders as an interactive view (FastAPI + React, deep-linkable by URL). A few frames, captured live from the running system:
 
-> 🖥️ **[Try the interactive demo](demo/) — no install, no backend.** The full dashboard frontend replaying frozen API snapshots (pre-computed optimizer, measured lateness/crowding data), captured from the live system. **Mobile-friendly:** the dashboard adapts to phone screens — hamburger navigation, stacked cards, scrollable tables — so it reads as well in a councillor's palm as on a desktop. Every view is also guarded by a per-panel error boundary: a failure in one analysis never takes the rest of the dashboard down.
+> 🖥️ **[Try the interactive demo](demo/) — no install, no backend.** The full dashboard frontend replaying frozen API snapshots, captured from the live system. It adapts to phone screens (hamburger navigation, stacked cards, scrollable tables), so it reads as well in a councillor's palm as on a desktop. Every view is guarded by a per-panel error boundary: a failure in one analysis never takes the rest of the dashboard down.
 
 ![Home — biggest wins and where to start](docs/screenshots/home.png)
 ![Service quality — measured lateness, crowding and boardings](docs/screenshots/service-quality.png)
@@ -35,7 +35,7 @@ Recurring findings, stated conservatively:
 1. **Early departures.** A large share of recorded departures leave more than two minutes ahead of schedule — and an early bus is a missed bus for anyone following the timetable.
 2. **Ghost trips.** A measurable fraction of scheduled trips never appear in the real-time feed at all — for whatever operational reason (breakdown, pull-from-service, gap in the feed), riders waited at a stop for a bus that never came, invisibly. My first published estimate of this rate (1 in 32) was **wrong**; see *The correction* below.
 3. **Night crowding.** Some late-evening corridors run their worst decile at or over seated capacity — a rider-safety issue that hides outside rush hour.
-4. **Sensor honesty.** MiWay's automatic passenger counters (APCs) report loads in bands far wider than advertised — I characterized the hysteresis from 8.5M+ APC load observations after 277 on-board check-ins showed two different passenger counts reporting identically.
+4. **Sensor honesty.** MiWay's automatic passenger counters (APCs) report loads in bands far wider than advertised — I characterized the hysteresis from 8.5M+ APC load observations after 399 on-board check-ins across 14 routes showed two different passenger counts reporting identically.
 5. **An equity trap.** The network-level "optimized" schedule quietly makes some wards worse. My own optimizer did this to Ward 9 (+2.56 min/stop) — so I shipped a per-stop guardrail that catches it.
 
 ## What a re-timing could buy
@@ -100,7 +100,7 @@ My first public figure for never-run trips was **1 in 32**. Before anyone challe
 
 ## The data, publicly
 
-A 250,000-departure random sample of the observed-lateness corpus (schema, collection method, processing rules, and caveats in [data/README.md](data/README.md)) — download it, run the same computations, check the findings. The full set (3.9M+ departures) is available on request via an issue.
+A 250,000-departure random sample of the observed-lateness corpus (schema, collection method, processing rules, and caveats in [data/README.md](data/README.md)) — download it, run the same computations, check the findings. The full set (3.6M+ deduplicated, dated departures) is available on request via an issue.
 
 ## Operations postmortem
 
@@ -122,7 +122,7 @@ The findings went to the Ward 9 Councillor's office in August 2026, which **form
 
 Read [how every number is measured](docs/findings/methodology.md) — the data, the pipelines, and the four verification layers behind every figure.
 
-Every figure in the snapshots regenerates from frozen artifacts: SHA-256 evidence manifests, dedup rules pinned as code constants, and regeneration commands in each snapshot's header. 1,200+ backend tests with a CI-enforced coverage floor run on the analysis code. The full platform source remains private while I finish the pilot work; this repository contains the evidence layer.
+Every figure in the snapshots regenerates from frozen artifacts: SHA-256 evidence manifests, dedup rules pinned as code constants, and regeneration commands in each snapshot's header. 1,100+ backend tests with a CI-enforced coverage floor run on the analysis code. The full platform source remains private while I finish the pilot work; this repository contains the evidence layer.
 
 ---
 
