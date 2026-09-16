@@ -4,9 +4,9 @@ A 250,000-row uniform random sample of the project's observed-departure
 dataset: **what MiWay buses actually did**, measured from the agency's own
 real-time feed, 24/7, every 30 seconds.
 
-- **Full dataset:** 3,599,079 unique dated recorded departures (as of 2026-09-15; still counting)
-- **This file:** `lateness-sample-250k.csv` — 250,000 rows, ~9.3 MB
-- **Span:** Aug 23 – Sep 15, 2026 (all sampled rows)
+- **Full dataset:** 3,601,272 unique dated recorded departures (as of 2026-09-16; still counting) — shipped in full as `lateness-actuals-full-dated.csv.gz`
+- **This file:** `lateness-sample-250k.csv` — 250,000 rows, ~9.3 MB, uniform random draw (seed `20260911`) from the full set
+- **Span:** Aug 23 – Sep 15, 2026 (all rows)
 - **License:** MIT (see repo root)
 
 ## How it was collected
@@ -56,15 +56,22 @@ with the private repo's `backend/scripts/make_public_sample.py`
 
 | provenance | value |
 |---|---|
-| built | 2026-09-15 |
-| input `obs_lateness.csv` SHA-256 | `ceba94a219527cfe0b3628c719bacdd94feaefc051219f6331d472dd37b6c88b` |
-| input rows | 4,564,906 |
-| → after canonical dedup | 4,250,407 |
-| → after actuals filter (`horizon ≤ 0`) | 3,906,945 |
-| → after dated filter (legacy undated dropped) | **3,599,079** |
+| built | 2026-09-16 |
+| input `obs_lateness.csv` SHA-256 | `49ce007775ae8a474d2d144fa36799bc24e20d88240641f976c5195150064821` |
+| input rows | 4,591,161 |
+| → after canonical dedup | 4,252,796 |
+| → after actuals filter (`horizon ≤ 0`) | 3,909,138 |
+| → after dated filter (legacy undated dropped) | **3,601,272** |
 | seed | `20260911` |
-| output SHA-256 | `433875dc3cc709931f5213cb8b0449192fc80ebb666de0c833d1500e3f4e4613` |
+| output SHA-256 (sample) | `433875dc3cc709931f5213cb8b0449192fc80ebb666de0c833d1500e3f4e4613` |
+| output SHA-256 (full corpus, gz) | `870c2e0ede5c5ad399dd076dfceabd9c30a2b75dae93bf47cbbddc076932608e` |
 | empty dates / forecast rows in output | 0 / 0 (hard gate) |
+
+Note: the gz output fingerprint is not byte-reproducible (gzip headers
+carry a creation timestamp); the reproducibility anchors are the input
+SHA-256, the pinned rules, and the funnel counts above — re-running the
+pipeline against the same input must reproduce all three. The 250k
+sample CSV is byte-reproducible given the same input (plain CSV, seed-pinned).
 
 ## Things you can compute from this
 
