@@ -22,15 +22,16 @@
 
 ## 2. Abstract (paste into "Description")
 
-Dataset of 250,000 observed bus departures recorded from the GTFS-RT
+Dataset of 250,000 observed bus departures (with the complete 3,601,272-row
+corpus included as a companion file) recorded from the GTFS-RT
 `TripUpdate` feed of MiWay, the municipal transit agency of Mississauga,
 Ontario, Canada (population ~715,000). The platform polled the agency's
 published real-time feed every 30 seconds, 24/7, from 2026-08-23 to
-2026-09-15, and joined each scheduled departure to the timetable to record
+2026-09-16, and joined each scheduled departure to the timetable to record
 what each bus actually did. Each row is one scheduled bus departure at one
 stop with its observed deviation from schedule, in minutes
 (negative = early). The sample is a uniform random draw (seed 20260911)
-from 3,599,079 deduplicated recorded actuals (predictions excluded — the
+from the 3,601,272 deduplicated recorded actuals (predictions excluded — the
 vendor's forecasts carry a measured ~4.8-minute early bias; only readings
 taken after the stop was passed are included).
 
@@ -52,8 +53,9 @@ wait depends on differences between consecutive buses.
 
 | file | what it is |
 |---|---|
-| `lateness-sample-250k.csv` | the dataset (250,000 rows, ~9.3 MB) |
-| `README.md` | the data dictionary + processing rules (paste as "Additional notes" or upload as a second file — upload as file is cleaner) |
+| `lateness-actuals-full-dated.csv.gz` | the **complete** dated-actuals corpus — 3,601,272 rows, ~31.5 MB gzipped (upload first: it is the dataset of record) |
+| `lateness-sample-250k.csv` | seed-pinned uniform random sample (250,000 rows, ~9.3 MB) — the approachable, byte-reproducible verification file |
+| `README.md` | the data dictionary + processing rules — upload as a file (cleaner than pasting into notes) |
 
 ## 4. Data dictionary (also in README; paste where Zenodo asks or leave in the uploaded README)
 
@@ -87,9 +89,11 @@ wait depends on differences between consecutive buses.
   leaves their dates empty; they carry no trip anchor to recover one).
   Coverage is continuous from 2026-08-23.
 - **Sampling:** uniform random draw without replacement, seed `20260911`
-  (NumPy `default_rng`), from the 3,599,079-row dated-actual set sorted in
-  corpus order. The seed pins the draw given the input corpus; the input
-  corpus SHA-256 is recorded with the deposit.
+  (NumPy `default_rng`), from the 3,601,272-row dated-actual set sorted in
+  corpus order. The full, unsampled corpus is included as
+  `lateness-actuals-full-dated.csv.gz`; the sample exists as the
+  byte-reproducible verification artifact. The input corpus SHA-256 is
+  recorded with the deposit.
 - **Post-midnight convention:** a departure with `dep_time_min ≥ 1440`
   belongs to the service night that began the previous calendar day; its
   `date` is the calendar day the departure physically occurred.
@@ -105,7 +109,7 @@ wait depends on differences between consecutive buses.
 ## 7. Upload checklist
 
 1. Sign in (GitHub ORCID login works), "New upload".
-2. Upload `lateness-sample-250k.csv` **and** `data/README.md` as files.
+2. Upload **all three** files: the full corpus `lateness-actuals-full-dated.csv.gz`, the sample `lateness-sample-250k.csv`, and `data/README.md`.
 3. Paste Basic fields (§1), Abstract (§2), Methods (§5).
 4. License: MIT. Keywords: §1 list.
 5. Add related identifier `is supplement to` → the GitHub repo URL.
