@@ -95,6 +95,15 @@ with the private repo's `backend/scripts/make_public_sample.py`
   because the corpus is the size it is. If you need the full set for
   replication, open an issue.
 
+## Versioning & deposit
+
+- **[ZENODO-METADATA.md](ZENODO-METADATA.md)** — the copy-paste upload kit
+  (title, abstract, methods, keywords, checklist).
+- **[VERSIONING.md](VERSIONING.md)** — the frozen-deposit policy: once the
+  DOI mints, v1.0.0 is immutable; corrections and bigger re-cuts ship as
+  new versions of the same record (concept DOI stays stable). The version
+  table with every past DOI lives there.
+
 ## Citation
 
 If you use this data, a link to this repository is the requested citation.
