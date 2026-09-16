@@ -12,7 +12,7 @@ An independent, student-run measurement project. Built summer 2026, running 24/7
 
 Every finding renders as an interactive view (FastAPI + React, deep-linkable by URL). A few frames, captured live from the running system:
 
-> 🖥️ **[Try the interactive demo](demo/) — no install, no backend.** The full dashboard frontend replaying frozen API snapshots (pre-computed optimizer, measured lateness/crowding data), captured from the live system.
+> 🖥️ **[Try the interactive demo](demo/) — no install, no backend.** The full dashboard frontend replaying frozen API snapshots (pre-computed optimizer, measured lateness/crowding data), captured from the live system. **Mobile-friendly:** the dashboard adapts to phone screens — hamburger navigation, stacked cards, scrollable tables — so it reads as well in a councillor's palm as on a desktop. Every view is also guarded by a per-panel error boundary: a failure in one analysis never takes the rest of the dashboard down.
 
 ![Home — biggest wins and where to start](docs/screenshots/home.png)
 ![Service quality — measured lateness, crowding and boardings](docs/screenshots/service-quality.png)
