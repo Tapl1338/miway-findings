@@ -151,7 +151,7 @@ standard or MiWay's own documents.
   magnitude.
 - Cut by vehicle, three buses account for most of the failures in the 399
   check-ins: vehicle 3289 missed all 4 of its qualifying load changes,
-  vehicle 2302 missed 4 of 6, vehicle 2240 missed 4 of 5
+  vehicle 2302 missed 4 of 6, vehicle 2240 missed 3 of 4
   (`backend/app/data/apc_bias_by_vehicle.csv`, regenerable via
   `scripts/apc_bias_by_vehicle.py`) - an audit has a concrete starting list.
 
