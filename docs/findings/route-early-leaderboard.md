@@ -5,7 +5,7 @@
 > unpublished columns. Every number below regenerates from the Zenodo dataset
 > with the one-liner at the bottom.
 >
-> **Data:** `lateness-sample-250k.csv` (Zenodo deposit; seed-pinned sample of
+> **Data:** `lateness-sample-250k.csv` from the published deposit — **DOI 10.5281/zenodo.22820448** (zenodo.org/records/22820449); seed-pinned sample of
 > the observed-lateness corpus, Aug 23 – Sep 15, 2026, n = 250,000).
 > **Definition:** "early" = `lateness_minutes < -2` (departed ≥2 min ahead of
 > schedule — fails even the loosest on-time window; an early bus is a missed

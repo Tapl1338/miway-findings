@@ -104,7 +104,7 @@ My first public figure for never-run trips was **1 in 32**. Before anyone challe
 
 ## The data, publicly
 
-A 250,000-departure random sample of the observed-lateness corpus (schema, collection method, processing rules, and caveats in [data/README.md](data/README.md)) — download it, run the same computations, check the findings. The full set (3.6M+ deduplicated, dated departures) is available on request via an issue.
+A 250,000-departure random sample of the observed-lateness corpus (schema, collection method, processing rules, and caveats in [data/README.md](data/README.md)) — download it, run the same computations, check the findings. The full set (3.6M+ deduplicated, dated departures) is in the same deposit — published with a citable DOI: [10.5281/zenodo.22820448](https://doi.org/10.5281/zenodo.22820448).
 
 ## Operations postmortem
 
