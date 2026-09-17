@@ -27,3 +27,8 @@ Notes:
   [demo banner manifest](../../demo/api-snapshot/manifest.json) vintage stamp; findings
   snapshots deliberately contain analysis only, so a methods change can never
   masquerade as a data change.
+
+## Forecasting track record & public-dataset findings
+
+- **[Forecasting track record](forecast-track-record.md)** — every pre-registered prediction, registered before the data existed, mechanically scored, misses published as-is. Running ledger.
+- **[Route-level early-departure leaderboard](route-early-leaderboard.md)** — a new network-level finding derived entirely from the public Zenodo dataset: worst routes leave ≥2 min early on 2 of every 5 departures, best routes under 10%. Includes the reproduction one-liner and the small-n honesty table.
