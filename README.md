@@ -83,6 +83,10 @@ The headline numbers above rest on full evidence tables — published, not summa
 - **[Route 34 Credit Valley: auditing "resources reinvested"](docs/findings/route-34-redundancy-audit.md)** — the 34 was cut at 15-minute all-day headways, and the route that supposedly absorbed its resources runs *fewer* weekday trips today (159) than on the cancellation day (175). The durable ask: historical APC data for cancelled routes, so "low demand" claims can be audited at all.
 - **[2017 vs 2026: did the network shrink or re-shape?](docs/findings/feed-era-2017-vs-2026.md)** — pinned-date comparison of the wayback 2017 vintage against the live feed: −9.6% weekday trips but flat vehicle-hours, 22 routes culled and 7 added, and exactly 2 locations (of 3,436 stops) left farther than an 800 m walk. A frequency-for-coverage redesign, measured stop by stop.
 
+**Derived from the public dataset itself**
+- **[Route-level early-departure leaderboard](docs/findings/route-early-leaderboard.md)** — computed only from the published 250k sample (the deposit's first post-publication finding): route 51 leaves ≥2 min early on 40.8% of departures vs 9.6% on the best large-n route. Reproduce it with the included one-liner.
+- **[Forecasting track record](docs/findings/forecast-track-record.md)** — every pre-registered prediction with its mechanical verdict: misses published alongside hits, running ledger.
+
 **Impact modeling (external numbers, honestly banded)**
 - **[Ridership band from Lyu & Yan (2025)](docs/findings/ridership-band-lyu.md)** — re-deriving the ridership projection from post-pandemic on-time-performance elasticities: +4.3% central (2.8–6.1%), and what would make that optimistic.
 - **[Equity report](docs/findings/equity-report.md)** — per-stop winners and losers of the proposed re-timing, with the APC-quantization caveat that keeps stop weights honest.
