@@ -113,6 +113,10 @@ sample CSV is byte-reproducible given the same input (plain CSV, seed-pinned).
 
 ## Citation
 
-If you use this data, a link to this repository is the requested citation.
+If you use this data, cite the deposit:
+
+> Lin, E. (2026). *Observed bus departure lateness, MiWay (Mississauga, Canada), August–September 2026* [Dataset]. Zenodo. https://doi.org/10.5281/zenodo.22820448
+
+Findings built on it live in the [weekly snapshots](../README.md#what-the-data-shows),
 Findings built on it live in the [weekly snapshots](../README.md#what-the-data-shows),
 each frozen with a SHA-256 evidence manifest in the private archive.

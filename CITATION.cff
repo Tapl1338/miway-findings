@@ -1,0 +1,34 @@
+# This CITATION.cff file was generated with care — verify numbers against
+# ZENODO-METADATA.md before editing.
+cff-version: 1.2.0
+title: >-
+  Observed bus departure lateness, MiWay (Mississauga, Canada),
+  August–September 2026
+message: >-
+  If you use this dataset, please cite it using the metadata below.
+type: dataset
+authors:
+  - family-names: Lin
+    given-names: Ethan
+version: 1.0.0
+doi: 10.5281/zenodo.22820448
+date-released: "2026-09-17"
+license: MIT
+abstract: >-
+  Dataset of 250,000 observed bus departures (with the complete
+  3,601,272-row corpus included as a companion file) recorded from the
+  GTFS-RT TripUpdate feed of MiWay, the municipal transit agency of
+  Mississauga, Ontario, Canada. Each row is one scheduled bus departure at
+  one stop with its observed deviation from schedule in minutes
+  (negative = early). Seed-pinned sample and full provenance chain make
+  every figure regenerable.
+repository-code: "https://github.com/Tapl1338/miway-findings"
+keywords:
+  - public transit
+  - bus punctuality
+  - GTFS-RT
+  - real-time feed
+  - departure delay
+  - Mississauga
+  - MiWay
+  - open data
