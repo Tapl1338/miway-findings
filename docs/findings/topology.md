@@ -16,17 +16,22 @@ The MiWay collector runs on a private cloud VPS (Oracle Always-Free tier; IP wit
 
 The collector uses the systemd unit `miway-collector.service` with a watchdog timer `miway-health.timer`.
 
+The sync-canary timer `miway-canary.timer` (T104, 2026-09-16) stamps the canary beat every 5 minutes via `backend/scripts/vps/canary_beat.sh` — a single Unix timestamp overwritten in place at `/opt/miway/data/sync_canary/beat.txt`, deliberately tiny and never append-hot (the Sept-16 stall class it exists to catch). Runs as `ubuntu` (Syncthing's own user), so the beat can never recreate the root-0600 lockout.
+
 ## Syncthing Synchronization
 
 Data flows from VPS to laptop via Syncthing in a sendonly/receive-only configuration.
 
 **Evidence:**
-- `.agents/TASKS.md:824`: ### T92 — Syncthing canary heartbeat (file-sync stall alarm)
-- `.agents/TASKS.md:825`: Design: VPS writes a 1 KB heartbeat file (timestamp) every 5 min; the laptop's dead-man checks that the heartbeat's content advanced
 - `backend/scripts/vps/bootstrap_collector.sh:202`: echo "NEXT: Syncthing share of /opt/miway/data (send-only) -> laptop"
 - `docs/runs/vps-cutover-checklist.md:108`: ## Step 3 — Syncthing: data home back to the laptop
 - `docs/runs/vps-cutover-checklist.md:125`: - [ ] VPS Syncthing: add folder `~/collector-data`, **Send Only**, watch
 - `docs/runs/vps-cutover-checklist.md:128`: - [ ] Laptop Syncthing: accept the share, target folder
+- `backend/scripts/vps/miway-canary.timer`: the 5-minute canary beat cadence
+- `backend/scripts/sync_canary.py:1`: the canary decision module (beat age, 30-minute stall budget)
+- `backend/scripts/cloud_deadman.py`: `_canary_check` — laptop side, SYNC STALL alerts distinct from collector-down
+
+The VPS stamps `sync_canary/beat.txt` every 5 minutes; Syncthing ships the ~20-byte overwrite; the laptop's dead-man task (every 15 min) alerts when the mirrored beat is older than **30 minutes**. This catches a stalled sync even when the collector heartbeat looks healthy — the Sept-14/16 failure class, where the collector wrote happily and nothing arrived.
 
 The VPS acts as Syncthing send-only, the laptop as receive-only.
 
@@ -78,7 +83,8 @@ Windows scheduled tasks are defined in `backend/scripts/windows/*.ps1` registrat
 
 | Component | Writes To | Primary Location |
 |-----------|-----------|------------------|
-| VPS Collector | `/opt/miway/data/` | VPS |
+| VPS Collector | `/opt/miway/data/` | VPS ([IP withheld]) |
+| VPS canary timer | `/opt/miway/data/sync_canary/beat.txt` (ubuntu-owned) | VPS ([IP withheld]) |
 | Laptop Syncthing Receive | `%LOCALAPPDATA%\miway-optimizer\` | Laptop |
 | Laptop API Watchdog | `%LOCALAPPDATA%\miway-optimizer\logs\` | Laptop |
 | Laptop Analysis | `%LOCALAPPDATA%\miway-optimizer\app\data\` | Laptop |

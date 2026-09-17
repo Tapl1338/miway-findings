@@ -13,9 +13,20 @@ week of new data changed.
 | v2 | Aug 24 – 30, 2026 (n=7) | 2026-09-04 | superseded by v3 | `findings-v2` | [findings-v2-n7-aug24-30.md](../findings-v2-n7-aug24-30.md) |
 | v3 | Aug 31 – Sep 6, 2026 (n=7) | 2026-09-07 | superseded by v4 | `findings-v3` | [findings-v3-n7-aug31-sep06.md](../findings-v3-n7-aug31-sep06.md) |
 | v4 | Sep 7 – 13, 2026 (n=7, first post-change week) | 2026-09-14T22:08Z | **CURRENT** | `findings-v4` | [findings-v4-post-sept7.md](findings-v4-post-sept7.md) |
+| [Era comparison](feed-era-2017-vs-2026.md) | 2017-03-08 vs 2026-10-06 (pinned feeds) | 2 feeds | Current |
+| [Sept 7 schedule diff](sept7-schedule-diff.md) | 26AU03 vs 26SE07 (same combined zip) | static GTFS | Current |
+| [Route 87 redundancy audit](route-87-redundancy-audit.md) | 2017 / 2023 / 2024-01 / 2026 feed vintages | 4 feeds | Current |
+| [Route 34 redundancy audit](route-34-redundancy-audit.md) | schedule arithmetic vs the 35 | — | Current |
 | v5 | Sep 14 – 20, 2026 (n=7, stability window) | — | *in collection; pre-registered* | — | [pre-registration-sept14-20.md](../pre-registration-sept14-20.md) |
 
 Notes:
+
+- Rates are computed from deduplicated end-of-window data, never from
+  mid-window snapshots: within a live collection window the raw file holds
+  multi-poll repeats of every active trip (~10x end-of-window size), and a
+  mid-window read is not a smaller sample of the truth — it is a different,
+  wrong one.
+
 
 - v1–v3 were frozen at the same commit during the 2026-09-03 methodology
   push; the tag for each points at the commit containing its frozen text.

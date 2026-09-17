@@ -12,8 +12,9 @@
 Everything starts from **publicly published feeds**: MiWay's GTFS schedule
 and its GTFS-RT vehicle positions, collected continuously since summer
 2026 (24/7 on an always-on collector; every snapshot SHA-256-manifested).
-On top of the feeds sit **277 manually collected ride-along check-ins**
-(Aug 18–21, 9 vehicles, 12 routes): a human count of passengers paired
+On top of the feeds sit **399 manually collected ride-along check-ins**
+(Aug 18 – Sep 12, 20 vehicles, 14 routes; 277 collected in the core
+Aug 18–21 window): a human count of passengers paired
 with what the bus's occupancy display claimed at the same moment. The
 manual log is what makes the sensor findings possible — without a
 ground-truth count, "the display said 40% full" is unfalsifiable.
@@ -25,7 +26,7 @@ Three measurement families, each with its own pipeline:
 | Family | Method | Example |
 |---|---|---|
 | **Schedule vs realized** | Timetable-derived trip flags and windows diffed against observed vehicle movements | School-door early departures 62% → 39% |
-| **Sensor honesty** | Manual count ÷ displayed bucket ⇒ implied thresholds, per vehicle; display-lag measured against real load changes | 74% of qualifying load moves produced no display change |
+| **Sensor honesty** | Manual count ÷ displayed bucket ⇒ implied thresholds, per vehicle; display-lag measured against real load changes | 72% of qualifying load moves (44 of 61) produced no display change |
 | **Network structure** | Feed-only arithmetic: pairings, headways, segment runtimes, stop access | 61,526 segment-pairs audited, 277 flagged |
 
 The optimizer's figures (e.g. ~9,700 rider-minutes/day) are a fourth
