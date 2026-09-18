@@ -1,0 +1,53 @@
+# Scheduled version-staleness gate for GitHub Actions pins (T149).
+#
+# The Sept-18 action bump was done by hand, and the gate built from it
+# immediately caught a stale pin (checkout@v5 vs latest v7) — proof this
+# class of drift recurs. GitHub only warns about old majors in run logs;
+# this workflow makes staleness FAIL, on a schedule, before the runner
+# Node migrations (Node 20 -> Oct 2026) turn warnings into breakage.
+#
+# Runs from the showcase (like the findings drift gate) so one schedule
+# covers BOTH repos: the private repo is checked out read-only via the
+# PRIVATE_TWIN_DEPLOY_KEY deploy key, and the script scans both workflow
+# trees. Only first-party actions/* pins are judged; third-party majors
+# are deliberately out of scope (per-action review needed).
+
+name: Actions version gate
+
+on:
+  schedule:
+    # Thursdays 07:17 UTC — off-peak; staleness is a days-scale concern.
+    - cron: "17 7 * * 4"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  versions:
+    name: Action pins vs latest majors
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Check out private pin sources (read-only deploy key)
+        uses: actions/checkout@v7
+        with:
+          repository: Tapl1338/miway-transit-optimizer
+          ref: master
+          ssh-key: ${{ secrets.PRIVATE_TWIN_DEPLOY_KEY }}
+          path: private-source
+
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+
+      - name: Scan both repos for stale actions/* pins
+        env:
+          # Authenticated release reads: higher rate limit than anonymous.
+          GITHUB_TOKEN: ${{ github.token }}
+          # The script resolves the showcase repo relative to itself by
+          # default; in this layout the two checkouts are siblings.
+          MIWAY_SHOWCASE_DIR: ${{ github.workspace }}
+        run: |
+          python private-source/backend/scripts/check_action_versions.py
