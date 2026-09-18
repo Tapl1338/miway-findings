@@ -29,7 +29,7 @@ thousands of observations each:
 | 6 | 39 | 9,006 | 31.7% |
 | 7 | 38 | 7,126 | 31.5% |
 | 8 | 103 | 2,419 | 30.6% |
-| … | network all-day | 250,000 | 24.7% |
+| … | network all-day | 250,000 | 24.7% (61,663 early departures) |
 | best (n≥1,000) | 14 | 1,564 | **9.6%** |
 | best | 22 | 1,676 | 12.2% |
 | best | 11 | 3,343 | 14.4% |
