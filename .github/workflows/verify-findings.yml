@@ -26,17 +26,17 @@ jobs:
     name: Public findings vs private twins
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - name: Check out private twin sources (read-only deploy key)
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           repository: Tapl1338/miway-transit-optimizer
           ref: master
           ssh-key: ${{ secrets.PRIVATE_TWIN_DEPLOY_KEY }}
           path: private-source
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v7
         with:
           python-version: '3.12'
 
