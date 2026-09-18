@@ -27,23 +27,21 @@
 ## Forecast 1 — September 7 changeover (the service-change test)
 
 **Registered:** 2026-09-05 (before the change) · [pre-registration](../pre-registration-sept7.md) ·
-**Scored:** 2026-09-22 · **Mode:** FINAL · [scorecard](../runs/sept7-scorecard-verdict-20260922.md)
+**Mode:** PRELIMINARY preview (n=1.11M, 2026-09-16 run) · FINAL scoring scheduled 2026-09-22 · verdicts below are from the preliminary and are NOT citable until the FINAL scorecard receipt exists ([scheduled output](../runs/sept7-scorecard-verdict-20260922.md))
 
 | Band | Prediction | Verdict |
 |---|---|---|
-| Early departures, all day | 29.0–33.0% | **FAIL-LOW** (improvement direction — see basis note in scorecard) |
-| AM-peak early share | 35.0–39.0% | **FAIL-LOW** (same) |
-| Route 2 midnight occupancy | 40.0–44.0% | **PASS** |
-| Route 109 PM-rush occupancy | 38.0–42.0% | **FAIL-HIGH** |
-| Ghost rate | 2.5–3.5% | **UNMEASURABLE** — detector vintage replaced mid-window; no like-for-like denominator ([vintage audit](ghost-ledger-vintage-audit.md)) |
+| Early departures, all day | 29.0–33.0% | *preliminary:* FAIL-LOW (improvement direction) |
+| AM-peak early share | 35.0–39.0% | *preliminary:* FAIL-LOW (same) |
+| Route 2 midnight occupancy | 40.0–44.0% | *preliminary:* PASS |
+| Route 109 PM-rush occupancy | 38.0–42.0% | *preliminary:* FAIL-HIGH |
+| Ghost rate | 2.5–3.5% | *preliminary:* UNMEASURABLE — detector vintage replaced mid-window; no like-for-like denominator ([vintage audit](ghost-ledger-vintage-audit.md)) |
 
-**Tally: 1 PASS · 3 FAIL · 1 UNMEASURABLE.**
+**Preliminary tally: 1 PASS · 3 FAIL · 1 UNMEASURABLE** — replaced by the FINAL tally from the frozen receipt on 2026-09-22. The misses are the point *if they hold*: the improvement appears *larger than predicted*, and the model will say so mechanically rather than taking credit — after the FINAL run.
 The misses are the point: the improvement was *larger than predicted*, and
 the model said so mechanically rather than taking credit.
 
-*Status: verify each verdict against the FINAL scorecard output at
-publication time; the 2026-09-16 preliminary expected this shape but is not
-citable.*
+*Correction note (2026-09-18): this section originally published the preliminary verdicts under a FINAL header dated 2026-09-22 — a future date — which violated this ledger's own rule that only frozen receipts produce verdicts. Relabeled PRELIMINARY; the FINAL row replaces these values from the frozen output at scoring time.*
 
 ## Forecast 2 — Week of Sept 14–20 (stability test I)
 
