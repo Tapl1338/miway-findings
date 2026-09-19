@@ -1,0 +1,163 @@
+{
+ "generated_at": "2026-09-19T22:10:51.968501+00:00",
+ "source": "docs/findings/forecast-track-record.md (miway-findings showcase)",
+ "rules": [
+  "Predictions committed publicly before the window's data exists.",
+  "Bands are numeric; direction alone is never scored as a hit.",
+  "Scoring is mechanical against the frozen evidence cut.",
+  "Verdicts: PASS / FAIL-LOW / FAIL-HIGH / UNMEASURABLE. No close-enough.",
+  "Refutations are published as-is \u2014 the ledger counts its own misses."
+ ],
+ "forecasts": [
+  {
+   "title": "Forecast 1 \u2014 September 7 changeover (the service-change test)",
+   "registered": "2026-09-05",
+   "scored": "",
+   "bands": [
+    {
+     "band": "Early departures, all day",
+     "prediction": "29.0\u201333.0%",
+     "verdict": "*preliminary:* FAIL-LOW (improvement direction)",
+     "status": "fail_low"
+    },
+    {
+     "band": "AM-peak early share",
+     "prediction": "35.0\u201339.0%",
+     "verdict": "*preliminary:* FAIL-LOW (same)",
+     "status": "fail_low"
+    },
+    {
+     "band": "Route 2 midnight occupancy",
+     "prediction": "40.0\u201344.0%",
+     "verdict": "*preliminary:* PASS",
+     "status": "pass"
+    },
+    {
+     "band": "Route 109 PM-rush occupancy",
+     "prediction": "38.0\u201342.0%",
+     "verdict": "*preliminary:* FAIL-HIGH",
+     "status": "fail_high"
+    },
+    {
+     "band": "Ghost rate",
+     "prediction": "2.5\u20133.5%",
+     "verdict": "*preliminary:* UNMEASURABLE \u2014 detector vintage replaced mid-window; no like-for-like denominator ([vintage audit](ghost-ledger-vintage-audit.md))",
+     "status": "unmeasurable"
+    }
+   ],
+   "tally": {
+    "pass": 1,
+    "fail": 3,
+    "unmeasurable": 1,
+    "pending": 0,
+    "other": 0
+   }
+  },
+  {
+   "title": "Forecast 2 \u2014 Week of Sept 14\u201320 (stability test I)",
+   "registered": "2026-09-16",
+   "scored": "",
+   "bands": [
+    {
+     "band": "Ghost rate",
+     "prediction": "0.30\u20130.60%",
+     "verdict": "pending",
+     "status": "pending"
+    },
+    {
+     "band": "Early share, all day",
+     "prediction": "21.0\u201325.0%",
+     "verdict": "pending",
+     "status": "pending"
+    },
+    {
+     "band": "Early share, AM peak",
+     "prediction": "25.0\u201329.0%",
+     "verdict": "pending",
+     "status": "pending"
+    },
+    {
+     "band": "Top-5 ghost routes",
+     "prediction": "\u22652 of {11, 66, 42, 103}",
+     "verdict": "pending",
+     "status": "pending"
+    },
+    {
+     "band": "Route 2 late-night mean load",
+     "prediction": "46\u201352%",
+     "verdict": "pending",
+     "status": "pending"
+    },
+    {
+     "band": "Route 2 SRO+ share",
+     "prediction": "19\u201324%",
+     "verdict": "pending",
+     "status": "pending"
+    },
+    {
+     "band": "Route 109 PM mean / SRO+",
+     "prediction": "41\u201347% / 16\u201322%",
+     "verdict": "pending",
+     "status": "pending"
+    }
+   ],
+   "tally": {
+    "pass": 0,
+    "fail": 0,
+    "unmeasurable": 0,
+    "pending": 7,
+    "other": 0
+   }
+  },
+  {
+   "title": "Forecast 3 \u2014 Week of Sept 21\u201327 (stability test II)",
+   "registered": "2026-09-16",
+   "scored": "",
+   "bands": [
+    {
+     "band": "Ghost rate",
+     "prediction": "0.25\u20130.60%",
+     "verdict": "pending",
+     "status": "pending"
+    },
+    {
+     "band": "Early share, all day",
+     "prediction": "20.0\u201325.5%",
+     "verdict": "pending",
+     "status": "pending"
+    },
+    {
+     "band": "Early share, AM peak",
+     "prediction": "24.0\u201329.5%",
+     "verdict": "pending",
+     "status": "pending"
+    },
+    {
+     "band": "Route 2 late-night mean load",
+     "prediction": "44\u201353%",
+     "verdict": "pending",
+     "status": "pending"
+    },
+    {
+     "band": "Route 2 SRO+ share",
+     "prediction": "17\u201325%",
+     "verdict": "pending",
+     "status": "pending"
+    },
+    {
+     "band": "Route 109 PM mean / SRO+",
+     "prediction": "40\u201348% / 15\u201323%",
+     "verdict": "pending",
+     "status": "pending"
+    }
+   ],
+   "tally": {
+    "pass": 0,
+    "fail": 0,
+    "unmeasurable": 0,
+    "pending": 6,
+    "other": 0
+   }
+  }
+ ]
+}
