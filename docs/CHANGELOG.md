@@ -35,6 +35,34 @@ collapsed into the user-visible change they produced.
 ### Changed
 - Weekly demo refresh now fully automated (health gate → capture → stats →
   build → push-only-if-changed) on a scheduled task.
+- Demo fetch layer now **live-API-first**: the pages probe the laptop's
+  evening read-only API through the tunnel and use frozen snapshots when it
+  sleeps — same UI, freshest available basis, decided per visit.
+
+### Fixed
+- Public-docs drift gate found 3 stale twins (topology missing the Sept-19
+  incident doctrine; README headline; findings-v5 banner) — all re-synced,
+  gate back to 0 drift across 30 docs.
+- Evening fallback API served without CORS headers (config read at import
+  after process start) — the one use-case the deploy exists for didn't work
+  cross-origin; caught by audit, verified fixed.
+- A1 capacity hunt was double-blind: out-of-capacity answers arrived wrapped
+  in a case-sensitive InternalError the classifier missed, and the second
+  rung was 429-throttled seconds after the first call — fixed (honest
+  OutOfCapacity logging, 120 s inter-rung gap) and the Git-Bash flock
+  lockout that silently disabled the laptop hunter for 15 h replaced with a
+  portable PID-lock.
+
+### Added (late week)
+- **Equity constraints in the solver** (P2.3) — per-ward caps on total
+  weighted worsening as MILP constraints, with per-ward overrides and a
+  constraint-status/tradeoff block on every result.
+- **Planner-ready report** (P5.2) — one run → one handoff package (KPIs,
+  route impact, equity table, offsets, checklist) as JSON/CSV.
+- **"Will I make it?" rider check** (P5.5) — arriving on route A, will I
+  catch route B? Answered from observed departures with explicit
+  uncertainty, and "not enough data" instead of a guess for thin pairs.
+  Live in the [demo](../demo/) sidebar.
 
 ---
 
