@@ -14,7 +14,9 @@ Every finding renders as an interactive view (FastAPI + React, deep-linkable by 
 
 > 🖥️ **[Try the interactive demo](demo/) — no install, no backend.** The full dashboard frontend replaying frozen API snapshots, captured from the live system. It adapts to phone screens (hamburger navigation, stacked cards, scrollable tables), so it reads as well in a councillor's palm as on a desktop. Every view is guarded by a per-panel error boundary: a failure in one analysis never takes the rest of the dashboard down.
 >
-> Newest views: **Early departures** — which routes leave before their scheduled time, ranked from the public sample alone — and the **Forecast scoreboard** — every pre-registered prediction with its mechanical verdict, misses published alongside hits. Both under "Network health (measured)" in the sidebar.
+> Newest view: **Will I make it?** — the rider's own question. Pick a transfer stop and a route pair; the answer comes from observed departures with explicit uncertainty, and says "not enough data" when the pair is thin. Under "Network health (measured)" in the sidebar.
+>
+> Also recent: **Early departures** — which routes leave before their scheduled time, ranked from the public sample alone — and the **Forecast scoreboard** — every pre-registered prediction with its mechanical verdict, misses published alongside hits.
 
 ![Home — biggest wins and where to start](docs/screenshots/home.png)
 ![Service quality — measured lateness, crowding and boardings](docs/screenshots/service-quality.png)
