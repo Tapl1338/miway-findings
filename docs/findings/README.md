@@ -1,5 +1,7 @@
 # Findings Snapshots — Index
 
+> **New in the interactive demo:** *Early departures* (route-level early-leaving, from the public sample) and the *Forecast scoreboard* (every pre-registered prediction, mechanically scored). Both under Network health in the sidebar.
+
 Every weekly snapshot is **immutable once frozen**: the file is never edited
 after its freeze date; corrections happen in the *next* version (or, for
 typos, are flagged inline without touching numbers). Each version is also
@@ -41,5 +43,5 @@ Notes:
 
 ## Forecasting track record & public-dataset findings
 
-- **[Forecasting track record](forecast-track-record.md)** — every pre-registered prediction, registered before the data existed, mechanically scored, misses published as-is. Running ledger.
-- **[Route-level early-departure leaderboard](route-early-leaderboard.md)** — a new network-level finding derived entirely from the public Zenodo dataset: worst routes leave ≥2 min early on 2 of every 5 departures, best routes under 10%. Includes the reproduction one-liner and the small-n honesty table.
+- **[Forecasting track record](forecast-track-record.md)** — every pre-registered prediction, registered before the data existed, mechanically scored, misses published as-is. Running ledger. Interactive: demo sidebar → *Forecast scoreboard*.
+- **[Route-level early-departure leaderboard](route-early-leaderboard.md)** — a new network-level finding derived entirely from the public Zenodo dataset: worst routes leave ≥2 min early on 2 of every 5 departures, best routes under 10%. Includes the reproduction one-liner and the small-n honesty table. Interactive: demo sidebar → *Early departures*.

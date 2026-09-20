@@ -13,6 +13,8 @@ An independent, student-run measurement project. Built summer 2026, running 24/7
 Every finding renders as an interactive view (FastAPI + React, deep-linkable by URL). A few frames, captured live from the running system:
 
 > 🖥️ **[Try the interactive demo](demo/) — no install, no backend.** The full dashboard frontend replaying frozen API snapshots, captured from the live system. It adapts to phone screens (hamburger navigation, stacked cards, scrollable tables), so it reads as well in a councillor's palm as on a desktop. Every view is guarded by a per-panel error boundary: a failure in one analysis never takes the rest of the dashboard down.
+>
+> Newest views: **Early departures** — which routes leave before their scheduled time, ranked from the public sample alone — and the **Forecast scoreboard** — every pre-registered prediction with its mechanical verdict, misses published alongside hits. Both under "Network health (measured)" in the sidebar.
 
 ![Home — biggest wins and where to start](docs/screenshots/home.png)
 ![Service quality — measured lateness, crowding and boardings](docs/screenshots/service-quality.png)
@@ -44,9 +46,9 @@ The centerpiece is a constraint optimizer (OR-Tools CP-SAT, ~900 lines — [solv
 
 | Measure | Today | After re-timing |
 |---|---|---|
-| Avg transfer wait (weighted) | 18.84 min | 16.82 min |
-| Missed connections | 2,789 | 2,456 |
-| Rider waiting | 90,827 pax-min | 81,089 pax-min (**~9,700/day saved**) |
+| Avg transfer wait (weighted) | 19.18 min | 17.08 min |
+| Missed connections | 2,916 | 2,465 |
+| Rider waiting | 88,750 pax-min | 79,036 pax-min (**~9,700/day saved**) |
 
 It wins on 100% of 500 simulated days. **The gains are modeled, not field-proven** — the honest framing is "conservative, pending a real-world pilot," and that sentence appears wherever the number does. Full analysis: [councillor brief](docs/councillor-brief.md).
 
@@ -85,8 +87,8 @@ The headline numbers above rest on full evidence tables — published, not summa
 - **[2017 vs 2026: did the network shrink or re-shape?](docs/findings/feed-era-2017-vs-2026.md)** — pinned-date comparison of the wayback 2017 vintage against the live feed: −9.6% weekday trips but flat vehicle-hours, 22 routes culled and 7 added, and exactly 2 locations (of 3,436 stops) left farther than an 800 m walk. A frequency-for-coverage redesign, measured stop by stop.
 
 **Derived from the public dataset itself**
-- **[Route-level early-departure leaderboard](docs/findings/route-early-leaderboard.md)** — computed only from the published 250k sample (the deposit's first post-publication finding): route 51 leaves ≥2 min early on 40.8% of departures vs 9.6% on the best large-n route. Reproduce it with the included one-liner.
-- **[Forecasting track record](docs/findings/forecast-track-record.md)** — every pre-registered prediction with its mechanical verdict: misses published alongside hits, running ledger.
+- **[Route-level early-departure leaderboard](docs/findings/route-early-leaderboard.md)** — computed only from the published 250k sample (the deposit's first post-publication finding): route 51 leaves ≥2 min early on 40.8% of departures vs 9.6% on the best large-n route. Reproduce it with the included one-liner. Interactive: demo sidebar → *Early departures*.
+- **[Forecasting track record](docs/findings/forecast-track-record.md)** — every pre-registered prediction with its mechanical verdict: misses published alongside hits, running ledger. Interactive: demo sidebar → *Forecast scoreboard*.
 
 **Impact modeling (external numbers, honestly banded)**
 - **[Ridership band from Lyu & Yan (2025)](docs/findings/ridership-band-lyu.md)** — re-deriving the ridership projection from post-pandemic on-time-performance elasticities: +4.3% central (2.8–6.1%), and what would make that optimistic.
