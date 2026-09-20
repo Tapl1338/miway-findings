@@ -19,6 +19,9 @@ Every finding renders as an interactive view (FastAPI + React, deep-linkable by 
 > Also recent: **Early departures** — which routes leave before their scheduled time, ranked from the public sample alone — and the **Forecast scoreboard** — every pre-registered prediction with its mechanical verdict, misses published alongside hits.
 
 ![Home — biggest wins and where to start](docs/screenshots/home.png)
+![Will I make it? — one connection, checked honestly](docs/screenshots/tripcheck.png)
+![Early departures — which routes leave before schedule](docs/screenshots/earlydepartures.png)
+![Forecast scoreboard — every prediction, scored mechanically](docs/screenshots/scoreboard.png)
 ![Service quality — measured lateness, crowding and boardings](docs/screenshots/service-quality.png)
 ![Councillor brief — the one-pager sent to the ward office](docs/screenshots/councillor-brief.png)
 ![Changeover impact — the measured before/after of the Sept 8 timetable](docs/screenshots/changeover.png)
