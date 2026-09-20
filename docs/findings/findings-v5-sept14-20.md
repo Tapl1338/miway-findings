@@ -74,7 +74,7 @@ band), **FAIL-LOW / FAIL-HIGH** (outside, direction named), **UNMEASURABLE**
 
 The mechanical scorecard for the **Sept-7 pre-registration** produced its
 final verdict on 2026-09-22: **TT refuted, TT confirmed, one honest
-UNMEASURABLE — published as-is** ([scorecard](../docs/runs/sept7-scorecard-verdict-20260922.md)
+UNMEASURABLE — published as-is** (scorecard receipt: `docs/runs/sept7-scorecard-verdict-20260922.md` (private-repo artifact, published after the Sept-22 FINAL run)
 — private-repo receipt; summary line to be filled from the FINAL output,
 never from the preliminary preview).
 

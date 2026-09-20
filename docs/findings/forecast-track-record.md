@@ -27,7 +27,7 @@
 ## Forecast 1 — September 7 changeover (the service-change test)
 
 **Registered:** 2026-09-05 (before the change) · [pre-registration](../pre-registration-sept7.md) ·
-**Mode:** PRELIMINARY preview (n=1.11M, 2026-09-16 run) · FINAL scoring scheduled 2026-09-22 · verdicts below are from the preliminary and are NOT citable until the FINAL scorecard receipt exists ([scheduled output](../runs/sept7-scorecard-verdict-20260922.md))
+**Mode:** PRELIMINARY preview (n=1.11M, 2026-09-16 run) · FINAL scoring scheduled 2026-09-22 · verdicts below are from the preliminary and are NOT citable until the FINAL scorecard receipt exists (scheduled output: `docs/runs/sept7-scorecard-verdict-20260922.md`, a private-repo receipt published here after the FINAL run)
 
 | Band | Prediction | Verdict |
 |---|---|---|
@@ -35,7 +35,7 @@
 | AM-peak early share | 35.0–39.0% | *preliminary:* FAIL-LOW (same) |
 | Route 2 midnight occupancy | 40.0–44.0% | *preliminary:* PASS |
 | Route 109 PM-rush occupancy | 38.0–42.0% | *preliminary:* FAIL-HIGH |
-| Ghost rate | 2.5–3.5% | *preliminary:* UNMEASURABLE — detector vintage replaced mid-window; no like-for-like denominator ([vintage audit](ghost-ledger-vintage-audit.md)) |
+| Ghost rate | 2.5–3.5% | *preliminary:* UNMEASURABLE — detector vintage replaced mid-window; no like-for-like denominator ([vintage audit](../ghost-ledger-vintage-audit.md)) |
 
 **Preliminary tally: 1 PASS · 3 FAIL · 1 UNMEASURABLE** — replaced by the FINAL tally from the frozen receipt on 2026-09-22. The misses are the point *if they hold*: the improvement appears *larger than predicted*, and the model will say so mechanically rather than taking credit — after the FINAL run.
 The misses are the point: the improvement was *larger than predicted*, and
