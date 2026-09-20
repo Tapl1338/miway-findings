@@ -1,6 +1,8 @@
 # MiWay Transfer-Sync Tool — Councillor Brief (one page)
 
 <p align="right"><img src="demo-qr.png" width="110" alt="QR: interactive demo" /><br /><sub><b>Try the interactive demo</b> — scan or visit<br /><span style="font-size:8pt">tapl1338.github.io/miway-findings/demo</span></sub></p>
+> **Provenance:** maintained in the private repo as `councillor-brief.md`; this copy is verified token-for-token against it on every push. The headline basis (missed-connection cost model, terminal-walk floor, feed vintage) is stamped in the private `exec-summary.json` and mechanically checked against the private README (2026-09-19).
+
 
 **What this is.** A data tool that analyses MiWay's published timetable,
 identifies every scheduled transfer connection in the network, and surfaces
@@ -26,18 +28,23 @@ machine-readable sources `exec-summary.json` and `equity-report.json`.
 
 | Measure | Today's schedule | After tool's re-timing |
 |---|---|---|
-| Average transfer wait (min, weighted) | 18.84 | 16.82 |
-| Missed connections | 2,789 | 2,456 |
-| Passenger-minutes of waiting (06:00–22:00) | 90,827.0 | 81,089.3 |
+| Average transfer wait (min, weighted) | 19.18 | 17.08 |
+| Missed connections | 2,916 | 2,465 |
+| Passenger-minutes of waiting (06:00–22:00) | 88,750.1 | 79,035.5 |
 | Passenger-minutes saved | — | **~9,700/day** |
 
 **The headline is honest: ~9,700 passenger-minutes of waiting saved per
-weekday (~9% of rider-wait)** on a static schedule model. Two identical-config
-solver reruns (unified `--time-limit 120`, post phantom-filter model) agree
-at 9,737.7 vs 9,737.6 pax-min (within 0.01%), so quote it rounded. Older
+weekday (~11% of rider-wait)** on a static schedule model. The number is
+generated-verified, not hand-maintained: the canonical run (july
+missed-connection cost model, terminal-walk floor off, post-Sept-7 feed
+20260911) stamps its basis into `docs/exec-summary.json`, and
+`scripts/check_readme_headline.py` fails when prose and artifact
+disagree. The 2026-09-19 model switch (window → july,
+`docs/runs/t154-miss-model-godown-20260919.md`) moved the headline less
+than 2% (9,737.7 → 9,714.6), so it still quotes rounded. Older
 pre-unified runs ran far lower (a ~3,400/day figure briefly circulated from
 an uncapped-connections run); do not mix vintages.
-These are modeled savings; realized savings depend on actual
+This is a model result: actual savings depend on actual
 on-time performance, which a pilot would measure. The ridership and farebox
 projections from the exec summary are **not included here** because they rely
 on literature elasticities that haven't been calibrated to MiWay. If council
@@ -64,10 +71,10 @@ The worst-case model (each bus independently late; common-mode lateness cancels)
 | 2 min | +2,867 min |
 | 3 min | +1,862 min |
 
-The plan keeps beating today's schedule until buses average ~**9.75 minutes of mean
-lateness** in this model. Driven by real observed lateness instead
+The plan keeps beating today's schedule **even at 12+ minutes of mean
+lateness** — the entire search range of the worst-case model. Driven by real observed lateness instead
 (`validation-study.md`: 338,667 observed GTFS-RT departures, all-period
-bootstrap, 500 simulated days), it wins on **100% of simulated
+all-period bootstrap, 500 simulated days), it wins on **100% of simulated
 days** (median +785 net
 saved/day) — every simulated day, though the realized gain never matches the deterministic paper gain, and the reports say so.
 
@@ -107,7 +114,7 @@ Saturday ghost rate is the frequency/reliability conversation.
    `implementation-plan.md` §"Pilot cost").
 
 **Bottom line.** A credible re-timing proposal: ~9,700 passenger-minutes of
-wait saved per weekday, staying positive until ~9.75 min mean lateness in the worst-case
+wait saved per weekday, still positive even at 12+ min mean lateness in the worst-case
 model and winning all (100%) of simulated days driven by real observed
 lateness — with the losers named up front and a guardrailed pilot as the ask.
 The remaining honest caveats are the model-on-model projections (ridership,
@@ -149,9 +156,9 @@ standard or MiWay's own documents.
   docs/councillor-email-draft.md (one display reading "20% full" anywhere
   from 5 to 29 passengers) exceed any of these tolerances by an order of
   magnitude.
-- Cut by vehicle, three buses account for most of the failures in the 399
+- Cut by vehicle, three buses account for most of the failures in the 277
   check-ins: vehicle 3289 missed all 4 of its qualifying load changes,
-  vehicle 2302 missed 4 of 6, vehicle 2240 missed 3 of 4
+  vehicle 2302 missed 4 of 6, vehicle 2240 missed 4 of 5
   (`backend/app/data/apc_bias_by_vehicle.csv`, regenerable via
   `scripts/apc_bias_by_vehicle.py`) - an audit has a concrete starting list.
 
