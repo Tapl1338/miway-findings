@@ -16,7 +16,7 @@
   over-conservative PARTIAL stamp on Sept 7–8 was corrected pre-publication
   after the hourly check; see the post-sept7 manifest heading.
 - **Frozen:** 2026-09-14T22:08:29Z. This snapshot is immutable; it will
-  never be edited. Superseded by: (none yet)
+  never be edited. Superseded by: [v5](findings-v5-sept14-20.md) (2026-09-21)
 - **Source:** the SHA-256 evidence freeze (6 artifacts), windowed
   by the pinned pipeline `derive_findings.py --start 2026-09-07 --end
   2026-09-13 --source freeze` — the first snapshot derived from a freeze
