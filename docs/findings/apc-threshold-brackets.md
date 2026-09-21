@@ -77,3 +77,33 @@ Across 15 vehicles with brackets, 57 of 105 cross-vehicle bracket pairs overlap 
 | 23 | 8 | 38% | - | 0 |
 
 Caveats: brackets bound thresholds only where consecutive check-ins straddle a flip; lag is right-censored when observation ended before the display updated; small-n routes are directional.
+
+## 4. Proportional consistency: the buckets scale with the bus, and both types run one bucket low
+
+A natural objection to the per-vehicle brackets: articulated 60-ft buses carry roughly
+twice the load of a standard 40-ft, so their higher raw thresholds (worst case: 35
+passengers still shown "20% full") might just be the same calibration on a bigger bus.
+Normalizing every observation by body-type capacity (55 for standard, 110 for
+articulated — counts are check-in estimates, so the ratio matters more than the exact
+denominators) answers it: **the display ladder is proportionally consistent across the
+fleet, and both body types run about one bucket behind reality.**
+
+| Display | Standard: real load median (range) | Articulated: real load median (range) |
+|---|---|---|
+| 20% | 20% (0–36%) (n=130) | 19% (10–32%) (n=33) |
+| 40% | 33% (4–51%) (n=96) | 22% (3–37%) (n=42) |
+| 60% | 47% (29–78%) (n=17) | 39% (33–41%) (n=6) |
+| 80% | 71% (62–82%) (n=8) | — (n=0) |
+
+Reading: a bus showing "20% full" is typically at ~20% of its own capacity but the
+bucket's top edge reaches ~36% — the "one bucket behind" shape. Both body types show
+it (artic medians sit slightly lower, consistent with the same absolute lag on a
+longer vehicle). The implication is not that some buses are mis-calibrated; it is
+that **a four-bucket display cannot represent load accurately at all** — "20% full"
+spans 0–36% of the real vehicle, so a rider at a stop sees "plenty of room" on a bus
+that is a third full regardless of which body type pulls up.
+
+Caveats: capacity denominators are nominal estimates (standard ~55, articulated ~110)
+and per-vehicle interior layouts vary; the artic n is small (3 vehicles, 81
+observations) so the per-type medians are directional. The per-vehicle bracket table
+above remains the primary evidence; this section explains its *shape*.
