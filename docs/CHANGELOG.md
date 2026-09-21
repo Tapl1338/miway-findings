@@ -53,6 +53,24 @@ collapsed into the user-visible change they produced.
   lockout that silently disabled the laptop hunter for 15 h replaced with a
   portable PID-lock.
 
+### Added (final days)
+- **July miss-model in the optimizer** — a missed connection now costs
+  `max(wait, 0) + headway` instead of billing negative standing time; the
+  old model provably rewarded making some misses *worse*. New default;
+  canonical headline re-derived and unchanged within 0.2% (9,714.6 vs
+  9,737.7) — the old number was a basis mismatch, not drift.
+- **Bus-to-train downstream check** — every optimiser result can flag
+  shifted MiWay arrivals against real GO-train departure tables at all 10
+  shared stations, staleness-stamped (all six Milton-line stations flag the
+  midday service valley; Lakeshore stations sit at 9–12.5-min medians).
+- **README headline gate** — the public-facing savings figure is
+  machine-checked against a basis-stamped artifact on every push and a
+  nightly regeneration; prose can no longer out-run its evidence.
+- **Capacity-threshold fitter (prep)** — per-vehicle APC capacities fitted
+  from ascent-only flip transitions; real-data run shows the honest blocker
+  (13 usable flips across 17 vehicles) and a per-vehicle capacity scatter
+  of 42.5–165 vs the nominal 65/110 constants.
+
 ### Added (late week)
 - **Equity constraints in the solver** (P2.3) — per-ward caps on total
   weighted worsening as MILP constraints, with per-ward overrides and a

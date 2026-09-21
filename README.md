@@ -28,6 +28,14 @@ Every finding renders as an interactive view (FastAPI + React, deep-linkable by 
 
 ---
 
+## How it was built, week by week
+
+A curated engineering timeline — what shipped each week, from the first
+collector through the solver, the monitoring layers, and the public demo:
+[docs/CHANGELOG.md](docs/CHANGELOG.md). (Measured *results* live in the
+snapshots below; the changelog records what was *built and changed*. Chores
+are collapsed; every entry traces to the repos' git history.)
+
 ## What the data shows
 
 Weekly, immutable findings snapshots (each frozen, never edited after freezing):
