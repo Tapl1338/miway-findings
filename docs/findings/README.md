@@ -14,12 +14,12 @@ week of new data changed.
 | v1 | Aug 17 – 23, 2026 (n=7) | 2026-09-03 | superseded by v2 | `findings-v1` | [findings-v1-n7-aug17-23.md](../findings-v1-n7-aug17-23.md) |
 | v2 | Aug 24 – 30, 2026 (n=7) | 2026-09-04 | superseded by v3 | `findings-v2` | [findings-v2-n7-aug24-30.md](../findings-v2-n7-aug24-30.md) |
 | v3 | Aug 31 – Sep 6, 2026 (n=7) | 2026-09-07 | superseded by v4 | `findings-v3` | [findings-v3-n7-aug31-sep06.md](../findings-v3-n7-aug31-sep06.md) |
-| v4 | Sep 7 – 13, 2026 (n=7, first post-change week) | 2026-09-14T22:08Z | **CURRENT** | `findings-v4` | [findings-v4-post-sept7.md](findings-v4-post-sept7.md) |
+| v4 | Sep 7 – 13, 2026 (n=7, first post-change week) | 2026-09-14T22:08Z | superseded by v5 | `findings-v4` | [findings-v4-post-sept7.md](findings-v4-post-sept7.md) |
 | [Era comparison](feed-era-2017-vs-2026.md) | 2017-03-08 vs 2026-10-06 (pinned feeds) | 2 feeds | Current |
 | [Sept 7 schedule diff](sept7-schedule-diff.md) | 26AU03 vs 26SE07 (same combined zip) | static GTFS | Current |
 | [Route 87 redundancy audit](route-87-redundancy-audit.md) | 2017 / 2023 / 2024-01 / 2026 feed vintages | 4 feeds | Current |
 | [Route 34 redundancy audit](route-34-redundancy-audit.md) | schedule arithmetic vs the 35 | — | Current |
-| v5 | Sep 14 – 20, 2026 (n=7, stability window) | — | *in collection; pre-registered* | — | [pre-registration-sept14-20.md](../pre-registration-sept14-20.md) |
+| v5 | Sep 14 – 20, 2026 (n=7: 6 complete + 1 partial day) | 2026-09-21T21:20Z | **CURRENT** — second post-change week | `findings-v5` | [findings-v5-sept14-20.md](findings-v5-sept14-20.md) |
 
 Notes:
 

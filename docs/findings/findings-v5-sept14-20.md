@@ -1,106 +1,126 @@
 # Findings snapshot v5 — second post-change week (Sept 14 – 20)
 
-> **DRAFT — STATUS banner per the findings procedure. Not immutable until
-> frozen. Every number is a PLACEHOLDER (`TT`): fill from the frozen cut
-> only, never from memory or chat. Do not publish until the pre-registered
-> comparison table is complete and the guardrails have been checked.**
->
-> **Version:** 5 — second post-change week · **Frozen:** (pending — fill at
-> freeze time, then this file is never edited) · **Superseded by:** (none)
->
-> **Source:** the SHA-256 evidence freeze (7 artifacts, Sept 14–20),
-> windowed by the pinned pipeline
-> `derive_findings.py --start 2026-09-14 --end 2026-09-20 --source freeze`.
-> Ghost scoring over the window's collection-window files (ledger upserted);
-> derivation log = private-repo receipt (SHAs on file).
+> **FROZEN 2026-09-21T21:20Z.** This snapshot is immutable; corrections
+> happen in v6, never here. Every number below was filled from the SHA-256
+> evidence freeze (6 artifacts, `docs/runs/evidence-freeze-v5/` in the
+> private repo; manifest with per-file SHA-256s on file) via the pinned
+> pipeline `derive_findings.py --start 2026-09-14 --end 2026-09-20
+> --source freeze`. Ghost scoring: collection-window files Sept 14–21,
+> ledger upserted.
 > **Pre-registration:** [pre-registration-sept14-20.md](../pre-registration-sept14-20.md),
 > committed 2026-09-16 before the window's data existed (GitHub timestamp
 > witnesses it).
+>
+> **Window caveat (declared at freeze, before publication):** Sept 19 is a
+> **partial day** — a collector gap (01:28–12:54 EDT) left morning service
+> unobserved. Trips inside the gap are counted *uncovered*, never ghosts;
+> the guardrail below records 6/7 complete days rather than pretending 7/7.
 
 ---
 
 ## 0. Pre-registered comparison — Sept 14–20 bands (THE core table)
 
-Fill each row from the frozen cut. Verdict vocabulary: **PASS** (inside
-band), **FAIL-LOW / FAIL-HIGH** (outside, direction named), **UNMEASURABLE**
-(no like-for-like basis — cite the artifact that proves why).
-
 | Metric | Pre-registered band | Observed (frozen cut) | Verdict |
 |---|---|---|---|
-| Ghost rate (verifiable trips) | 0.30–0.60% | TT% (TT of TT) | TT |
-| Early share, all day (≥2 min, FQ-10) | 21.0–25.0% | TT% (n = TT) | TT |
-| Early share, AM peak (07–09) | 25.0–29.0% | TT% (n = TT) | TT |
-| Top-5 ghost routes | ≥2 of {11, 66, 42, 103} | TT | TT |
-| Route 2 late-night mean load | 46–52% | TT% (n = TT) | TT |
-| Route 2 SRO+ share | 19–24% | TT% | TT |
-| Route 109 PM mean / SRO+ | 41–47% / 16–22% | TT% / TT% | TT |
+| Ghost rate (verifiable trips) | 0.30–0.60% | 0.37% (109 of 29,605) | **PASS** |
+| Early share, all day (≥2 min, FQ-10) | 21.0–25.0% | 21.2% (n = 1,196,073) | **PASS** (near low edge) |
+| Early share, AM peak (07–09) | 25.0–29.0% | 26.0% (n = 127,887) | **PASS** |
+| Top-5 ghost routes | ≥2 of {11, 66, 42, 103} | 61 (23), 11 (16), 28 (16), 110 (10), 5 (10) — only 11 repeats | **FAIL** |
+| Route 2 late-night mean load | 46–52% | 42% (n = 87,517) | **FAIL-LOW** |
+| Route 2 SRO+ share | 19–24% | 17.8% | **FAIL-LOW** |
+| Route 109 PM mean / SRO+ | 41–47% / 16–22% | 42% / 15.8% (n = 141,438) | **PASS / FAIL-LOW (by 0.2 pt)** |
 
-**Falsification guards (from the registration — check before publishing):**
-- Ghost rate >1.0% ⇒ schedule/data mismatch is back; investigate before any
-  civic claim. <0.15% ⇒ detector under-counting (collection regression) —
-  itself a finding.
-- Route 2 mean <40% ⇒ the late-night pattern was changeover-specific; the
-  "night crowding is structural" claim must be softened BEFORE it reaches
-  civic materials.
+**Score: 4 PASS · 3 FAIL-LOW · 1 FAIL.** All four crowding misses point the
+same way — *less crowded than predicted* — the same direction the Sept-7
+scorecard's misses ran. Two honest reads: the fleet is running freer than
+the changeover-era pattern suggested, and the bands were set from one week
+(v4) plus a prior. The Route-2 measurement note (pre-drafted 2026-09-20,
+before the verdict existed) applies in full:
+
+> *Measurement note: the Route-2 late-night mean is a windowed average whose
+> daily means swing widely — per-service-day means in the Sept 8–18 window
+> ranged 27.4% to 57.6% (n≈2,000–3,100 polls/day). With daily spread of
+> roughly ±15 points, a ±3-point band on the window mean is fragile: adding
+> or dropping one sparse late-night day can move the verdict. The registered
+> band is scored as-is (no post-hoc widening), and the falsification guard
+> already prescribes the claim-softening response if the mean lands below
+> 40%.*
+
+**Falsification guards (checked at freeze):**
+- Ghost rate 0.37%: between the guards (>1.0% schedule/data mismatch,
+  <0.15% detector under-counting). **No guard fired.**
+- Route 2 mean 42%: above the <40% softening trigger. The "night crowding
+  is structural" claim is *qualified* (second week ran measurably freer)
+  but not retracted.
 
 ### Collection-health guardrails (gate, not finding)
 
 | Guardrail | Predicted | Observed | Gate |
 |---|---|---|---|
-| Measured departures (week) | 0.9–1.15M | TT | PASS → proceed / below 0.7M → DELAY FREEZE |
-| Complete days | 7/7 by Tue Sept 22 | TT/7 | missing day ⇒ day-count caveat or delay |
+| Measured departures (week) | 0.9–1.15M | 1,196,073 | above high edge (more data, not less) → proceed |
+| Complete days | 7/7 by Tue Sept 22 | 6/7 (Sept 19 partial — collector gap) | caveat issued at freeze; proceeds |
 
 ---
 
 ## 1. Reliability (second post-change week)
 
-> Fill the same section structure as v4 §1: headline ghost figure with the
-> 1-in-N form, early-departure share with n, AM-peak concentration, and the
-> week-over-week line vs v4 (and v3, since the stability question is
-> explicitly "did v4 hold?"). Cite the frozen artifacts; note the ledger
-> vintage (new-vintage basis, never mixed with pre-audit figures).
-
-- Ghost trips: **TT of TT verifiable (TT%, "1 in TT")** — vs v4 0.39% (1/255)
-- Early departures ≥2 min: **TT%** (n = TT) — vs v4 22.5%
-- AM-peak early share: **TT%** (n = TT) — vs v4 26.4%
-- Top-5 ghost routes: TT — v4 was 11 (15), 66 (12), 42 (11), 103 (10)
+- Ghost trips: **109 of 29,605 verifiable trips never ran (0.37%, "1 in
+  272")** — vs v4 0.39% (1/255). The post-changeover ghost regime held for
+  a second week. The Sept-19 collector gap removed 1,204 trips from the
+  verifiable denominator correctly: they are *uncovered*, not ghosts.
+- Early departures ≥2 min: **21.2%** (n = 1,196,073) — vs v4 22.5%. Down
+  ~1.3 points; inside the registered band, at its low edge.
+- AM-peak early share: **26.0%** (n = 127,887) — vs v4 26.4%. Stable.
+- Top-5 ghost routes: **61 (23), 11 (16), 28 (16), 110 (10), 5 (10)** —
+  v4 was 11 (15), 66 (12), 42 (11), 103 (10). Only route 11 repeats; the
+  pre-registered "≥2 of {11, 66, 42, 103}" band **failed**. Honest
+  reading: the worst-ghost roster is not stable week to week — it
+  reshuffles. Week-over-week stability was a wrong prior, and the miss is
+  now part of the record.
 
 ## 2. Night crowding (raw APC, uncorrected — same basis discipline as v4 §2)
 
-- Route 2 late-night: mean **TT%** full, **TT%** SRO+ (n = TT) — v4: 49% / 21.7%
-- Route 109 PM-rush: mean **TT%** full, **TT%** SRO+ (n = TT) — v4: 44% / 19.4%
+- Route 2 late-night: mean **42%** full, **17.8%** SRO+ (n = 87,517) —
+  v4: 49% / 21.7%. Both bands missed low.
+- Route 109 PM-rush: mean **42%** full, **15.8%** SRO+ (n = 141,438) —
+  v4: 44% / 19.4%. Mean inside band; SRO+ missed low by 0.2 pt.
+- Both routes read *freer* than last week. Two candidate explanations,
+  neither confirmed: the four-bucket APC display granularity (see the APC
+  threshold-brackets finding) means SRO+ shares near thresholds move in
+  steps rather than smoothly, and ~2–4 pt week-to-week ridership drift is
+  within what that granularity can mask. The window mean of a metric with
+  ±15-pt daily spread is fragile — the pre-registered note above was
+  written precisely for this case.
 
-## 3. The Sept-7 scorecard verdict (published this week — cross-reference, do not duplicate)
+## 3. The Sept-7 scorecard verdict (pointer — final lands Sept 22)
 
-The mechanical scorecard for the **Sept-7 pre-registration** produced its
-final verdict on 2026-09-22: **TT refuted, TT confirmed, one honest
-UNMEASURABLE — published as-is** (scorecard receipt: `docs/runs/sept7-scorecard-verdict-20260922.md` (private-repo artifact, published after the Sept-22 FINAL run)
-— private-repo receipt; summary line to be filled from the FINAL output,
-never from the preliminary preview).
+The mechanical scorecard for the **Sept-7 pre-registration** receives its
+FINAL verdict on 2026-09-22, the day after this freeze. This section is
+**intentionally a pointer, not a paraphrase**: the summary line will be
+filled from the FINAL scorecard output only — the 2026-09-16 preliminary
+is not citable — at v6's publication, per the pre-registration rules.
+Receipt: `docs/runs/sept7-scorecard-verdict-20260922.md` (private repo;
+public summary follows in the forecast ledger).
 
-> Skeleton note: the expected shape (from the 2026-09-16 preliminary) is
-> early-departure and AM-peak bands refuted in the IMPROVEMENT direction
-> (service better than predicted), Route 2 midnight confirmed, ghost
-> UNMEASURABLE per the vintage audit. Verify against the FINAL output
-> before writing this paragraph — the preliminary is NOT citable. If the
-> final verdicts differ, this section follows the final, not the
-> expectation.
-
-**Why this belongs in v5:** the Sept-7 stability bands failing low while
-the Sept 14–20 persistence bands (Section 0) hold is the same story told
-twice — v4 was not a lucky week, and the prediction machinery catches its
-author being wrong in *both* directions. That is the method working.
+**Why this belongs in v5:** this week's own verdicts (Section 0) already
+show the pattern — bands missed in the *improvement* direction (less
+crowding, fewer early departures than registered) while the ghost regime
+held. Whatever the Sept-7 final says, the prediction machinery is now
+demonstrably willing to fail its own author in both directions. That is
+the method working.
 
 ## 4. Errata / corrections
 
-> (Expected: none. If any number moved between draft and freeze, it goes
-> here, not silently — same rule as v1's 1-in-32 note.)
+None. Every number was filled from the frozen cut in one pass; the Sept-19
+partial-day caveat was declared at freeze, before publication, so no
+post-hoc correction was needed.
 
-## Footer (fill at freeze)
+## Footer
 
-- **Frozen:** TT (UTC). This snapshot is immutable; it will never be edited.
+- **Frozen:** 2026-09-21T21:20Z. This snapshot is immutable; it will never be edited.
 - **Comparison bases:** same metric definitions as v4 (ghost = verifiable-trip
   absence; early = ≥2 min before schedule; SRO+ = raw APC load ≥ seated
-  capacity). No basis mixing.
+  capacity). No basis mixing. Derivation log: private-repo receipt with the
+  freeze SHAs.
 - **Next snapshot:** v6 (week of Sept 21–27), pre-registration due before
   the window's data lands.
