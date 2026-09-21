@@ -122,5 +122,8 @@ post-hoc correction was needed.
   absence; early = ≥2 min before schedule; SRO+ = raw APC load ≥ seated
   capacity). No basis mixing. Derivation log: private-repo receipt with the
   freeze SHAs.
-- **Next snapshot:** v6 (week of Sept 21–27), pre-registration due before
-  the window's data lands.
+- **Next snapshot:** v6 (week of Sept 21–27), pre-registered at
+  [pre-registration-sept21-27.md](../pre-registration-sept21-27.md) before
+  the window's data landed (2026-09-21 commit; first registration built on
+  two frozen weeks of basis, with the week-over-week route-stability prior
+  retired per v5's FAIL and a new <2h max-collector-gap guardrail).

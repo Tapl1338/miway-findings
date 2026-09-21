@@ -33,9 +33,10 @@ Notes:
 - v1–v3 were frozen at the same commit during the 2026-09-03 methodology
   push; the tag for each points at the commit containing its frozen text.
 - The week-over-week comparison tables inside each snapshot are filled from
-  **pre-registered ranges** (see [../pre-registration-sept7.md](../pre-registration-sept7.md)
-  and the v5 registration above) — predictions committed before the window's
-  data existed, hits and misses recorded in place.
+  **pre-registered ranges** (see [../pre-registration-sept7.md](../pre-registration-sept7.md),
+  the [v5 registration](../pre-registration-sept14-20.md), and the
+  [v6 registration](../pre-registration-sept21-27.md)) — predictions committed
+  before the window's data existed, hits and misses recorded in place.
 - Weekly feature/changelog notes live in the repo's commit history and the
   [demo banner manifest](../../demo/api-snapshot/manifest.json) vintage stamp; findings
   snapshots deliberately contain analysis only, so a methods change can never
