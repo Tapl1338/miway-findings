@@ -1,1 +1,1 @@
-{"status":"ok","app":"MiWay Transit Optimizer","feed":{"routes":57,"trips":28487,"stops":4085,"stop_times":1106766,"vintage":{"start_date":"2026-08-05","end_date":"2026-10-25","version":"1"}},"data_freshness":"2026-09-20T19:07:34.712061+00:00"}
+{"status":"ok","app":"MiWay Transit Optimizer","feed":{"routes":57,"trips":28487,"stops":4085,"stop_times":1106766,"vintage":{"start_date":"2026-08-05","end_date":"2026-10-25","version":"1"}},"data_freshness":"2026-09-21T22:42:29.087166+00:00"}
