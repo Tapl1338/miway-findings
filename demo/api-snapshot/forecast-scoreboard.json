@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-19T22:10:51.968501+00:00",
+ "generated_at": "2026-09-22T22:15:00.019339+00:00",
  "source": "docs/findings/forecast-track-record.md (miway-findings showcase)",
  "rules": [
   "Predictions committed publicly before the window's data exists.",
@@ -41,7 +41,7 @@
     {
      "band": "Ghost rate",
      "prediction": "2.5\u20133.5%",
-     "verdict": "*preliminary:* UNMEASURABLE \u2014 detector vintage replaced mid-window; no like-for-like denominator ([vintage audit](ghost-ledger-vintage-audit.md))",
+     "verdict": "*preliminary:* UNMEASURABLE \u2014 detector vintage replaced mid-window; no like-for-like denominator ([vintage audit](../ghost-ledger-vintage-audit.md))",
      "status": "unmeasurable"
     }
    ],
