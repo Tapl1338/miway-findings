@@ -1,0 +1,30 @@
+{
+ "description": "Weekly measured metrics, aggregated from the collector's daily rollup. Weekday days only (holiday rows excluded). early = lateness_minutes < -2 (canonical definition).",
+ "schedule_note": "All complete weeks span the post-2026-09-07 schedule changeover.",
+ "weeks": [
+  {
+   "week_start": "2026-09-07",
+   "week_end": "2026-09-13",
+   "days": 6,
+   "n_recorded": 967278,
+   "observations": 11135185,
+   "verifiable_trips": 28196,
+   "ghost_trips": 104,
+   "ghost_rate_pct": 0.37,
+   "pct_early_gt2": 21.67,
+   "boardings_lower_pax": 390629
+  },
+  {
+   "week_start": "2026-09-14",
+   "week_end": "2026-09-20",
+   "days": 7,
+   "n_recorded": 1133326,
+   "observations": 14891279,
+   "verifiable_trips": 31965,
+   "ghost_trips": 119,
+   "ghost_rate_pct": 0.37,
+   "pct_early_gt2": 22.42,
+   "boardings_lower_pax": 94023
+  }
+ ]
+}
