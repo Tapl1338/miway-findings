@@ -27,39 +27,41 @@
 ## Forecast 1 — September 7 changeover (the service-change test)
 
 **Registered:** 2026-09-05 (before the change) · [pre-registration](../pre-registration-sept7.md) ·
-**Mode:** PRELIMINARY preview (n=1.11M, 2026-09-16 run) · FINAL scoring scheduled 2026-09-22 · verdicts below are from the preliminary and are NOT citable until the FINAL scorecard receipt exists (scheduled output: `docs/runs/sept7-scorecard-verdict-20260922.md`, a private-repo receipt published here after the FINAL run)
+**Scored FINAL 2026-09-22** from the frozen receipt (11 post-change weekdays, ≥10 rule met; Sept 7 was Labour Day and correctly excluded): `sept7-scorecard-verdict-20260922.md` (private-repo receipt, published values below).
 
-| Band | Prediction | Verdict |
+| Band | Prediction | Verdict (FINAL) |
 |---|---|---|
-| Early departures, all day | 29.0–33.0% | *preliminary:* FAIL-LOW (improvement direction) |
-| AM-peak early share | 35.0–39.0% | *preliminary:* FAIL-LOW (same) |
-| Route 2 midnight occupancy | 40.0–44.0% | *preliminary:* PASS |
-| Route 109 PM-rush occupancy | 38.0–42.0% | *preliminary:* FAIL-HIGH |
-| Ghost rate | 2.5–3.5% | *preliminary:* UNMEASURABLE — detector vintage replaced mid-window; no like-for-like denominator ([vintage audit](../ghost-ledger-vintage-audit.md)) |
+| Early departures, all day | 29.0–33.0% | **FAIL — 23.0%** (below band, improvement direction; FQ-10 basis note in receipt) |
+| AM-peak early share | 35.0–39.0% | **FAIL — 28.3%** (below band, improvement direction) |
+| Route 2 midnight occupancy | 40.0–44.0% | **FAIL — 36.7%** (below band; ±15-pt daily-spread fragility note applies) |
+| Route 109 PM-rush occupancy | 38.0–42.0% | **FAIL — 45.8%** (above band) |
+| Ghost rate | 2.5–3.5% | **UNMEASURABLE** — detector vintage replaced mid-window; no like-for-like denominator ([vintage audit](../ghost-ledger-vintage-audit.md)) |
+| Network saved_pax_minutes | 9,500–10,000 | **UNMEASURABLE-AS-REGISTERED** — basis superseded; paired exhibit 10,179.6 (26AU03) → 19,368.0 (26SE07), OPTIMAL both sides |
+| Ward 9 optimization delta | +1.5 to +3.5 | **FAIL-LOW** — −0.13 → −0.01; the changeover erased the ward's optimization headroom |
 
-**Preliminary tally: 1 PASS · 3 FAIL · 1 UNMEASURABLE** — replaced by the FINAL tally from the frozen receipt on 2026-09-22. The misses are the point *if they hold*: the improvement appears *larger than predicted*, and the model will say so mechanically rather than taking credit — after the FINAL run.
-The misses are the point: the improvement was *larger than predicted*, and
-the model said so mechanically rather than taking credit.
+**FINAL tally: 0 PASS · 4 FAIL · 1 UNMEASURABLE · 1 UNMEASURABLE-AS-REGISTERED · 1 FAIL-LOW** (7 registered bands). The pre-registration predicted stability; the changeover delivered change. Every miss published with its cause — two of the four FAILs ran in the *improvement* direction, which is itself the finding: the service improved more than the model dared predict.
 
-*Correction note (2026-09-18): this section originally published the preliminary verdicts under a FINAL header dated 2026-09-22 — a future date — which violated this ledger's own rule that only frozen receipts produce verdicts. Relabeled PRELIMINARY; the FINAL row replaces these values from the frozen output at scoring time.*
+*Correction note (2026-09-18): this section originally published the preliminary verdicts under a FINAL header dated 2026-09-22 — a future date — which violated this ledger's own rule that only frozen receipts produce verdicts. Relabeled PRELIMINARY pending the actual receipt; the FINAL row above now replaces those values.*
 
 ## Forecast 2 — Week of Sept 14–20 (stability test I)
 
 **Registered:** 2026-09-16 (before the window closed) · [pre-registration](../pre-registration-sept14-20.md) ·
-**Scored:** (pending — v5 freeze)
+**Scored 2026-09-22** from the v5 frozen cut (`findings-v5-sept14-20.md`, SHA manifest in the freeze record).
 
 | Band | Prediction | Verdict |
 |---|---|---|
-| Ghost rate | 0.30–0.60% | pending |
-| Early share, all day | 21.0–25.0% | pending |
-| Early share, AM peak | 25.0–29.0% | pending |
-| Top-5 ghost routes | ≥2 of {11, 66, 42, 103} | pending |
-| Route 2 late-night mean load | 46–52% | pending |
-| Route 2 SRO+ share | 19–24% | pending |
-| Route 109 PM mean / SRO+ | 41–47% / 16–22% | pending |
+| Ghost rate | 0.30–0.60% | **PASS** — 0.37% (109 of 29,605) |
+| Early share, all day | 21.0–25.0% | **PASS** — 21.2% (n = 1,196,073) |
+| Early share, AM peak | 25.0–29.0% | **PASS** — 26.0% (n = 127,887) |
+| Top-5 ghost routes | ≥2 of {11, 66, 42, 103} | **FAIL** — only 11 repeated (61, 28, 110, 5 rounded out the top 5) |
+| Route 2 late-night mean load | 46–52% | **FAIL-LOW** — 42% |
+| Route 2 SRO+ share | 19–24% | **FAIL-LOW** — 17.8% |
+| Route 109 PM mean / SRO+ | 41–47% / 16–22% | **PASS / FAIL-LOW** — 42% / 15.8% (0.2 pt) |
 
-7 bands registered. Verdicts fill at the v5 freeze; falsification guards are
-in the registration.
+**Score: 4 PASS · 3 FAIL-LOW · 1 FAIL.** All crowding misses ran in the
+less-crowded direction, matching the Sept-7 FINAL's miss direction. The
+route-stability prior was falsified and stays retired (see the Sept 21–27
+registration's process commitment 5).
 
 ## Forecast 3 — Week of Sept 21–27 (stability test II)
 
@@ -87,10 +89,33 @@ fully reverted within 3 weeks — a different civic story, published as such.
 
 | Forecast | Bands | PASS | FAIL | UNMEAS | Scored |
 |---|---|---|---|---|---|
-| Sept 7 changeover | 5 | 1 | 3 | 1 | yes (FINAL 2026-09-22) |
-| Sept 14–20 | 7 | — | — | — | pending |
-| Sept 21–27 | 6 | — | — | — | pending |
-| **Total** | **18** | **1** | **3** | **1** | 5 scored |
+| Sept 7 changeover | 7 | 0 | 4 (+1 FAIL-LOW) | 2 | yes (FINAL 2026-09-22) |
+| Sept 14–20 | 8 verdicts / 7 bands | 4 | 4 | 0 | yes (v5 freeze) |
+| Sept 21–27 | 6 | — | — | — | pending (v6 freeze) |
+| Sept 28–Oct 4 | 6 | — | — | — | pending (v7 freeze) |
+| **Total** | **25 bands** | **4** | **9** | **2** | 15 of 25 scored |
+
+## Forecast 4 — Week of Sept 28–Oct 4 (stability test III)
+
+**Registered:** 2026-09-22 · [pre-registration](../pre-registration-sept28-oct4.md) ·
+**Scored:** (pending — v7 freeze)
+
+| Band | Prediction | Verdict |
+|---|---|---|
+| Ghost rate | 0.30–0.50% | pending |
+| Early share, all day | 19.0–22.5% | pending |
+| Early share, AM peak | 24.0–27.5% | pending |
+| Route 2 late-night mean / SRO+ | 38–48% / 14.5–21.5% | pending |
+| Route 109 PM mean / SRO+ | 39–46% / 13.0–19.5% | pending |
+| Drift test: early share vs v5 | ≤ v5's 21.2% + 1 pt | pending |
+
+6 bands registered, predicted from two frozen weeks (v4 + v5) with the
+Sept-7 FINAL's lessons applied (see the registration's "what the scorecard
+taught" preamble): bands set on the two-week range, the route-stability
+prior stays retired, and the drift test replaces the falsified roster
+prediction with the claim the data actually supports.
+
+---
 
 ## Why the misses stay
 
