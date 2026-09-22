@@ -1,0 +1,2 @@
+import{j as e,l as s}from"./index-CGGUrKBR.js";function a({text:r}){return e.jsxs("div",{className:"flex items-start gap-2 rounded-lg border border-border bg-card-hover/60 px-3 py-2 text-[11px] leading-relaxed text-text-secondary",children:[e.jsx(s,{className:"mt-0.5 h-3.5 w-3.5 shrink-0 text-accent"}),e.jsx("span",{className:"break-words",children:r})]})}export{a as N};
+//# sourceMappingURL=NewHereHint-CuJ5Yjou.js.map
