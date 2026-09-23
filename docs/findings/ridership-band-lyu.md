@@ -6,9 +6,10 @@
 
 # Ridership-impact band, re-derived from Lyu & Yan (2025) OTP elasticities
 
-_Date: 2026-09-06 · Companion to `exec-summary.md`'s ridership projection ·
-Reproduce with `python scripts/ridership_band_lyu.py` (reads the frozen
-`exec-summary.json`, prints the band, changes nothing)._
+_Date: 2026-09-06 (re-derived 2026-09-22 after the T155 july-basis
+`exec-summary.json` regeneration) · Companion to `exec-summary.md`'s
+ridership projection · Reproduce with `python scripts/ridership_band_lyu.py`
+(reads the frozen `exec-summary.json`, prints the band, changes nothing)._
 
 ## Why re-derive
 
@@ -31,23 +32,23 @@ living through now.
 
 ## The derivation
 
-From the frozen exec-summary artifact (2,789 → 2,456 missed of 6,000 measured
-transfers):
+From the frozen exec-summary artifact (2,916 → 2,465 missed of 6,000 measured
+transfers; july miss-model basis, T155):
 
 ```
-transfer on-time rate:  53.5% → 59.1%
-relative OTP gain:      59.1 / 53.5 − 1 = +10.37%
-ridership gain:         +10.37% × elasticity
+transfer on-time rate:  51.4% → 58.9%
+relative OTP gain:      58.9 / 51.4 − 1 = +14.62%
+ridership gain:         +14.62% × elasticity
 ```
 
 | Coefficient (Lyu & Yan, recovery period) | Projected ridership gain |
 |---|---|
-| +0.584 (AM peak, p=0.045) — **high** | **+6.06%** |
-| **+0.417 (system-wide, p=0.031) — central** | **+4.32%** |
-| +0.266 (PM peak) — **low** | **+2.76%** |
+| +0.584 (AM peak, p=0.045) — **high** | **+8.54%** |
+| **+0.417 (system-wide, p=0.031) — central** | **+6.10%** |
+| +0.266 (PM peak) — **low** | **+3.89%** |
 | ≈0 (pre-COVID, insignificant) — **floor** | 0.00% |
 
-**Re-derived band: +4.3% central, +2.8% to +6.1% plausible** (floor 0). The
+**Re-derived band: +6.1% central, +3.9% to +8.5% plausible** (floor 0). The
 incumbent band's central estimate (+1.94%) sits *below* this one's low end —
 the two chains agree the sign is positive; they disagree about magnitude.
 
@@ -56,8 +57,8 @@ the two chains agree the sign is positive; they disagree about magnitude.
 Keep the incumbent band as the headline (it is the conservative, long-established
 chain, and every downstream doc and the quote gate pin it). Quote the Lyu band
 as the **modern upper-anchored alternative**: "a 2025 route-level study
-post-pandemic elasticities imply up to +4.3% (2.8–6.1%)". If asked for the
-most defensible single sentence: *the savings are worth between 1.9% and 4.3%
+post-pandemic elasticities imply up to +6.1% (3.9–8.5%)". If asked for the
+most defensible single sentence: *the savings are worth between 1.9% and 6.1%
 ridership depending on which elasticity generation you believe, and both
 generations agree it is materially positive.*
 
@@ -77,7 +78,7 @@ generations agree it is materially positive.*
 4. **Recovery-era regime.** Coefficients were estimated while ridership was
    *growing* back; MiWay 2026 is *shrinking* (student-cap demand shock,
    −24% student ridership). Elasticities in a declining market are generally
-   smaller — treat the AM-peak high anchor (+6.1%) as optimistic.
+   smaller — treat the AM-peak high anchor (+8.5%) as optimistic.
 5. **Single study, modest significance** (p = 0.031–0.045). One paper is a
    strong prior-updater, not a consensus.
 6. **No fare effect.** Both bands exclude the Jan-1 and Sept-1 2026 fare
