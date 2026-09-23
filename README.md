@@ -105,7 +105,7 @@ The headline numbers above rest on full evidence tables — published, not summa
 - **[Forecasting track record](docs/findings/forecast-track-record.md)** — every pre-registered prediction with its mechanical verdict: misses published alongside hits, running ledger. Interactive: demo sidebar → *Forecast scoreboard*.
 
 **Impact modeling (external numbers, honestly banded)**
-- **[Ridership band from Lyu & Yan (2025)](docs/findings/ridership-band-lyu.md)** — re-deriving the ridership projection from post-pandemic on-time-performance elasticities: +4.3% central (2.8–6.1%), and what would make that optimistic.
+- **[Ridership band from Lyu & Yan (2025)](docs/findings/ridership-band-lyu.md)** — re-deriving the ridership projection from post-pandemic on-time-performance elasticities: +6.1% central (3.9–8.5%), and what would make that optimistic.
 - **[Equity report](docs/findings/equity-report.md)** — per-stop winners and losers of the proposed re-timing, with the APC-quantization caveat that keeps stop weights honest.
 - **[Trunk-and-feeder brief](docs/findings/trunk-feeder-brief.md)** — the zero-cost network redesign option: 36 winding routes (~80,000 daily riders) rebuilt as trunk + feeder, every stop kept, ~170 km/day less dead running.
 
