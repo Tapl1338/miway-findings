@@ -107,13 +107,11 @@ fully reverted within 3 weeks — a different civic story, published as such.
 | Early share, AM peak | 24.0–27.5% | pending |
 | Route 2 late-night mean / SRO+ | 38–48% / 14.5–21.5% | pending |
 | Route 109 PM mean / SRO+ | 39–46% / 13.0–19.5% | pending |
-| Drift test: early share vs v5 | ≤ v5's 21.2% + 1 pt | pending |
+| Drift test (all-day early ≤ v5 + 1 pt) | ≤ 22.2% | pending |
 
-6 bands registered, predicted from two frozen weeks (v4 + v5) with the
-Sept-7 FINAL's lessons applied (see the registration's "what the scorecard
-taught" preamble): bands set on the two-week range, the route-stability
-prior stays retired, and the drift test replaces the falsified roster
-prediction with the claim the data actually supports.
+6 bands. First registration written after a FINAL scorecard existed: bands on
+the two-week range, route-stability prior permanently retired, ghost band
+pre-declared UNMEASURABLE if the detector vintage changes mid-window.
 
 ---
 
