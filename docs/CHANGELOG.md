@@ -12,7 +12,7 @@ collapsed into the user-visible change they produced.
 
 ---
 
-## Week of Sept 14–20, 2026 (in progress)
+## Week of Sept 14–20, 2026
 
 ### Added
 - **Interactive public demo** — the full dashboard replaying frozen API
@@ -81,6 +81,43 @@ collapsed into the user-visible change they produced.
   catch route B? Answered from observed departures with explicit
   uncertainty, and "not enough data" instead of a guess for thin pairs.
   Live in the [demo](../demo/) sidebar.
+
+---
+
+## Week of Sept 21–27, 2026 (in progress)
+
+### Added
+- **v1.1 five-view demo consolidation** — the 19-view surface collapsed
+  into 5 shells (Home, Map, Plan, Measure, Trust), every panel folded as a
+  section with its evidence badge preserved; real URL paths, legacy
+  `#view` links redirect. Live in the [demo](../demo/).
+- **Forecast scoreboard goes FINAL** — every pre-registered prediction now
+  carries its mechanical verdict (3 forecasts, 26 bands); Forecast 1
+  scored from the Sept-22 scorecard receipt, misses published alongside
+  hits ([track record](findings/forecast-track-record.md)).
+- **Forecast 4 pre-registered** (Sept 28–Oct 4) — the first registration
+  built from two frozen weeks of basis instead of one, committed before
+  the window's data exists.
+- **Home trends strip** — week-over-week measured metrics (early
+  departures, ghost rate, volume) on the demo Home, complete weeks only.
+- **Promotion-freshness gate** — nightly check flags any public doc whose
+  private twin was regenerated after its last promotion, closing the
+  twin-drift window the existing content gate can't see.
+
+### Fixed
+- Demo trip-check crash: any API failure 404'd the whole app in demo mode —
+  inline "Check failed" alert + a canonical snapshot replay instead.
+- Demo "Why so slow?" view 404'd (slowness endpoints never snapshotted).
+- Demo base-path incident: ad-hoc rebuilds shipped root-absolute asset
+  URLs, blanking Pages since the prior refresh — rebuilds must set
+  `DEMO_BASE`; rule encoded in the refresh script.
+
+### Measured
+- **Sept-7 pre-registration FINAL verdict** — 11/10 required post-change
+  weekdays collected; 4 FAIL (early-departure and AM-peak bands beaten in
+  the improvement direction), 2 UNMEASURABLE (baseline tooling superseded
+  mid-study, documented per-band), 1 fail-low. Verdicts and basis notes in
+  the [scoreboard](../demo/).
 
 ---
 
