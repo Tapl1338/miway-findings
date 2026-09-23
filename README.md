@@ -4,7 +4,7 @@ An independent, student-run measurement project. Built summer 2026, running 24/7
 
 **The question:** MiWay publishes a timetable and a real-time feed. How well does the actual service match what riders are promised — and what would a small, data-driven re-timing buy them?
 
-**The instrument:** a full-stack analytics platform (Python/FastAPI/React) that polls the GTFS + GTFS-RT feeds every 30 seconds, around the clock, on a cloud VPS I administer. As of September 2026 it has logged **75,000+ polls at 99.1% success** and captured **5.0M+ unique scheduled bus departures** for measurement.
+**The instrument:** a full-stack analytics platform (Python/FastAPI/React) that polls the GTFS + GTFS-RT feeds every 30 seconds, around the clock, on a cloud VPS I administer. As of September 2026 it has logged **82,000+ polls at 99.16% success** and captured **5.5M+ unique scheduled bus departures** for measurement.
 
 ---
 
@@ -43,8 +43,8 @@ Weekly, immutable findings snapshots (each frozen, never edited after freezing):
 - [Week of Aug 17–23](docs/findings-v1-n7-aug17-23.md)
 - [Week of Aug 24–30](docs/findings-v2-n7-aug24-30.md)
 - [Week of Aug 31–Sep 6](docs/findings-v3-n7-aug31-sep06.md)
-- [Week of Sep 14–20](docs/findings/findings-v5-sept14-20.md)
 - [Week of Sep 7–13](docs/findings/findings-v4-post-sept7.md)
+- [Week of Sep 14–20](docs/findings/findings-v5-sept14-20.md)
 
 Recurring findings, stated conservatively:
 
