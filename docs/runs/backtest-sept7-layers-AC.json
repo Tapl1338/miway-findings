@@ -1,0 +1,202 @@
+{
+  "generated_utc": "2026-09-24T22:50:16.704223+00:00",
+  "rules_source": "docs/runs/pre-registration-sept7.md (frozen 2026-08-24); bands verbatim",
+  "artifacts": {
+    "earliness": "C:\\Users\\ethan\\AppData\\Local\\miway-optimizer\\obs_lateness.csv",
+    "crowding_pre": "C:\\Users\\ethan\\OneDrive\\Documents\\Default Project\\docs\\runs\\pre-sept7-occupancy.csv",
+    "crowding_post": "C:\\Users\\ethan\\OneDrive\\Documents\\Default Project\\docs\\runs\\crowding-window-20260908-14.csv",
+    "pairs": "C:\\Users\\ethan\\OneDrive\\Documents\\Default Project\\docs\\runs\\sept7-compare-final-20260922.json",
+    "solver": "C:\\Users\\ethan\\OneDrive\\Documents\\Default Project\\docs\\exec-summary.json"
+  },
+  "verdict_counts": {
+    "FAIL-LOW": 4,
+    "FAIL-HIGH": 3,
+    "PASS": 3,
+    "UNSCOREABLE": 8,
+    "FAIL": 1,
+    "VIOLATED": 1
+  },
+  "rows": [
+    {
+      "layer": "A",
+      "metric": "Early-departure share (>=2min early), post weeks",
+      "band": "29-33%",
+      "basis": "30.7% (n=352,077)",
+      "measured": "W1 21.16% (n=1,146,526); W2 21.16% (n=1,196,073)",
+      "verdict": "FAIL-LOW",
+      "note": "below band = improvement the pre-reg did not predict (email: 'failed in the good direction')"
+    },
+    {
+      "layer": "A",
+      "metric": "AM-peak (07:00-09:00) early share",
+      "band": "35-39%",
+      "basis": "37%",
+      "measured": "W1 25.54% (n=119,871); W2 25.99% (n=127,887)",
+      "verdict": "FAIL-LOW",
+      "note": "same good-direction miss"
+    },
+    {
+      "layer": "A",
+      "metric": "Route 2 midnight avg load (pre-reg basis: period mean)",
+      "band": "40-44%",
+      "basis": "42% (pre-reg basis row, n=11,093)",
+      "measured": "pre 42.5 -> post W1 44.8",
+      "verdict": "FAIL-HIGH",
+      "note": "DIVERGENCE: the email scored this 'eased 42->37' from a trip-level readout; on the pre-reg's own period-mean basis it went UP (42.5->44.8, worse). The email's 37% has no artifact located in this pass \u2014 reconciliation owed to the original Sept-22 scorecard receipt."
+    },
+    {
+      "layer": "A",
+      "metric": "Route 109 PM-rush avg load / SRO",
+      "band": "38-42% avg; 20-24% SRO",
+      "basis": "40% / 22.2%",
+      "measured": "pre 41.7% -> post W1 41.7% (SRO 13.0%)",
+      "verdict": "PASS",
+      "note": "above band = worse; school-term demand confound applies"
+    },
+    {
+      "layer": "A",
+      "metric": "Routes >=33% full after 19:00 (count)",
+      "band": "5-7",
+      "basis": "6 (pre)",
+      "measured": "pre 3 -> post W1 9 (101, 109, 110, 126, 2, 6, 61, 66, 73)",
+      "verdict": "FAIL-HIGH",
+      "note": "email: 8; school-start wave is the named confound"
+    },
+    {
+      "layer": "A",
+      "metric": "Ghost-trip rate",
+      "band": "2.5-3.5%",
+      "basis": "2.87% (602/20,948)",
+      "measured": "post W1 1-in-255 (121/30,848); W2 1-in-272 (109/29,605)",
+      "verdict": "FAIL-LOW",
+      "note": "email scored UNSCOREABLE (ghost tooling upgraded mid-study); mechanical read: far below band = fewer ghosts"
+    },
+    {
+      "layer": "A",
+      "metric": "Network saved_pax_minutes (solver, post basis)",
+      "band": "9,500-10,000",
+      "basis": "9,737.7",
+      "measured": "9714.6 (basis 20260911, 2026-09-19T23:48:19Z)",
+      "verdict": "PASS",
+      "note": ""
+    },
+    {
+      "layer": "A",
+      "metric": "Network base_avg_wait",
+      "band": "18.5-19.0",
+      "basis": "18.82",
+      "measured": "19.12",
+      "verdict": "FAIL-HIGH",
+      "note": "basis regenerated on the post-change feed; drift 0.12 min above band edge"
+    },
+    {
+      "layer": "A",
+      "metric": "Ward 9 delta/worse-off",
+      "band": "+1.5..+3.5 min; 13-17 of 21",
+      "basis": "+2.56; 15 of 21",
+      "measured": "no like-for-like post run (20260922 reruns used a different stop universe: 5/14 stops)",
+      "verdict": "UNSCOREABLE",
+      "note": "needs a sanctioned re-baseline on the pre-reg's 21-stop universe"
+    },
+    {
+      "layer": "C",
+      "metric": "Pair 43->109 realized-wait delta",
+      "band": "-",
+      "basis": "pre-reg \u00a72",
+      "measured": "NaN",
+      "verdict": "UNSCOREABLE",
+      "note": "old-side NaN in harness (vintage)"
+    },
+    {
+      "layer": "C",
+      "metric": "Pair 109->43 realized-wait delta",
+      "band": "-",
+      "basis": "pre-reg \u00a72",
+      "measured": "NaN",
+      "verdict": "UNSCOREABLE",
+      "note": "old-side NaN in harness (vintage)"
+    },
+    {
+      "layer": "C",
+      "metric": "Pair 10->43 realized-wait delta",
+      "band": "-",
+      "basis": "pre-reg \u00a72",
+      "measured": "NaN",
+      "verdict": "UNSCOREABLE",
+      "note": "old-side NaN in harness (vintage)"
+    },
+    {
+      "layer": "C",
+      "metric": "Pair 45->109 realized-wait delta",
+      "band": "[-1.5, -0.5]",
+      "basis": "pre-reg \u00a72",
+      "measured": "-3.34",
+      "verdict": "FAIL-LOW",
+      "note": ""
+    },
+    {
+      "layer": "C",
+      "metric": "Pair 313->43 realized-wait delta",
+      "band": "-",
+      "basis": "pre-reg \u00a72",
+      "measured": "NaN",
+      "verdict": "UNSCOREABLE",
+      "note": "old-side NaN in harness (vintage)"
+    },
+    {
+      "layer": "C",
+      "metric": "Pair 38->43 realized-wait delta",
+      "band": "-",
+      "basis": "pre-reg \u00a72",
+      "measured": "NaN",
+      "verdict": "UNSCOREABLE",
+      "note": "old-side NaN in harness (vintage)"
+    },
+    {
+      "layer": "C",
+      "metric": "All other Meadowvale pairs flat (+-0.5)",
+      "band": "within +-0.5",
+      "basis": "pre-reg \u00a72 catch-all",
+      "measured": "75/88 violate; worst degradations [('13->46', 2.7), ('44->46', 2.42)]",
+      "verdict": "FAIL",
+      "note": "the change was far larger than the catch-all predicted \u2014 both directions"
+    },
+    {
+      "layer": "C",
+      "metric": "Guardrail: 45->109 no increase >1 min",
+      "band": "<= +1.0",
+      "basis": "pre-reg \u00a74",
+      "measured": "-3.34",
+      "verdict": "PASS",
+      "note": ""
+    },
+    {
+      "layer": "C",
+      "metric": "Guardrail: no pair degrades >2 min (UNSCOPED)",
+      "band": "<= +2.0 all pairs",
+      "basis": "pre-reg \u00a74 (scoped reading in email)",
+      "measured": "worst: [('13->46', 2.7), ('44->46', 2.42), ('45->46', 1.93)]",
+      "verdict": "VIOLATED",
+      "note": "13->46 +2.70 and 44->46 +2.42 cross an unscoped reading; the email's scoped reading ('pairs I'd predicted would move') holds"
+    },
+    {
+      "layer": "C",
+      "metric": "Guardrail: >=3 of top-5 route 8/66 pairs improve",
+      "band": ">=3 pairs < -0.5",
+      "basis": "pre-reg \u00a74",
+      "measured": "no 8/66 pairs at the Meadowvale harness stop",
+      "verdict": "UNSCOREABLE",
+      "note": "routes 8/66 do not serve the Meadowvale terminal harness stop (geography); no pairs exist"
+    },
+    {
+      "layer": "C",
+      "metric": "Missed-share rule (>0.5 pairs reduce 0.05-0.15)",
+      "band": "reduce 0.05-0.15",
+      "basis": "pre-reg \u00a72 note",
+      "measured": "0 scoreable rows",
+      "verdict": "UNSCOREABLE",
+      "note": "old-side missed shares for the to-43/313 pairs are NaN (vintage) \u2014 the rule is scoreable only on this artifact's rows"
+    }
+  ],
+  "reconciliation_note": "The emailed headline (0 passed / 4 failed / 2 unscoreable / 1 failed low) scored a 7-metric subset with its own unscoreability calls (ghost tooling upgrade, solver re-baseline pending). This mechanical pass scores every pre-reg row it CAN: the good-direction failures (earliness, AM peak, ghosts) reproduce the email's story, as does the bad-direction cluster (after-7pm crowding count). NEW findings: (1) UNSCOPED guardrail violations 13->46 +2.70 and 44->46 +2.42 (the email's scoped reading holds); (2) the catch-all band misses resoundingly in both directions; (3) DIVERGENCE: Route 2 midnight does NOT reproduce the email's 'eased 42->37' on the pre-reg's own period-mean basis (42.5->44.8, worse) \u2014 the email used a trip-level readout with no located artifact; the artifact-basis verdict stands per the artifacts-beat-prose rule."
+}
