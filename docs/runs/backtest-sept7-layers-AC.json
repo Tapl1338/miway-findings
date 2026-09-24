@@ -1,12 +1,12 @@
 {
-  "generated_utc": "2026-09-24T22:50:16.704223+00:00",
+  "generated_utc": "2026-09-24T22:56:55.231243+00:00",
   "rules_source": "docs/runs/pre-registration-sept7.md (frozen 2026-08-24); bands verbatim",
   "artifacts": {
-    "earliness": "C:\\Users\\ethan\\AppData\\Local\\miway-optimizer\\obs_lateness.csv",
-    "crowding_pre": "C:\\Users\\ethan\\OneDrive\\Documents\\Default Project\\docs\\runs\\pre-sept7-occupancy.csv",
-    "crowding_post": "C:\\Users\\ethan\\OneDrive\\Documents\\Default Project\\docs\\runs\\crowding-window-20260908-14.csv",
-    "pairs": "C:\\Users\\ethan\\OneDrive\\Documents\\Default Project\\docs\\runs\\sept7-compare-final-20260922.json",
-    "solver": "C:\\Users\\ethan\\OneDrive\\Documents\\Default Project\\docs\\exec-summary.json"
+    "earliness": "backend/app/data/obs_lateness.csv (live mirror; window-filtered)",
+    "crowding_pre": "docs/runs/pre-sept7-occupancy.csv",
+    "crowding_post": "docs/runs/crowding-window-20260908-14.csv",
+    "pairs": "docs/runs/sept7-compare-final-20260922.json",
+    "solver": "docs/exec-summary.json"
   },
   "verdict_counts": {
     "FAIL-LOW": 4,

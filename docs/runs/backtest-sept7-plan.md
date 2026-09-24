@@ -2,7 +2,7 @@
 
 **Status:** PLAN (owner-approved direction 2026-09-24; execution next session or on request)
 **Question:** when the optimizer recommended re-timings before Sept 7, and MiWay then shipped its own Sept 7 change, how well did the recommendations and predictions survive contact with what actually happened?
-**Why it matters (resume + MiWay thread):** converts "I built a tool" into "my tool made predictions about the world and I scored them." Also produces the one-page exhibit that would accompany an Oct 8 nudge if MiWay staff engage.
+**Why it matters:** converts "I built a tool" into "my tool made predictions about the world and I scored them." The one-page exhibit (`docs/exhibits/backtest-sept7-onepager.md`) is the shareable summary.
 
 ---
 
@@ -38,7 +38,7 @@ Deliverable: `docs/exhibits/backtest-sept7-onepager.md` (+ optional PDF via the 
 1. Verdict strip: scorecard (0/4/2/1) · recommendation lift vs chance · guardrails held/violated.
 2. Three-layer table with a "what I got wrong" column (the two self-corrections + failed bands stay visible).
 3. Provenance footer: every number → artifact path; CHECKED stamps from `check_claim.py` where geographic claims appear.
-Audience: MiWay staff / councillor; tone: the follow-up email's — miss plainspoken, wins understated.
+Audience: general public / agency staff; tone: plainspoken misses, understated wins.
 
 ## 4. Execution order + estimate (~1 day total)
 
