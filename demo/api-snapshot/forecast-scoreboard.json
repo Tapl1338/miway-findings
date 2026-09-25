@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-19T22:10:51.968501+00:00",
+ "generated_at": "2026-09-25T02:37:57.164826+00:00",
  "source": "docs/findings/forecast-track-record.md (miway-findings showcase)",
  "rules": [
   "Predictions committed publicly before the window's data exists.",
@@ -17,40 +17,52 @@
     {
      "band": "Early departures, all day",
      "prediction": "29.0\u201333.0%",
-     "verdict": "*preliminary:* FAIL-LOW (improvement direction)",
-     "status": "fail_low"
+     "verdict": "**FAIL \u2014 23.0%** (below band, improvement direction; FQ-10 basis note in receipt)",
+     "status": "other"
     },
     {
      "band": "AM-peak early share",
      "prediction": "35.0\u201339.0%",
-     "verdict": "*preliminary:* FAIL-LOW (same)",
-     "status": "fail_low"
+     "verdict": "**FAIL \u2014 28.3%** (below band, improvement direction)",
+     "status": "other"
     },
     {
      "band": "Route 2 midnight occupancy",
      "prediction": "40.0\u201344.0%",
-     "verdict": "*preliminary:* PASS",
-     "status": "pass"
+     "verdict": "**FAIL \u2014 36.7%** (below band; \u00b115-pt daily-spread fragility note applies)",
+     "status": "other"
     },
     {
      "band": "Route 109 PM-rush occupancy",
      "prediction": "38.0\u201342.0%",
-     "verdict": "*preliminary:* FAIL-HIGH",
-     "status": "fail_high"
+     "verdict": "**FAIL \u2014 45.8%** (above band)",
+     "status": "other"
     },
     {
      "band": "Ghost rate",
      "prediction": "2.5\u20133.5%",
-     "verdict": "*preliminary:* UNMEASURABLE \u2014 detector vintage replaced mid-window; no like-for-like denominator ([vintage audit](ghost-ledger-vintage-audit.md))",
+     "verdict": "**UNMEASURABLE** \u2014 detector vintage replaced mid-window; no like-for-like denominator ([vintage audit](../ghost-ledger-vintage-audit.md))",
      "status": "unmeasurable"
+    },
+    {
+     "band": "Network saved_pax_minutes",
+     "prediction": "9,500\u201310,000",
+     "verdict": "**UNMEASURABLE-AS-REGISTERED** \u2014 basis superseded; paired exhibit 10,179.6 (26AU03) \u2192 19,368.0 (26SE07), OPTIMAL both sides",
+     "status": "unmeasurable"
+    },
+    {
+     "band": "Ward 9 optimization delta",
+     "prediction": "+1.5 to +3.5",
+     "verdict": "**FAIL-LOW** \u2014 \u22120.13 \u2192 \u22120.01; the changeover erased the ward's optimization headroom",
+     "status": "fail_low"
     }
    ],
    "tally": {
-    "pass": 1,
-    "fail": 3,
-    "unmeasurable": 1,
+    "pass": 0,
+    "fail": 1,
+    "unmeasurable": 2,
     "pending": 0,
-    "other": 0
+    "other": 4
    }
   },
   {
@@ -61,52 +73,52 @@
     {
      "band": "Ghost rate",
      "prediction": "0.30\u20130.60%",
-     "verdict": "pending",
-     "status": "pending"
+     "verdict": "**PASS** \u2014 0.37% (109 of 29,605)",
+     "status": "pass"
     },
     {
      "band": "Early share, all day",
      "prediction": "21.0\u201325.0%",
-     "verdict": "pending",
-     "status": "pending"
+     "verdict": "**PASS** \u2014 21.2% (n = 1,196,073)",
+     "status": "pass"
     },
     {
      "band": "Early share, AM peak",
      "prediction": "25.0\u201329.0%",
-     "verdict": "pending",
-     "status": "pending"
+     "verdict": "**PASS** \u2014 26.0% (n = 127,887)",
+     "status": "pass"
     },
     {
      "band": "Top-5 ghost routes",
      "prediction": "\u22652 of {11, 66, 42, 103}",
-     "verdict": "pending",
-     "status": "pending"
+     "verdict": "**FAIL** \u2014 only 11 repeated (61, 28, 110, 5 rounded out the top 5)",
+     "status": "other"
     },
     {
      "band": "Route 2 late-night mean load",
      "prediction": "46\u201352%",
-     "verdict": "pending",
-     "status": "pending"
+     "verdict": "**FAIL-LOW** \u2014 42%",
+     "status": "fail_low"
     },
     {
      "band": "Route 2 SRO+ share",
      "prediction": "19\u201324%",
-     "verdict": "pending",
-     "status": "pending"
+     "verdict": "**FAIL-LOW** \u2014 17.8%",
+     "status": "fail_low"
     },
     {
      "band": "Route 109 PM mean / SRO+",
      "prediction": "41\u201347% / 16\u201322%",
-     "verdict": "pending",
-     "status": "pending"
+     "verdict": "**PASS / FAIL-LOW** \u2014 42% / 15.8% (0.2 pt)",
+     "status": "pass"
     }
    ],
    "tally": {
-    "pass": 0,
-    "fail": 0,
+    "pass": 4,
+    "fail": 2,
     "unmeasurable": 0,
-    "pending": 7,
-    "other": 0
+    "pending": 0,
+    "other": 1
    }
   },
   {
@@ -147,6 +159,56 @@
     {
      "band": "Route 109 PM mean / SRO+",
      "prediction": "40\u201348% / 15\u201323%",
+     "verdict": "pending",
+     "status": "pending"
+    }
+   ],
+   "tally": {
+    "pass": 0,
+    "fail": 0,
+    "unmeasurable": 0,
+    "pending": 6,
+    "other": 0
+   }
+  },
+  {
+   "title": "Forecast 4 \u2014 Week of Sept 28\u2013Oct 4 (stability test III)",
+   "registered": "2026-09-22",
+   "scored": "",
+   "bands": [
+    {
+     "band": "Ghost rate",
+     "prediction": "0.30\u20130.50%",
+     "verdict": "pending",
+     "status": "pending"
+    },
+    {
+     "band": "Early share, all day",
+     "prediction": "19.0\u201322.5%",
+     "verdict": "pending",
+     "status": "pending"
+    },
+    {
+     "band": "Early share, AM peak",
+     "prediction": "24.0\u201327.5%",
+     "verdict": "pending",
+     "status": "pending"
+    },
+    {
+     "band": "Route 2 late-night mean / SRO+",
+     "prediction": "38\u201348% / 14.5\u201321.5%",
+     "verdict": "pending",
+     "status": "pending"
+    },
+    {
+     "band": "Route 109 PM mean / SRO+",
+     "prediction": "39\u201346% / 13.0\u201319.5%",
+     "verdict": "pending",
+     "status": "pending"
+    },
+    {
+     "band": "Drift test (all-day early \u2264 v5 + 1 pt)",
+     "prediction": "\u2264 22.2%",
      "verdict": "pending",
      "status": "pending"
     }
