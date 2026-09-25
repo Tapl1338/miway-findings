@@ -1,28 +1,28 @@
 {
-  "status": "OPTIMAL",
-  "solve_duration_seconds": 23.8,
-  "bound_gap_pct": null,
-  "solver_variance_pct": null,
+  "status": "FEASIBLE",
+  "solve_duration_seconds": 31.3,
+  "bound_gap_pct": 7.1,
+  "solver_variance_pct": 1,
   "offsets": [
-    {
-      "route_short_name": "103",
-      "route_long_name": "Hurontario Express",
-      "offset_minutes": -5,
-      "headway_minutes": 23.4,
-      "movable": true
-    },
-    {
-      "route_short_name": "14",
-      "route_long_name": "Lorne Park",
-      "offset_minutes": -5,
-      "headway_minutes": 40.4,
-      "movable": true
-    },
     {
       "route_short_name": "16",
       "route_long_name": "Malton",
       "offset_minutes": -5,
       "headway_minutes": 37.9,
+      "movable": true
+    },
+    {
+      "route_short_name": "20",
+      "route_long_name": "Rathburn",
+      "offset_minutes": -5,
+      "headway_minutes": 23.9,
+      "movable": true
+    },
+    {
+      "route_short_name": "36",
+      "route_long_name": "Ridgeway",
+      "offset_minutes": -5,
+      "headway_minutes": 41.4,
       "movable": true
     },
     {
@@ -40,6 +40,13 @@
       "movable": true
     },
     {
+      "route_short_name": "51",
+      "route_long_name": "Tomken",
+      "offset_minutes": -5,
+      "headway_minutes": 15.9,
+      "movable": true
+    },
+    {
       "route_short_name": "61",
       "route_long_name": "Mavis",
       "offset_minutes": 5,
@@ -54,6 +61,13 @@
       "movable": true
     },
     {
+      "route_short_name": "103",
+      "route_long_name": "Hurontario Express",
+      "offset_minutes": -4,
+      "headway_minutes": 23.4,
+      "movable": true
+    },
+    {
       "route_short_name": "22",
       "route_long_name": "Finch",
       "offset_minutes": -4,
@@ -61,24 +75,31 @@
       "movable": true
     },
     {
-      "route_short_name": "46",
-      "route_long_name": "Tenth Line",
+      "route_short_name": "25",
+      "route_long_name": "Traders Loop",
       "offset_minutes": -4,
-      "headway_minutes": 43.5,
+      "headway_minutes": 20,
       "movable": true
     },
     {
-      "route_short_name": "49",
-      "route_long_name": "McDowell",
+      "route_short_name": "28",
+      "route_long_name": "Confederation",
       "offset_minutes": -4,
-      "headway_minutes": 32.8,
+      "headway_minutes": 18.9,
       "movable": true
     },
     {
-      "route_short_name": "51",
-      "route_long_name": "Tomken",
+      "route_short_name": "43",
+      "route_long_name": "Matheson",
       "offset_minutes": -4,
-      "headway_minutes": 15.9,
+      "headway_minutes": 40.3,
+      "movable": true
+    },
+    {
+      "route_short_name": "44",
+      "route_long_name": "Mississauga Road",
+      "offset_minutes": -4,
+      "headway_minutes": 25.1,
       "movable": true
     },
     {
@@ -96,13 +117,6 @@
       "movable": true
     },
     {
-      "route_short_name": "17",
-      "route_long_name": "Hurontario",
-      "offset_minutes": -3,
-      "headway_minutes": 19.5,
-      "movable": true
-    },
-    {
       "route_short_name": "18",
       "route_long_name": "Derry",
       "offset_minutes": -3,
@@ -110,36 +124,8 @@
       "movable": true
     },
     {
-      "route_short_name": "2",
-      "route_long_name": "Hurontario",
-      "offset_minutes": -3,
-      "headway_minutes": 11.9,
-      "movable": true
-    },
-    {
-      "route_short_name": "20",
-      "route_long_name": "Rathburn",
-      "offset_minutes": -3,
-      "headway_minutes": 23.9,
-      "movable": true
-    },
-    {
       "route_short_name": "26",
       "route_long_name": "Burnhamthorpe",
-      "offset_minutes": -3,
-      "headway_minutes": 14.9,
-      "movable": true
-    },
-    {
-      "route_short_name": "28",
-      "route_long_name": "Confederation",
-      "offset_minutes": -3,
-      "headway_minutes": 18.9,
-      "movable": true
-    },
-    {
-      "route_short_name": "3",
-      "route_long_name": "Bloor",
       "offset_minutes": -3,
       "headway_minutes": 14.9,
       "movable": true
@@ -152,17 +138,10 @@
       "movable": true
     },
     {
-      "route_short_name": "43",
-      "route_long_name": "Matheson",
+      "route_short_name": "49",
+      "route_long_name": "McDowell",
       "offset_minutes": -3,
-      "headway_minutes": 40.3,
-      "movable": true
-    },
-    {
-      "route_short_name": "44",
-      "route_long_name": "Mississauga Road",
-      "offset_minutes": -3,
-      "headway_minutes": 25.1,
+      "headway_minutes": 32.8,
       "movable": true
     },
     {
@@ -173,24 +152,17 @@
       "movable": true
     },
     {
-      "route_short_name": "70",
-      "route_long_name": "Keaton",
+      "route_short_name": "68",
+      "route_long_name": "Terry Fox",
       "offset_minutes": -3,
-      "headway_minutes": 15.9,
+      "headway_minutes": 73.9,
       "movable": true
     },
     {
-      "route_short_name": "126",
-      "route_long_name": "Burnhamthorpe Express",
+      "route_short_name": "14",
+      "route_long_name": "Lorne Park",
       "offset_minutes": -2,
-      "headway_minutes": 20,
-      "movable": true
-    },
-    {
-      "route_short_name": "23",
-      "route_long_name": "Lakeshore",
-      "offset_minutes": -2,
-      "headway_minutes": 25.3,
+      "headway_minutes": 40.4,
       "movable": true
     },
     {
@@ -201,6 +173,13 @@
       "movable": true
     },
     {
+      "route_short_name": "29",
+      "route_long_name": "Park Royal",
+      "offset_minutes": 2,
+      "headway_minutes": 36,
+      "movable": true
+    },
+    {
       "route_short_name": "31",
       "route_long_name": "Ogden",
       "offset_minutes": -2,
@@ -208,17 +187,24 @@
       "movable": true
     },
     {
-      "route_short_name": "48",
-      "route_long_name": "Erin Mills",
-      "offset_minutes": -2,
-      "headway_minutes": 26.5,
+      "route_short_name": "39",
+      "route_long_name": "Britannia",
+      "offset_minutes": 2,
+      "headway_minutes": 23.1,
       "movable": true
     },
     {
-      "route_short_name": "68",
-      "route_long_name": "Terry Fox",
-      "offset_minutes": -2,
-      "headway_minutes": 73.9,
+      "route_short_name": "74",
+      "route_long_name": "Explorer",
+      "offset_minutes": 2,
+      "headway_minutes": 44.9,
+      "movable": true
+    },
+    {
+      "route_short_name": "90",
+      "route_long_name": "Terragar-Copenhagen Loop",
+      "offset_minutes": 2,
+      "headway_minutes": 30.2,
       "movable": true
     },
     {
@@ -229,10 +215,10 @@
       "movable": true
     },
     {
-      "route_short_name": "135",
-      "route_long_name": "Eglinton Express",
+      "route_short_name": "126",
+      "route_long_name": "Burnhamthorpe Express",
       "offset_minutes": -1,
-      "headway_minutes": 15,
+      "headway_minutes": 20,
       "movable": true
     },
     {
@@ -243,38 +229,24 @@
       "movable": true
     },
     {
-      "route_short_name": "25",
-      "route_long_name": "Traders Loop",
+      "route_short_name": "23",
+      "route_long_name": "Lakeshore",
+      "offset_minutes": 1,
+      "headway_minutes": 25.3,
+      "movable": true
+    },
+    {
+      "route_short_name": "46",
+      "route_long_name": "Tenth Line",
       "offset_minutes": -1,
-      "headway_minutes": 20,
+      "headway_minutes": 43.5,
       "movable": true
     },
     {
-      "route_short_name": "29",
-      "route_long_name": "Park Royal",
-      "offset_minutes": 1,
-      "headway_minutes": 36,
-      "movable": true
-    },
-    {
-      "route_short_name": "36",
-      "route_long_name": "Ridgeway",
-      "offset_minutes": 1,
-      "headway_minutes": 41.4,
-      "movable": true
-    },
-    {
-      "route_short_name": "38",
-      "route_long_name": "Creditview",
-      "offset_minutes": 1,
-      "headway_minutes": 31.3,
-      "movable": true
-    },
-    {
-      "route_short_name": "45",
-      "route_long_name": "Winston Churchill",
+      "route_short_name": "48",
+      "route_long_name": "Erin Mills",
       "offset_minutes": -1,
-      "headway_minutes": 27,
+      "headway_minutes": 26.5,
       "movable": true
     },
     {
@@ -285,35 +257,21 @@
       "movable": true
     },
     {
-      "route_short_name": "71",
-      "route_long_name": "Sheridan",
-      "offset_minutes": -1,
-      "headway_minutes": 22.7,
-      "movable": true
-    },
-    {
-      "route_short_name": "8",
-      "route_long_name": "Cawthra",
-      "offset_minutes": -1,
-      "headway_minutes": 36.8,
-      "movable": true
-    },
-    {
-      "route_short_name": "90",
-      "route_long_name": "Terragar-Copenhagen Loop",
+      "route_short_name": "9",
+      "route_long_name": "Rathburn",
       "offset_minutes": 1,
-      "headway_minutes": 30.2,
+      "headway_minutes": 26.7,
       "movable": true
     }
   ],
   "baseline_avg_wait": 19.94,
-  "optimized_avg_wait": 18.26,
+  "optimized_avg_wait": 18.23,
   "baseline_missed": 3105,
-  "optimized_missed": 2647,
+  "optimized_missed": 2641,
   "total_connections": 6000,
-  "total_kept": 3353,
-  "passenger_minutes_saved": 8484.6,
-  "connection_health": 55.9,
+  "total_kept": 3359,
+  "passenger_minutes_saved": 8704.3,
+  "connection_health": 56,
   "wait_distribution_baseline": [
     0,
     749,
@@ -324,13 +282,13 @@
     4188
   ],
   "wait_distribution_optimized": [
-    315,
-    474,
-    426,
-    429,
-    626,
-    612,
-    3118
+    284,
+    471,
+    444,
+    376,
+    708,
+    551,
+    3166
   ],
   "nodes": [
     {
@@ -12555,16 +12513,16 @@
   ],
   "updated_stop_times_available": true,
   "ridership_impact": {
-    "wait_minutes_saved": 1.68,
+    "wait_minutes_saved": 1.71,
     "wait_time_premium": 3,
-    "ivt_equivalent_minutes": 5.04,
+    "ivt_equivalent_minutes": 5.13,
     "avg_trip_minutes": 35,
-    "travel_time_reduction_pct": 14.4,
+    "travel_time_reduction_pct": 14.66,
     "travel_time_elasticity": -0.13,
-    "projected_ridership_pct": 1.87,
-    "projected_ridership_pct_min": 0.37,
-    "projected_ridership_pct_max": 10.08,
-    "methodology": "1.68 min wait saved × 3× wait-time premium (2-5× per Pratt 1999 / VTPI) = 5.04 in-vehicle minutes per trip = 14.40% of an assumed 35-min trip × travel-time elasticity -0.13 (Dowling 2005, Portland) = ~1.87% ridership gain (plausible band 0.37-10.08% across the literature's premium, elasticity and trip-length ranges) with no added buses or drivers."
+    "projected_ridership_pct": 1.91,
+    "projected_ridership_pct_min": 0.38,
+    "projected_ridership_pct_max": 10.26,
+    "methodology": "1.71 min wait saved × 3× wait-time premium (2-5× per Pratt 1999 / VTPI) = 5.13 in-vehicle minutes per trip = 14.66% of an assumed 35-min trip × travel-time elasticity -0.13 (Dowling 2005, Portland) = ~1.91% ridership gain (plausible band 0.38-10.26% across the literature's premium, elasticity and trip-length ranges) with no added buses or drivers."
   },
   "fleet_feasibility": {
     "interlining_edges": 84,
@@ -12587,17 +12545,6 @@
       "worse_off": true
     },
     {
-      "route_short_name": "31",
-      "route_long_name": "Ogden",
-      "connections": 8,
-      "baseline_avg_eff_wait": 23.64,
-      "optimized_avg_eff_wait": 16.52,
-      "delta_minutes": -7.12,
-      "worse_off_connections": 3,
-      "worse_off_max_minutes": 16,
-      "worse_off": true
-    },
-    {
       "route_short_name": "22",
       "route_long_name": "Finch",
       "connections": 18,
@@ -12609,35 +12556,35 @@
       "worse_off": true
     },
     {
+      "route_short_name": "68",
+      "route_long_name": "Terry Fox",
+      "connections": 40,
+      "baseline_avg_eff_wait": 31.9,
+      "optimized_avg_eff_wait": 25.71,
+      "delta_minutes": -6.19,
+      "worse_off_connections": 20,
+      "worse_off_max_minutes": 56,
+      "worse_off": true
+    },
+    {
+      "route_short_name": "31",
+      "route_long_name": "Ogden",
+      "connections": 8,
+      "baseline_avg_eff_wait": 23.64,
+      "optimized_avg_eff_wait": 17.93,
+      "delta_minutes": -5.71,
+      "worse_off_connections": 4,
+      "worse_off_max_minutes": 16,
+      "worse_off": true
+    },
+    {
       "route_short_name": "42",
       "route_long_name": "Derry",
       "connections": 450,
       "baseline_avg_eff_wait": 20.3,
       "optimized_avg_eff_wait": 14.88,
       "delta_minutes": -5.42,
-      "worse_off_connections": 176,
-      "worse_off_max_minutes": 22,
-      "worse_off": true
-    },
-    {
-      "route_short_name": "68",
-      "route_long_name": "Terry Fox",
-      "connections": 40,
-      "baseline_avg_eff_wait": 31.9,
-      "optimized_avg_eff_wait": 26.68,
-      "delta_minutes": -5.23,
-      "worse_off_connections": 21,
-      "worse_off_max_minutes": 21,
-      "worse_off": true
-    },
-    {
-      "route_short_name": "17",
-      "route_long_name": "Hurontario",
-      "connections": 348,
-      "baseline_avg_eff_wait": 25.68,
-      "optimized_avg_eff_wait": 21.53,
-      "delta_minutes": -4.15,
-      "worse_off_connections": 113,
+      "worse_off_connections": 180,
       "worse_off_max_minutes": 22,
       "worse_off": true
     },
@@ -12647,20 +12594,9 @@
       "connections": 22,
       "baseline_avg_eff_wait": 20.67,
       "optimized_avg_eff_wait": 16.77,
-      "delta_minutes": -3.89,
-      "worse_off_connections": 10,
-      "worse_off_max_minutes": 6,
-      "worse_off": true
-    },
-    {
-      "route_short_name": "66",
-      "route_long_name": "McLaughlin",
-      "connections": 1054,
-      "baseline_avg_eff_wait": 19.63,
-      "optimized_avg_eff_wait": 15.76,
-      "delta_minutes": -3.88,
-      "worse_off_connections": 425,
-      "worse_off_max_minutes": 33,
+      "delta_minutes": -3.9,
+      "worse_off_connections": 11,
+      "worse_off_max_minutes": 7,
       "worse_off": true
     },
     {
@@ -12668,10 +12604,21 @@
       "route_long_name": "Northwest",
       "connections": 29,
       "baseline_avg_eff_wait": 19.23,
-      "optimized_avg_eff_wait": 15.34,
+      "optimized_avg_eff_wait": 15.35,
       "delta_minutes": -3.88,
       "worse_off_connections": 14,
       "worse_off_max_minutes": 5,
+      "worse_off": true
+    },
+    {
+      "route_short_name": "36",
+      "route_long_name": "Ridgeway",
+      "connections": 20,
+      "baseline_avg_eff_wait": 29.66,
+      "optimized_avg_eff_wait": 25.92,
+      "delta_minutes": -3.74,
+      "worse_off_connections": 12,
+      "worse_off_max_minutes": 38,
       "worse_off": true
     },
     {
@@ -12682,18 +12629,18 @@
       "optimized_avg_eff_wait": 20.8,
       "delta_minutes": -3.71,
       "worse_off_connections": 7,
-      "worse_off_max_minutes": 6,
+      "worse_off_max_minutes": 4,
       "worse_off": true
     },
     {
-      "route_short_name": "103",
-      "route_long_name": "Hurontario Express",
-      "connections": 42,
-      "baseline_avg_eff_wait": 20.84,
-      "optimized_avg_eff_wait": 17.61,
-      "delta_minutes": -3.23,
-      "worse_off_connections": 21,
-      "worse_off_max_minutes": 23,
+      "route_short_name": "66",
+      "route_long_name": "McLaughlin",
+      "connections": 1054,
+      "baseline_avg_eff_wait": 19.63,
+      "optimized_avg_eff_wait": 16.1,
+      "delta_minutes": -3.53,
+      "worse_off_connections": 425,
+      "worse_off_max_minutes": 33,
       "worse_off": true
     },
     {
@@ -12701,9 +12648,20 @@
       "route_long_name": "Courtneypark",
       "connections": 137,
       "baseline_avg_eff_wait": 24.45,
-      "optimized_avg_eff_wait": 21.24,
-      "delta_minutes": -3.21,
+      "optimized_avg_eff_wait": 21.22,
+      "delta_minutes": -3.23,
       "worse_off_connections": 76,
+      "worse_off_max_minutes": 23,
+      "worse_off": true
+    },
+    {
+      "route_short_name": "103",
+      "route_long_name": "Hurontario Express",
+      "connections": 42,
+      "baseline_avg_eff_wait": 20.84,
+      "optimized_avg_eff_wait": 17.86,
+      "delta_minutes": -2.98,
+      "worse_off_connections": 19,
       "worse_off_max_minutes": 23,
       "worse_off": true
     },
@@ -12712,32 +12670,10 @@
       "route_long_name": "Confederation",
       "connections": 349,
       "baseline_avg_eff_wait": 24.38,
-      "optimized_avg_eff_wait": 21.67,
-      "delta_minutes": -2.71,
-      "worse_off_connections": 107,
-      "worse_off_max_minutes": 29,
-      "worse_off": true
-    },
-    {
-      "route_short_name": "26",
-      "route_long_name": "Burnhamthorpe",
-      "connections": 469,
-      "baseline_avg_eff_wait": 24.08,
-      "optimized_avg_eff_wait": 21.44,
-      "delta_minutes": -2.64,
-      "worse_off_connections": 211,
-      "worse_off_max_minutes": 18,
-      "worse_off": true
-    },
-    {
-      "route_short_name": "43",
-      "route_long_name": "Matheson",
-      "connections": 56,
-      "baseline_avg_eff_wait": 26.68,
-      "optimized_avg_eff_wait": 24.25,
-      "delta_minutes": -2.43,
-      "worse_off_connections": 24,
-      "worse_off_max_minutes": 37,
+      "optimized_avg_eff_wait": 21.58,
+      "delta_minutes": -2.81,
+      "worse_off_connections": 166,
+      "worse_off_max_minutes": 32,
       "worse_off": true
     },
     {
@@ -12745,10 +12681,32 @@
       "route_long_name": "Dixie",
       "connections": 1129,
       "baseline_avg_eff_wait": 24.04,
-      "optimized_avg_eff_wait": 21.63,
-      "delta_minutes": -2.41,
-      "worse_off_connections": 594,
+      "optimized_avg_eff_wait": 21.28,
+      "delta_minutes": -2.76,
+      "worse_off_connections": 593,
       "worse_off_max_minutes": 31,
+      "worse_off": true
+    },
+    {
+      "route_short_name": "43",
+      "route_long_name": "Matheson",
+      "connections": 56,
+      "baseline_avg_eff_wait": 26.68,
+      "optimized_avg_eff_wait": 24.05,
+      "delta_minutes": -2.63,
+      "worse_off_connections": 26,
+      "worse_off_max_minutes": 36,
+      "worse_off": true
+    },
+    {
+      "route_short_name": "26",
+      "route_long_name": "Burnhamthorpe",
+      "connections": 469,
+      "baseline_avg_eff_wait": 24.08,
+      "optimized_avg_eff_wait": 21.67,
+      "delta_minutes": -2.41,
+      "worse_off_connections": 238,
+      "worse_off_max_minutes": 18,
       "worse_off": true
     },
     {
@@ -12756,21 +12714,21 @@
       "route_long_name": "McDowell",
       "connections": 12,
       "baseline_avg_eff_wait": 18.17,
-      "optimized_avg_eff_wait": 15.93,
-      "delta_minutes": -2.24,
-      "worse_off_connections": 6,
+      "optimized_avg_eff_wait": 15.85,
+      "delta_minutes": -2.32,
+      "worse_off_connections": 7,
       "worse_off_max_minutes": 4,
       "worse_off": true
     },
     {
-      "route_short_name": "36",
-      "route_long_name": "Ridgeway",
-      "connections": 20,
-      "baseline_avg_eff_wait": 29.66,
-      "optimized_avg_eff_wait": 27.57,
-      "delta_minutes": -2.09,
-      "worse_off_connections": 9,
-      "worse_off_max_minutes": 4,
+      "route_short_name": "17",
+      "route_long_name": "Hurontario",
+      "connections": 348,
+      "baseline_avg_eff_wait": 25.68,
+      "optimized_avg_eff_wait": 23.7,
+      "delta_minutes": -1.98,
+      "worse_off_connections": 69,
+      "worse_off_max_minutes": 25,
       "worse_off": true
     },
     {
@@ -12785,14 +12743,14 @@
       "worse_off": true
     },
     {
-      "route_short_name": "4",
-      "route_long_name": "North Service Road",
-      "connections": 18,
-      "baseline_avg_eff_wait": 24.87,
-      "optimized_avg_eff_wait": 23.05,
-      "delta_minutes": -1.82,
-      "worse_off_connections": 9,
-      "worse_off_max_minutes": 39,
+      "route_short_name": "71",
+      "route_long_name": "Sheridan",
+      "connections": 29,
+      "baseline_avg_eff_wait": 17.14,
+      "optimized_avg_eff_wait": 15.28,
+      "delta_minutes": -1.86,
+      "worse_off_connections": 5,
+      "worse_off_max_minutes": 5,
       "worse_off": true
     },
     {
@@ -12800,9 +12758,9 @@
       "route_long_name": "Eglinton",
       "connections": 1697,
       "baseline_avg_eff_wait": 17.84,
-      "optimized_avg_eff_wait": 16.09,
-      "delta_minutes": -1.75,
-      "worse_off_connections": 449,
+      "optimized_avg_eff_wait": 16,
+      "delta_minutes": -1.84,
+      "worse_off_connections": 418,
       "worse_off_max_minutes": 21,
       "worse_off": true
     },
@@ -12811,43 +12769,10 @@
       "route_long_name": "Erin Mills",
       "connections": 44,
       "baseline_avg_eff_wait": 18.82,
-      "optimized_avg_eff_wait": 17.26,
-      "delta_minutes": -1.55,
-      "worse_off_connections": 22,
-      "worse_off_max_minutes": 16,
-      "worse_off": true
-    },
-    {
-      "route_short_name": "51",
-      "route_long_name": "Tomken",
-      "connections": 36,
-      "baseline_avg_eff_wait": 23.19,
-      "optimized_avg_eff_wait": 21.68,
-      "delta_minutes": -1.5,
-      "worse_off_connections": 20,
-      "worse_off_max_minutes": 11,
-      "worse_off": true
-    },
-    {
-      "route_short_name": "61",
-      "route_long_name": "Mavis",
-      "connections": 859,
-      "baseline_avg_eff_wait": 19.75,
-      "optimized_avg_eff_wait": 18.32,
-      "delta_minutes": -1.43,
-      "worse_off_connections": 395,
-      "worse_off_max_minutes": 32,
-      "worse_off": true
-    },
-    {
-      "route_short_name": "45",
-      "route_long_name": "Winston Churchill",
-      "connections": 46,
-      "baseline_avg_eff_wait": 15.64,
-      "optimized_avg_eff_wait": 14.22,
-      "delta_minutes": -1.42,
-      "worse_off_connections": 22,
-      "worse_off_max_minutes": 26,
+      "optimized_avg_eff_wait": 17.02,
+      "delta_minutes": -1.8,
+      "worse_off_connections": 21,
+      "worse_off_max_minutes": 29,
       "worse_off": true
     },
     {
@@ -12855,10 +12780,54 @@
       "route_long_name": "Westwood",
       "connections": 110,
       "baseline_avg_eff_wait": 11.64,
-      "optimized_avg_eff_wait": 10.38,
-      "delta_minutes": -1.26,
-      "worse_off_connections": 21,
+      "optimized_avg_eff_wait": 10.03,
+      "delta_minutes": -1.61,
+      "worse_off_connections": 15,
       "worse_off_max_minutes": 18,
+      "worse_off": true
+    },
+    {
+      "route_short_name": "44",
+      "route_long_name": "Mississauga Road",
+      "connections": 40,
+      "baseline_avg_eff_wait": 20.05,
+      "optimized_avg_eff_wait": 18.54,
+      "delta_minutes": -1.51,
+      "worse_off_connections": 19,
+      "worse_off_max_minutes": 29,
+      "worse_off": true
+    },
+    {
+      "route_short_name": "51",
+      "route_long_name": "Tomken",
+      "connections": 36,
+      "baseline_avg_eff_wait": 23.19,
+      "optimized_avg_eff_wait": 21.73,
+      "delta_minutes": -1.46,
+      "worse_off_connections": 20,
+      "worse_off_max_minutes": 20,
+      "worse_off": true
+    },
+    {
+      "route_short_name": "61",
+      "route_long_name": "Mavis",
+      "connections": 859,
+      "baseline_avg_eff_wait": 19.75,
+      "optimized_avg_eff_wait": 18.48,
+      "delta_minutes": -1.28,
+      "worse_off_connections": 393,
+      "worse_off_max_minutes": 32,
+      "worse_off": true
+    },
+    {
+      "route_short_name": "4",
+      "route_long_name": "North Service Road",
+      "connections": 18,
+      "baseline_avg_eff_wait": 24.87,
+      "optimized_avg_eff_wait": 23.6,
+      "delta_minutes": -1.26,
+      "worse_off_connections": 9,
+      "worse_off_max_minutes": 39,
       "worse_off": true
     },
     {
@@ -12866,31 +12835,42 @@
       "route_long_name": "Meadowvale Express",
       "connections": 1642,
       "baseline_avg_eff_wait": 20.27,
-      "optimized_avg_eff_wait": 19.26,
-      "delta_minutes": -1.01,
-      "worse_off_connections": 603,
-      "worse_off_max_minutes": 20,
+      "optimized_avg_eff_wait": 19.07,
+      "delta_minutes": -1.2,
+      "worse_off_connections": 353,
+      "worse_off_max_minutes": 36,
       "worse_off": true
     },
     {
-      "route_short_name": "71",
-      "route_long_name": "Sheridan",
-      "connections": 29,
-      "baseline_avg_eff_wait": 17.14,
-      "optimized_avg_eff_wait": 16.23,
-      "delta_minutes": -0.91,
-      "worse_off_connections": 12,
-      "worse_off_max_minutes": 2,
+      "route_short_name": "20",
+      "route_long_name": "Rathburn",
+      "connections": 83,
+      "baseline_avg_eff_wait": 21.1,
+      "optimized_avg_eff_wait": 19.92,
+      "delta_minutes": -1.18,
+      "worse_off_connections": 44,
+      "worse_off_max_minutes": 31,
       "worse_off": true
     },
     {
-      "route_short_name": "1",
-      "route_long_name": "Dundas",
-      "connections": 766,
-      "baseline_avg_eff_wait": 17.25,
-      "optimized_avg_eff_wait": 16.4,
-      "delta_minutes": -0.86,
-      "worse_off_connections": 218,
+      "route_short_name": "74",
+      "route_long_name": "Explorer",
+      "connections": 22,
+      "baseline_avg_eff_wait": 29.21,
+      "optimized_avg_eff_wait": 28.15,
+      "delta_minutes": -1.06,
+      "worse_off_connections": 10,
+      "worse_off_max_minutes": 9,
+      "worse_off": true
+    },
+    {
+      "route_short_name": "3",
+      "route_long_name": "Bloor",
+      "connections": 839,
+      "baseline_avg_eff_wait": 19.03,
+      "optimized_avg_eff_wait": 18.16,
+      "delta_minutes": -0.87,
+      "worse_off_connections": 208,
       "worse_off_max_minutes": 20,
       "worse_off": true
     },
@@ -12906,69 +12886,14 @@
       "worse_off": true
     },
     {
-      "route_short_name": "44",
-      "route_long_name": "Mississauga Road",
-      "connections": 40,
-      "baseline_avg_eff_wait": 20.05,
-      "optimized_avg_eff_wait": 19.25,
+      "route_short_name": "1",
+      "route_long_name": "Dundas",
+      "connections": 766,
+      "baseline_avg_eff_wait": 17.25,
+      "optimized_avg_eff_wait": 16.45,
       "delta_minutes": -0.8,
-      "worse_off_connections": 16,
-      "worse_off_max_minutes": 18,
-      "worse_off": true
-    },
-    {
-      "route_short_name": "20",
-      "route_long_name": "Rathburn",
-      "connections": 83,
-      "baseline_avg_eff_wait": 21.1,
-      "optimized_avg_eff_wait": 20.37,
-      "delta_minutes": -0.73,
-      "worse_off_connections": 32,
-      "worse_off_max_minutes": 29,
-      "worse_off": true
-    },
-    {
-      "route_short_name": "3",
-      "route_long_name": "Bloor",
-      "connections": 839,
-      "baseline_avg_eff_wait": 19.03,
-      "optimized_avg_eff_wait": 18.43,
-      "delta_minutes": -0.6,
-      "worse_off_connections": 327,
-      "worse_off_max_minutes": 27,
-      "worse_off": true
-    },
-    {
-      "route_short_name": "74",
-      "route_long_name": "Explorer",
-      "connections": 22,
-      "baseline_avg_eff_wait": 29.21,
-      "optimized_avg_eff_wait": 28.73,
-      "delta_minutes": -0.48,
-      "worse_off_connections": 6,
-      "worse_off_max_minutes": 18,
-      "worse_off": true
-    },
-    {
-      "route_short_name": "53",
-      "route_long_name": "Kennedy",
-      "connections": 46,
-      "baseline_avg_eff_wait": 17.72,
-      "optimized_avg_eff_wait": 17.36,
-      "delta_minutes": -0.36,
-      "worse_off_connections": 22,
-      "worse_off_max_minutes": 39,
-      "worse_off": true
-    },
-    {
-      "route_short_name": "13",
-      "route_long_name": "Glen Erin",
-      "connections": 47,
-      "baseline_avg_eff_wait": 18.94,
-      "optimized_avg_eff_wait": 18.65,
-      "delta_minutes": -0.29,
-      "worse_off_connections": 20,
-      "worse_off_max_minutes": 12,
+      "worse_off_connections": 179,
+      "worse_off_max_minutes": 20,
       "worse_off": true
     },
     {
@@ -12976,21 +12901,21 @@
       "route_long_name": "Bristol",
       "connections": 58,
       "baseline_avg_eff_wait": 16.32,
-      "optimized_avg_eff_wait": 16.28,
-      "delta_minutes": -0.04,
-      "worse_off_connections": 27,
-      "worse_off_max_minutes": 29,
+      "optimized_avg_eff_wait": 15.72,
+      "delta_minutes": -0.6,
+      "worse_off_connections": 28,
+      "worse_off_max_minutes": 31,
       "worse_off": true
     },
     {
-      "route_short_name": "73",
-      "route_long_name": "Kamato",
-      "connections": 18,
-      "baseline_avg_eff_wait": 17.53,
-      "optimized_avg_eff_wait": 17.53,
-      "delta_minutes": 0,
-      "worse_off_connections": 4,
-      "worse_off_max_minutes": 5,
+      "route_short_name": "13",
+      "route_long_name": "Glen Erin",
+      "connections": 47,
+      "baseline_avg_eff_wait": 18.94,
+      "optimized_avg_eff_wait": 18.84,
+      "delta_minutes": -0.1,
+      "worse_off_connections": 18,
+      "worse_off_max_minutes": 36,
       "worse_off": true
     },
     {
@@ -12998,10 +12923,43 @@
       "route_long_name": "Malton Express",
       "connections": 65,
       "baseline_avg_eff_wait": 16.54,
-      "optimized_avg_eff_wait": 16.65,
-      "delta_minutes": 0.11,
-      "worse_off_connections": 26,
+      "optimized_avg_eff_wait": 16.67,
+      "delta_minutes": 0.13,
+      "worse_off_connections": 24,
       "worse_off_max_minutes": 20,
+      "worse_off": true
+    },
+    {
+      "route_short_name": "2",
+      "route_long_name": "Hurontario",
+      "connections": 532,
+      "baseline_avg_eff_wait": 17.45,
+      "optimized_avg_eff_wait": 17.63,
+      "delta_minutes": 0.18,
+      "worse_off_connections": 103,
+      "worse_off_max_minutes": 19,
+      "worse_off": true
+    },
+    {
+      "route_short_name": "108",
+      "route_long_name": "Financial Express",
+      "connections": 31,
+      "baseline_avg_eff_wait": 15.91,
+      "optimized_avg_eff_wait": 16.1,
+      "delta_minutes": 0.18,
+      "worse_off_connections": 7,
+      "worse_off_max_minutes": 36,
+      "worse_off": true
+    },
+    {
+      "route_short_name": "73",
+      "route_long_name": "Kamato",
+      "connections": 18,
+      "baseline_avg_eff_wait": 17.53,
+      "optimized_avg_eff_wait": 17.73,
+      "delta_minutes": 0.2,
+      "worse_off_connections": 5,
+      "worse_off_max_minutes": 9,
       "worse_off": true
     },
     {
@@ -13009,43 +12967,43 @@
       "route_long_name": "Eglinton Express",
       "connections": 71,
       "baseline_avg_eff_wait": 16.56,
-      "optimized_avg_eff_wait": 16.82,
-      "delta_minutes": 0.26,
-      "worse_off_connections": 34,
+      "optimized_avg_eff_wait": 16.86,
+      "delta_minutes": 0.29,
+      "worse_off_connections": 21,
       "worse_off_max_minutes": 20,
       "worse_off": true
     },
     {
-      "route_short_name": "46",
-      "route_long_name": "Tenth Line",
-      "connections": 28,
-      "baseline_avg_eff_wait": 23.37,
-      "optimized_avg_eff_wait": 23.7,
-      "delta_minutes": 0.32,
-      "worse_off_connections": 15,
-      "worse_off_max_minutes": 40,
+      "route_short_name": "53",
+      "route_long_name": "Kennedy",
+      "connections": 46,
+      "baseline_avg_eff_wait": 17.72,
+      "optimized_avg_eff_wait": 18.03,
+      "delta_minutes": 0.31,
+      "worse_off_connections": 17,
+      "worse_off_max_minutes": 39,
       "worse_off": true
     },
     {
-      "route_short_name": "6",
-      "route_long_name": "Credit Woodlands",
-      "connections": 40,
-      "baseline_avg_eff_wait": 24.77,
-      "optimized_avg_eff_wait": 25.22,
-      "delta_minutes": 0.45,
-      "worse_off_connections": 22,
-      "worse_off_max_minutes": 36,
+      "route_short_name": "45",
+      "route_long_name": "Winston Churchill",
+      "connections": 46,
+      "baseline_avg_eff_wait": 15.64,
+      "optimized_avg_eff_wait": 16.11,
+      "delta_minutes": 0.47,
+      "worse_off_connections": 16,
+      "worse_off_max_minutes": 38,
       "worse_off": true
     },
     {
-      "route_short_name": "38",
-      "route_long_name": "Creditview",
-      "connections": 48,
-      "baseline_avg_eff_wait": 19.03,
-      "optimized_avg_eff_wait": 19.51,
-      "delta_minutes": 0.48,
-      "worse_off_connections": 23,
-      "worse_off_max_minutes": 37,
+      "route_short_name": "23",
+      "route_long_name": "Lakeshore",
+      "connections": 18,
+      "baseline_avg_eff_wait": 15.51,
+      "optimized_avg_eff_wait": 16.04,
+      "delta_minutes": 0.52,
+      "worse_off_connections": 9,
+      "worse_off_max_minutes": 19,
       "worse_off": true
     },
     {
@@ -13055,30 +13013,19 @@
       "baseline_avg_eff_wait": 8.61,
       "optimized_avg_eff_wait": 9.16,
       "delta_minutes": 0.55,
-      "worse_off_connections": 17,
+      "worse_off_connections": 18,
       "worse_off_max_minutes": 20,
       "worse_off": true
     },
     {
-      "route_short_name": "25",
-      "route_long_name": "Traders Loop",
-      "connections": 12,
-      "baseline_avg_eff_wait": 18.76,
-      "optimized_avg_eff_wait": 19.59,
-      "delta_minutes": 0.83,
-      "worse_off_connections": 6,
-      "worse_off_max_minutes": 22,
-      "worse_off": true
-    },
-    {
-      "route_short_name": "23",
-      "route_long_name": "Lakeshore",
-      "connections": 18,
-      "baseline_avg_eff_wait": 15.51,
-      "optimized_avg_eff_wait": 16.35,
-      "delta_minutes": 0.84,
-      "worse_off_connections": 8,
-      "worse_off_max_minutes": 16,
+      "route_short_name": "46",
+      "route_long_name": "Tenth Line",
+      "connections": 28,
+      "baseline_avg_eff_wait": 23.37,
+      "optimized_avg_eff_wait": 24,
+      "delta_minutes": 0.62,
+      "worse_off_connections": 14,
+      "worse_off_max_minutes": 41,
       "worse_off": true
     },
     {
@@ -13086,65 +13033,21 @@
       "route_long_name": "Rathburn",
       "connections": 48,
       "baseline_avg_eff_wait": 16.27,
-      "optimized_avg_eff_wait": 17.24,
-      "delta_minutes": 0.96,
-      "worse_off_connections": 22,
-      "worse_off_max_minutes": 22,
+      "optimized_avg_eff_wait": 16.92,
+      "delta_minutes": 0.65,
+      "worse_off_connections": 23,
+      "worse_off_max_minutes": 56,
       "worse_off": true
     },
     {
-      "route_short_name": "108",
-      "route_long_name": "Financial Express",
-      "connections": 31,
-      "baseline_avg_eff_wait": 15.91,
-      "optimized_avg_eff_wait": 17.14,
-      "delta_minutes": 1.23,
-      "worse_off_connections": 11,
-      "worse_off_max_minutes": 37,
-      "worse_off": true
-    },
-    {
-      "route_short_name": "126",
-      "route_long_name": "Burnhamthorpe Express",
-      "connections": 48,
-      "baseline_avg_eff_wait": 18.54,
-      "optimized_avg_eff_wait": 19.81,
-      "delta_minutes": 1.27,
-      "worse_off_connections": 25,
-      "worse_off_max_minutes": 23,
-      "worse_off": true
-    },
-    {
-      "route_short_name": "2",
-      "route_long_name": "Hurontario",
-      "connections": 532,
-      "baseline_avg_eff_wait": 17.45,
-      "optimized_avg_eff_wait": 18.74,
-      "delta_minutes": 1.29,
-      "worse_off_connections": 183,
-      "worse_off_max_minutes": 22,
-      "worse_off": true
-    },
-    {
-      "route_short_name": "110",
-      "route_long_name": "University Express",
-      "connections": 58,
-      "baseline_avg_eff_wait": 17.79,
-      "optimized_avg_eff_wait": 19.09,
-      "delta_minutes": 1.3,
-      "worse_off_connections": 24,
-      "worse_off_max_minutes": 29,
-      "worse_off": true
-    },
-    {
-      "route_short_name": "7",
-      "route_long_name": "Airport",
-      "connections": 65,
-      "baseline_avg_eff_wait": 15.53,
-      "optimized_avg_eff_wait": 16.99,
-      "delta_minutes": 1.46,
-      "worse_off_connections": 36,
-      "worse_off_max_minutes": 31,
+      "route_short_name": "25",
+      "route_long_name": "Traders Loop",
+      "connections": 12,
+      "baseline_avg_eff_wait": 18.76,
+      "optimized_avg_eff_wait": 19.53,
+      "delta_minutes": 0.77,
+      "worse_off_connections": 5,
+      "worse_off_max_minutes": 20,
       "worse_off": true
     },
     {
@@ -13152,43 +13055,32 @@
       "route_long_name": "Britannia",
       "connections": 58,
       "baseline_avg_eff_wait": 18.01,
-      "optimized_avg_eff_wait": 19.75,
-      "delta_minutes": 1.74,
-      "worse_off_connections": 24,
-      "worse_off_max_minutes": 28,
+      "optimized_avg_eff_wait": 19.02,
+      "delta_minutes": 1.01,
+      "worse_off_connections": 32,
+      "worse_off_max_minutes": 30,
       "worse_off": true
     },
     {
-      "route_short_name": "8",
-      "route_long_name": "Cawthra",
-      "connections": 44,
-      "baseline_avg_eff_wait": 15.11,
-      "optimized_avg_eff_wait": 17.51,
-      "delta_minutes": 2.4,
-      "worse_off_connections": 25,
-      "worse_off_max_minutes": 33,
+      "route_short_name": "7",
+      "route_long_name": "Airport",
+      "connections": 65,
+      "baseline_avg_eff_wait": 15.53,
+      "optimized_avg_eff_wait": 16.66,
+      "delta_minutes": 1.13,
+      "worse_off_connections": 34,
+      "worse_off_max_minutes": 31,
       "worse_off": true
     },
     {
-      "route_short_name": "101",
-      "route_long_name": "Dundas Express",
-      "connections": 57,
-      "baseline_avg_eff_wait": 10.66,
-      "optimized_avg_eff_wait": 13.07,
-      "delta_minutes": 2.41,
-      "worse_off_connections": 25,
-      "worse_off_max_minutes": 26,
-      "worse_off": true
-    },
-    {
-      "route_short_name": "70",
-      "route_long_name": "Keaton",
-      "connections": 34,
-      "baseline_avg_eff_wait": 13.33,
-      "optimized_avg_eff_wait": 16.08,
-      "delta_minutes": 2.75,
-      "worse_off_connections": 14,
-      "worse_off_max_minutes": 21,
+      "route_short_name": "38",
+      "route_long_name": "Creditview",
+      "connections": 48,
+      "baseline_avg_eff_wait": 19.03,
+      "optimized_avg_eff_wait": 20.25,
+      "delta_minutes": 1.22,
+      "worse_off_connections": 16,
+      "worse_off_max_minutes": 36,
       "worse_off": true
     },
     {
@@ -13196,10 +13088,76 @@
       "route_long_name": "Terragar-Copenhagen Loop",
       "connections": 20,
       "baseline_avg_eff_wait": 13.84,
-      "optimized_avg_eff_wait": 16.88,
-      "delta_minutes": 3.04,
-      "worse_off_connections": 12,
-      "worse_off_max_minutes": 40,
+      "optimized_avg_eff_wait": 15.08,
+      "delta_minutes": 1.24,
+      "worse_off_connections": 13,
+      "worse_off_max_minutes": 41,
+      "worse_off": true
+    },
+    {
+      "route_short_name": "101",
+      "route_long_name": "Dundas Express",
+      "connections": 57,
+      "baseline_avg_eff_wait": 10.66,
+      "optimized_avg_eff_wait": 12.19,
+      "delta_minutes": 1.53,
+      "worse_off_connections": 16,
+      "worse_off_max_minutes": 20,
+      "worse_off": true
+    },
+    {
+      "route_short_name": "6",
+      "route_long_name": "Credit Woodlands",
+      "connections": 40,
+      "baseline_avg_eff_wait": 24.77,
+      "optimized_avg_eff_wait": 26.31,
+      "delta_minutes": 1.54,
+      "worse_off_connections": 21,
+      "worse_off_max_minutes": 35,
+      "worse_off": true
+    },
+    {
+      "route_short_name": "126",
+      "route_long_name": "Burnhamthorpe Express",
+      "connections": 48,
+      "baseline_avg_eff_wait": 18.54,
+      "optimized_avg_eff_wait": 20.09,
+      "delta_minutes": 1.55,
+      "worse_off_connections": 25,
+      "worse_off_max_minutes": 24,
+      "worse_off": true
+    },
+    {
+      "route_short_name": "110",
+      "route_long_name": "University Express",
+      "connections": 58,
+      "baseline_avg_eff_wait": 17.79,
+      "optimized_avg_eff_wait": 20.05,
+      "delta_minutes": 2.26,
+      "worse_off_connections": 31,
+      "worse_off_max_minutes": 29,
+      "worse_off": true
+    },
+    {
+      "route_short_name": "70",
+      "route_long_name": "Keaton",
+      "connections": 34,
+      "baseline_avg_eff_wait": 13.33,
+      "optimized_avg_eff_wait": 15.68,
+      "delta_minutes": 2.35,
+      "worse_off_connections": 10,
+      "worse_off_max_minutes": 21,
+      "worse_off": true
+    },
+    {
+      "route_short_name": "8",
+      "route_long_name": "Cawthra",
+      "connections": 44,
+      "baseline_avg_eff_wait": 15.11,
+      "optimized_avg_eff_wait": 17.53,
+      "delta_minutes": 2.41,
+      "worse_off_connections": 19,
+      "worse_off_max_minutes": 33,
       "worse_off": true
     }
   ],
