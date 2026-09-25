@@ -1,9 +1,9 @@
 {
-  "captured_at": "2026-09-25T21:40:58.077Z",
+  "captured_at": "2026-09-25T21:53:56.934Z",
   "vintage": "feed 2026-08-05 → 2026-10-25 · captured 2026-09-25",
   "source": "http://127.0.0.1:8000",
   "provenance": {
-    "showcase_commit": "98dd71a",
+    "showcase_commit": "b25e275",
     "showcase_url": "https://github.com/Tapl1338/miway-findings",
     "dataset_doi": "10.5281/zenodo.22820449",
     "dataset_url": "https://doi.org/10.5281/zenodo.22820449"
