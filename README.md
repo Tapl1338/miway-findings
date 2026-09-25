@@ -4,7 +4,7 @@ An independent, student-run measurement project. Built summer 2026, running 24/7
 
 **The question:** MiWay publishes a timetable and a real-time feed. How well does the actual service match what riders are promised — and what would a small, data-driven re-timing buy them?
 
-**The instrument:** a full-stack analytics platform (Python/FastAPI/React) that polls the GTFS + GTFS-RT feeds every 30 seconds, around the clock, on a cloud VPS I administer. As of September 2026 it has logged **82,000+ polls at 99.16% success** and captured **5.5M+ unique scheduled bus departures** for measurement.
+**The instrument:** a full-stack analytics platform (Python/FastAPI/React) that polls the GTFS + GTFS-RT feeds every 30 seconds, around the clock, on a cloud VPS I administer. As of September 2026 it has logged **85,000+ polls at 99.1% success** and captured **5.7M+ unique scheduled bus departures** for measurement.
 
 ---
 
@@ -65,6 +65,10 @@ The centerpiece is a constraint optimizer (OR-Tools CP-SAT, ~900 lines — [solv
 | Rider waiting | 88,750 pax-min | 79,036 pax-min (**~9,700/day saved**) |
 
 It wins on 100% of 500 simulated days. **The gains are modeled, not field-proven** — the honest framing is "conservative, pending a real-world pilot," and that sentence appears wherever the number does. Full analysis: [councillor brief](docs/councillor-brief.md).
+
+## Headline evidence: the Sept 7 backtest
+
+**[Backtest: the optimizer's pre-registered recommendations vs. MiWay's actual Sept 7 change](docs/exhibits/backtest-sept7-onepager.md)** — a before/after audit with the rules locked and the prediction file committed publicly on 2026-08-24, two weeks before the post-change data existed: of 42 scored routes, 5 matched within ±3 min including the announced route 8 (recommended +5.0 min, actual +6.91), and the structural finding is that **re-timing and capacity are substitute levers** — MiWay's real budget bought headway surgery (70 of 84 changed cells changed trip counts), not clock-shifting. Full exhibit: [docs/exhibits/backtest-sept7-onepager.md](docs/exhibits/backtest-sept7-onepager.md).
 
 ## Findings in depth
 
