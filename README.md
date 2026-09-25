@@ -66,6 +66,10 @@ The centerpiece is a constraint optimizer (OR-Tools CP-SAT, ~900 lines — [solv
 
 It wins on 100% of 500 simulated days. **The gains are modeled, not field-proven** — the honest framing is "conservative, pending a real-world pilot," and that sentence appears wherever the number does. Full analysis: [councillor brief](docs/councillor-brief.md).
 
+## Headline evidence: the Sept 7 backtest
+
+**[Backtest: the optimizer's pre-registered recommendations vs. MiWay's actual Sept 7 change](docs/exhibits/backtest-sept7-onepager.md)** — a before/after audit with the rules locked and the prediction file committed publicly on 2026-08-24, two weeks before the post-change data existed: of 42 scored routes, 5 matched within ±3 min including the announced route 8 (recommended +5.0 min, actual +6.91), and the structural finding is that **re-timing and capacity are substitute levers** — MiWay's real budget bought headway surgery (70 of 84 changed cells changed trip counts), not clock-shifting. Full exhibit: [docs/exhibits/backtest-sept7-onepager.md](docs/exhibits/backtest-sept7-onepager.md).
+
 ## Findings in depth
 
 The headline numbers above rest on full evidence tables — published, not summarized away:
