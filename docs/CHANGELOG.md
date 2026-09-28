@@ -84,7 +84,9 @@ collapsed into the user-visible change they produced.
 
 ---
 
-## Week of Sept 21–27, 2026 (in progress)
+## Week of Sept 28 – Oct 4, 2026 (in progress)
+
+## Week of Sept 21–27, 2026
 
 ### Added
 - **v1.1 five-view demo consolidation** — the 19-view surface collapsed
@@ -103,6 +105,11 @@ collapsed into the user-visible change they produced.
 - **Promotion-freshness gate** — nightly check flags any public doc whose
   private twin was regenerated after its last promotion, closing the
   twin-drift window the existing content gate can't see.
+- **v6 findings snapshot frozen** (Sept 21–27) — third post-change week:
+  ghost rate 1 in 235, early departures 22.1%, collected through the
+  project's worst instrumentation week (a 23.5h cloud-box outage, then a
+  stalled sync channel) with every caveat stamped pre-publication
+  ([v6](findings/findings-v6-sept21-27.md)).
 
 ### Fixed
 - Demo trip-check crash: any API failure 404'd the whole app in demo mode —
