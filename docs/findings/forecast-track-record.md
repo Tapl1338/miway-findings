@@ -27,7 +27,7 @@
 ## Forecast 1 — September 7 changeover (the service-change test)
 
 **Registered:** 2026-09-05 (before the change) · [pre-registration](../pre-registration-sept7.md) ·
-**Scored FINAL 2026-09-22** from the frozen receipt (11 post-change weekdays, ≥10 rule met; Sept 7 was Labour Day and correctly excluded): `sept7-scorecard-verdict-20260922.md` (private-repo receipt, published values below).
+**Scored FINAL 2026-09-22** from the frozen receipt (11 post-change weekdays, ≥10 rule met; Sept 7 was Labour Day and correctly excluded): [full scorecard receipt](sept7-scorecard-verdict.md) — published verbatim from `sept7-scorecard-verdict-20260922.md` (private-repo receipt), values also below.
 
 | Band | Prediction | Verdict (FINAL) |
 |---|---|---|
