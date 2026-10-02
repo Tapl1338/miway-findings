@@ -1,0 +1,17 @@
+<!-- MiWay Transit Optimizer icon: a transit-shelter signpost glyph —
+     route line (accent blue) crossing a stop pole (optimized green dot)
+     on the app's dark card background. Uses only the design-system
+     palette from src/index.css so the icon matches the app everywhere
+     it renders (tab, splash, installed app grid). -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="96" fill="#1E1E1E"/>
+  <!-- route line -->
+  <path d="M96 352 C 176 352, 208 208, 288 176 S 400 144, 432 160"
+        fill="none" stroke="#4FC3F7" stroke-width="28"
+        stroke-linecap="round"/>
+  <!-- stop pole -->
+  <rect x="240" y="112" width="24" height="288" rx="12" fill="#EDEDED"/>
+  <!-- waiting rider / stop marker -->
+  <circle cx="252" cy="128" r="44" fill="#00E676"/>
+  <circle cx="252" cy="128" r="20" fill="#121212"/>
+</svg>
