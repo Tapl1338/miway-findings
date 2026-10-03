@@ -144,11 +144,31 @@ Before the September 7 schedule change, I committed to falsifiable predictions �
 
 The findings went to the Ward 9 Councillor's office in August 2026, which **formally referred them to MiWay staff for review** (ongoing).
 
+## Timeline and method
+
+**July 2026 — prototype.** The first working version was an exploratory build, scoped to a single question: can a published timetable be checked against what the buses actually do?
+
+**August 23, 2026 — continuous collection begins.** The collector started its unbroken run on this date, and every telemetry figure in this repository is dated from it. The instrument polls the GTFS + GTFS-RT feeds **every 30 seconds, around the clock** — the collection interval is a code default, not a description. That density is what makes the analysis possible at all: headway bunching, a three-minute gap between two buses, a route drifting off its slot — each is a signal in a 30-second series and invisible in an hourly one.
+
+**September 7, 2026 — the schedule change.** MiWay's published timetable changed. This is the project's scored event: the predictions were frozen beforehand, so the measurement could not curve-fit to the answer.
+
+**October 2026 — to date:** 95,000+ polls at 99.2% success, 6.5M+ unique scheduled departures measured.
+
+The method is deliberately unglamorous: pin the feed vintage, keep the raw rows, stamp bad rows rather than deleting them, and re-derive every published number from the frozen artifacts. More than one finding here exists because an earlier version of my own analysis was wrong and got corrected on the record.
+
+## Test suite
+
+The measurement code is held to **1,400+ backend unit and property-based tests across 160 test modules**. Property-based tests assert invariants over generated inputs rather than fixed examples — that is how the deduplication and drift-detection logic earned its edge-case coverage. The complete matrix is **1,644 collected tests**; the push gate runs 1,495 of them and excludes the `slow`-marked solver tests.
+
+A scrubbed copy of **157 of those 160 modules** is published in [`tests/`](tests), so the claims above can be audited rather than taken on trust. Three modules are withheld: their fixtures encode private-tooling details (local filesystem paths, third-party names) that do not belong in a public repository, and they test the leak-guard and promotion-gate tooling rather than the transit analysis.
+
+One caveat stated plainly: **the published tree is not runnable standalone.** 141 of the 160 modules import the private platform package, which stays private while the pilot work continues. The tests are here to be read and audited, not executed — a CI badge over this subset would report a misleading number, so there isn't one.
+
 ## Reproducibility
 
 Read [how every number is measured](docs/findings/methodology.md) — the data, the pipelines, and the four verification layers behind every figure.
 
-Every figure in the snapshots regenerates from frozen artifacts: SHA-256 evidence manifests, dedup rules pinned as code constants, and regeneration commands in each snapshot's header. 1,100+ backend tests with a CI-enforced coverage floor run on the analysis code. The full platform source remains private while I finish the pilot work; this repository contains the evidence layer.
+Every figure in the snapshots regenerates from frozen artifacts: SHA-256 evidence manifests, dedup rules pinned as code constants, and regeneration commands in each snapshot's header. The analysis behind these findings is covered by the 1,400+ backend tests described above. The full platform source remains private while I finish the pilot work; this repository contains the evidence layer and an auditable subset of the tests.
 
 ---
 
