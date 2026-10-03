@@ -1,6 +1,6 @@
 # Backtest Layers A & C — mechanical re-derivation of the Sept-7 pre-registration
 
-Generated 2026-09-24T22:56:55.231243+00:00. Bands quoted verbatim from the frozen pre-registration; no band adjusted to fit an outcome.
+Generated 2026-10-03T00:23:30.090756+00:00. Bands quoted verbatim from the frozen pre-registration; no band adjusted to fit an outcome.
 
 | Layer | Metric | Band (frozen) | Measured | Verdict |
 |---|---|---|---|---|

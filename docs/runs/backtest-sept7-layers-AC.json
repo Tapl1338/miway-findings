@@ -1,5 +1,5 @@
 {
-  "generated_utc": "2026-09-24T22:56:55.231243+00:00",
+  "generated_utc": "2026-10-03T00:23:30.090756+00:00",
   "rules_source": "docs/runs/pre-registration-sept7.md (frozen 2026-08-24); bands verbatim",
   "artifacts": {
     "earliness": "backend/app/data/obs_lateness.csv (live mirror; window-filtered)",
