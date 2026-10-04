@@ -2,7 +2,7 @@
 
 Each figure below is registered in the project's claim registry with the artifact it comes from and the command that re-derives it. The same registry is enforced on every code change by an automated gate, so a figure cannot drift away from its evidence without a build failing.
 
-Registry as of **2026-10-02** — 16 registered claims.
+Registry as of **2026-10-04** — 16 registered claims.
 
 **Two kinds of evidence, stated plainly.**
 
@@ -136,7 +136,7 @@ python -c "import json;print(json.load(open('docs/exec-summary.json',encoding='u
 
 ---
 
-## 5. early departures 62% â†’ 39%, 2.5Ã— the no-school control
+## 5. early departures 62.3% → 38.9%, 2.5× the no-school control
 
 * **Registry id:** `retime-school-stop-win`
 * **Gate type:** `exact` — ±1% — the résumé figure must be within this of the artifact
@@ -169,7 +169,7 @@ grep -n '62\.3%\|38\.9%\|9\.5 pp' docs/findings/school-stop-retime-win.md
 
 **Where it comes from**
 
-docs/findings/findings-v5-sept14-20.md (frozen 2026-09-21): 109 of 29,605 verifiable trips, Sept 14-20 = 1 in 272. Second consecutive frozen week (v4: 121 of 30,848 = 1 in 255). FINAL scorecard receipt exists (docs/runs/sept7-scorecard-verdict-20260922.md, scored 2026-09-22): the interim qualifier requirement is LIFTED â€” 'first week / held second week' wording stays as description, no longer as a hedge.
+docs/findings/findings-v5-sept14-20.md (frozen 2026-09-21): 109 of 29,605 verifiable trips, Sept 14-20 = 1 in 272. Second consecutive frozen week (v4: 121 of 30,848 = 1 in 255). FINAL scorecard receipt exists (docs/runs/sept7-scorecard-verdict-20260922.md, scored 2026-09-22): the interim qualifier requirement is LIFTED — 'first week / held second week' wording stays as description, no longer as a hedge.
 
 **Check it yourself — public**
 
@@ -193,7 +193,7 @@ grep -o '\*\*[0-9]* of [0-9,]* verifiable' docs/findings/findings-v5-sept14-20.m
 
 **Where it comes from**
 
-Live DOI resolution (verified 2026-09-20: doi.org -> zenodo.org/records/22820449, deposit contains 3,601,272-row corpus + 250k sample). Network check; CI runs it with a 10s timeout and skips (not fails) on network absence â€” a dead DOI is a manual-page, not a build breaker
+Live DOI resolution (verified 2026-09-20: doi.org -> zenodo.org/records/22820449, deposit contains 3,601,272-row corpus + 250k sample). Network check; CI runs it with a 10s timeout and skips (not fails) on network absence — a dead DOI is a manual-page, not a build breaker
 
 **Check it yourself — public**
 
@@ -215,16 +215,16 @@ curl -sIL -o /dev/null -w '%{url_effective} %{http_code}\n' https://doi.org/10.5
 
 ---
 
-## 8. 1,300+ backend tests
+## 8. 1,400+ backend tests
 
 * **Registry id:** `backend-tests-1300-plus`
 * **Gate type:** `min` — a floor — the artifact must be **at or above** it
-* **Registered value:** `1,300`
+* **Registered value:** `1,400`
 * **Gate status when this page was built:** `OK`
 
 **Where it comes from**
 
-Count of '^def test_' functions under backend/tests: 1,305 (2026-09-23). Floor 1,300 holds with headroom. History: 1,100+ floor -> 1,200 (2026-09-22, live 1,294) -> 1,300 (2026-09-23, live 1,305) after the T158/T159 work landed.
+Count of '^def test_' functions under backend/tests: 1,447 (2026-10-03). Floor 1,400 holds with headroom. History: 1,100+ floor -> 1,200 (2026-09-22) -> 1,300 (2026-09-23, live 1,305) -> 1,400 (2026-10-03, live 1,447)
 
 **Re-derivation command — requires the measurement platform**
 
