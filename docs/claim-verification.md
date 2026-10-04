@@ -54,9 +54,16 @@ python update_departure_floor.py --check   # prints unique departures + floor
 
 Sum of n_observations in backend/app/data/occupancy_stats.csv (verified 4,990,668 on 2026-09-18; frozen artifact, stable)
 
-**Re-derivation command — requires the measurement platform**
+**Check it yourself — public**
 
-*This artifact is not published in this repository.*
+Source: [`data/occupancy_stats.csv`](../data/occupancy_stats.csv)  
+Run from the root of this repository:
+
+```bash
+python -c "import csv;print(sum(int(float(r['n_observations'])) for r in csv.DictReader(open('data/occupancy_stats.csv',newline='',encoding='utf-8'))))"
+```
+
+**Re-derivation command — requires the measurement platform**
 
 Source: `backend/app/data/occupancy_stats.csv`  
 Run from the root of the platform repository:
@@ -78,9 +85,16 @@ python -c "import csv;print(sum(int(float(r['n_observations'])) for r in csv.Dic
 
 Row count and distinct route count of backend/app/data/ground_truth.csv (verified 399 / 14 on 2026-09-20; frozen audit artifact)
 
-**Re-derivation command — requires the measurement platform**
+**Check it yourself — public**
 
-*This artifact is not published in this repository.*
+Source: [`data/ground_truth.csv`](../data/ground_truth.csv)  
+Run from the root of this repository:
+
+```bash
+python -c "import csv;rs=list(csv.DictReader(open('data/ground_truth.csv',newline='',encoding='utf-8')));ks={r.get('route_short_name') or r.get('route','') for r in rs}-{''};print(len(rs),'check-ins across',len(ks),'routes')"
+```
+
+**Re-derivation command — requires the measurement platform**
 
 Source: `backend/app/data/ground_truth.csv`  
 Run from the root of the platform repository:
@@ -102,9 +116,16 @@ python -c "import csv;rs=list(csv.DictReader(open('backend/app/data/ground_truth
 
 docs/exec-summary.json result.saved_pax_minutes (9,714.6 at basis miss_model=july, 20260911). NOTE: per check_readme_headline.py, this headline must cite the miss model; the resume's 'modeled ... reported conservatively' phrasing is the approved form
 
-**Re-derivation command — requires the measurement platform**
+**Check it yourself — public**
 
-*This artifact is not published in this repository.*
+Source: [`data/exec-summary.json`](../data/exec-summary.json)  
+Run from the root of this repository:
+
+```bash
+python -c "import json;print(json.load(open('data/exec-summary.json',encoding='utf-8'))['result']['saved_pax_minutes'])"
+```
+
+**Re-derivation command — requires the measurement platform**
 
 Source: `docs/exec-summary.json`  
 Run from the root of the platform repository:
@@ -253,16 +274,16 @@ sed -n '/export const SHELLS/,/ALL_SECTIONS/p' frontend/src/lib/viewConfig.ts | 
 
 docs/runs/FQ8-montecarlo-verdict-20260830.md frozen verdict (500/500 simulated days; NEVER quote the banned 74%/50-day fossil)
 
-**Re-derivation command — requires the measurement platform**
+**Check it yourself — public**
 
-*This artifact is not published in this repository.*
-
-Source: `docs/runs/FQ8-montecarlo-verdict-20260830.md`  
-Run from the root of the platform repository:
+Source: [`docs/runs/FQ8-montecarlo-verdict-20260830.md`](runs/FQ8-montecarlo-verdict-20260830.md)  
+Run from the root of this repository:
 
 ```bash
 grep -n '500\|100%' docs/runs/FQ8-montecarlo-verdict-20260830.md
 ```
+
+*(Same path and same command in the measurement platform's own repository, so it is not repeated here.)*
 
 ---
 
@@ -380,16 +401,16 @@ python -c "import json;n=json.load(open('docs/runs/backtest-sept7-actual-change.
 
 docs/runs/uptime-2026-09.md frozen report must contain the coverage line (95.8%, 23/24 FULL days); re-derivable via scripts/uptime_report.py --month 2026-09
 
-**Re-derivation command — requires the measurement platform**
+**Check it yourself — public**
 
-*This artifact is not published in this repository.*
-
-Source: `docs/runs/uptime-2026-09.md`  
-Run from the root of the platform repository:
+Source: [`docs/runs/uptime-2026-09.md`](runs/uptime-2026-09.md)  
+Run from the root of this repository:
 
 ```bash
 grep -nE '95\.8%|23/24\ FULL\ days' docs/runs/uptime-2026-09.md
 ```
+
+*(Same path and same command in the measurement platform's own repository, so it is not repeated here.)*
 
 ---
 
@@ -427,5 +448,5 @@ test -f backend/scripts/collect_ttc.py && echo present
 
 The gate also fails when a registered claim stops appearing on the résumé, and when a **retired** figure reappears — numbers that were once true and are now behind (an earlier test-count floor, a superseded departures floor, my own first, wrong ghost-trip estimate) are on an explicit deny-list.
 
-**7 of 16** claims can be checked from this repository alone. The rest are re-derived by the gate against the platform.
+**12 of 16** claims can be checked from this repository alone. The rest are re-derived by the gate against the platform.
 

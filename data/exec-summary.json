@@ -1,0 +1,123 @@
+{
+  "period": "All Day",
+  "volume_mode": "ridership",
+  "basis": {
+    "miss_model": "july",
+    "service_date": "20260911",
+    "same_terminal_walk": false,
+    "generated_utc": "2026-09-19T23:48:19Z"
+  },
+  "params": {
+    "period": "all_day",
+    "volume_mode": "ridership",
+    "max_shift_minutes": 5.0,
+    "buffer_minutes": 2.0,
+    "t_max_minutes": 12,
+    "max_connections": 6000,
+    "time_limit_seconds": 120
+  },
+  "generated_with": "scripts/exec_summary.py --period all_day --volume-mode ridership --max-shift 5 --buffer 2 --time-limit 120 --miss-model july --max-connections 6000",
+  "solver_status": "OPTIMAL",
+  "result": {
+    "total_connections": 6000,
+    "window_clock": "06:00-22:00",
+    "base_avg_wait": 19.12,
+    "opt_avg_wait": 17.42,
+    "base_missed": 2916,
+    "opt_missed": 2465,
+    "base_health": 51.4,
+    "opt_health": 58.9,
+    "base_pax_minutes": 88750.1,
+    "opt_pax_minutes": 79035.5,
+    "saved_pax_minutes": 9714.6,
+    "base_avg_wait_weighted": 19.18,
+    "opt_avg_wait_weighted": 17.08,
+    "flip_threshold": null,
+    "movable_routes": 57,
+    "frozen_routes": 0
+  },
+  "money": {
+    "daily_ridership_baseline": 189654,
+    "routes_moved": 42,
+    "riders_on_moved_routes": 137815,
+    "ridership_gain_pct": 1.89,
+    "ridership_gain_pct_lo": 0.38,
+    "ridership_gain_pct_hi": 10.2,
+    "new_riders_per_day": 3584.5,
+    "new_riders_per_day_lo": 720.7,
+    "new_riders_per_day_hi": 19344.7,
+    "farebox_per_year": 3274405,
+    "farebox_per_year_lo": 658346,
+    "farebox_per_year_hi": 17671391,
+    "wait_value_per_day": 5829,
+    "wait_value_per_year": 1521306,
+    "ridership_source": "MiWay 2024 Report to the Community (APC)",
+    "ridership_period": "October 2024 board period",
+    "ridership_routes_real": 10,
+    "ridership_routes_estimated": 47,
+    "ridership_real_daily": 84969,
+    "ridership_estimated_daily": 104685,
+    "ridership_estimate_source": "calibrated estimate (scripts/build_ridership_dataset.py)",
+    "assumptions": {
+      "avg_fare": 3.5,
+      "value_of_time_per_hour": 12.0,
+      "wait_time_premium": 3.0,
+      "days_per_year": 261
+    }
+  },
+  "pilot": [
+    {
+      "route": "6",
+      "delta_minutes": -10.8,
+      "connections": 63,
+      "boardings": 3701,
+      "worse_off_connections": 31
+    },
+    {
+      "route": "9",
+      "delta_minutes": -10.73,
+      "connections": 84,
+      "boardings": 3723,
+      "worse_off_connections": 29
+    },
+    {
+      "route": "16",
+      "delta_minutes": -9.65,
+      "connections": 13,
+      "boardings": 1191,
+      "worse_off_connections": 3
+    }
+  ],
+  "sensitivity": [
+    {
+      "mean_lateness_min": 1.0,
+      "base_missed": 3995.7,
+      "opt_missed": 3226.9,
+      "base_missed_minutes": 48751.0,
+      "opt_missed_minutes": 37655.8,
+      "saved_minutes": 11095.3
+    },
+    {
+      "mean_lateness_min": 2.0,
+      "base_missed": 3862.1,
+      "opt_missed": 3357.9,
+      "base_missed_minutes": 46652.8,
+      "opt_missed_minutes": 39200.7,
+      "saved_minutes": 7452.1
+    },
+    {
+      "mean_lateness_min": 3.0,
+      "base_missed": 3829.2,
+      "opt_missed": 3512.2,
+      "base_missed_minutes": 45797.9,
+      "opt_missed_minutes": 40963.5,
+      "saved_minutes": 4834.5
+    }
+  ],
+  "input_fingerprints": {
+    "ridership.csv": "sha256:aec2af02e0389917 (9,583 B)",
+    "boardings_daily.csv": "sha256:661ff74449a664c5 (657,133 B)",
+    "obs_lateness.csv": "sha256:2ef8206039d857f6 (177,730,508 B)",
+    "gtfs\\google_transit.zip": "sha256:f43fb0a9de891dbd (8,007,292 B)"
+  }
+}
