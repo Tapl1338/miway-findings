@@ -166,6 +166,8 @@ One caveat stated plainly: **the published tree is not runnable standalone.** 14
 
 ## Reproducibility
 
+**Check any number yourself:** [docs/claim-verification.md](docs/claim-verification.md) lists every headline figure, the artifact it comes from, and the exact command that re-derives it - with the ones you can run in *this* repository marked separately from the ones that need the running platform.
+
 Read [how every number is measured](docs/findings/methodology.md) — the data, the pipelines, and the four verification layers behind every figure.
 
 Every figure in the snapshots regenerates from frozen artifacts: SHA-256 evidence manifests, dedup rules pinned as code constants, and regeneration commands in each snapshot's header. The analysis behind these findings is covered by the 1,400+ backend tests described above. The full platform source remains private while I finish the pilot work; this repository contains the evidence layer and an auditable subset of the tests.
