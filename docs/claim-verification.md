@@ -2,14 +2,14 @@
 
 Each figure below is registered in the project's claim registry with the artifact it comes from and the command that re-derives it. The same registry is enforced on every code change by an automated gate, so a figure cannot drift away from its evidence without a build failing.
 
-Registry as of **2026-10-04** — 16 registered claims.
+Registry as of **2026-10-04** — 18 registered claims.
 
 **Two kinds of evidence, stated plainly.**
 
 * **Publicly checkable** — either the artifact is in this repository, or it is a public web resource (a citable DOI). You can run the command yourself and get the number, right now, with no access to anything private.
 * **Requires the instrument** — the figure comes from the running measurement platform (a collector that polls a transit feed around the clock, and the application built on top of it). Those artifacts are not published here, so I am telling you which command re-derives them rather than pretending you could run it.
 
-**Gate status at generation time:** 16/16 claims re-derived from their artifacts.
+**Gate status at generation time:** 18/18 claims re-derived from their artifacts.
 
 **Check all of them at once**, in the platform repository:
 
@@ -318,7 +318,7 @@ python -c "import json;d=json.load(open('docs/equity-report.json',encoding='utf-
 
 ---
 
-## 12. backtested the optimizer against the real Sept 7 service change: 5 of 42 pre-registered recommendations matched MiWay's actual re-timing (1 in 6 directional agreement)
+## 12. backtested the optimizer against the real Sept 7 service change under pre-registered rules: 5 of 42 scored routes matched within ±3 min (11.9%); 7 of 42 (16.7%) agreed on direction
 
 * **Registry id:** `backtest-agreement-1-in-6`
 * **Gate type:** `exact` — none — the résumé figure must match the artifact exactly
@@ -327,7 +327,7 @@ python -c "import json;d=json.load(open('docs/equity-report.json',encoding='utf-
 
 **Where it comes from**
 
-docs/runs/backtest-sept7-matches.json lift_summary.matches = 5 (of 42 scored; near-misses 2 -> 1-in-6 directional; rules pre-registered in backtest-sept7-plan.md)
+docs/runs/backtest-sept7-matches.json lift_summary.matches = 5 of scored_recommendations 42 (hit_rate 0.119); near_misses 2 -> 7 of 42 = 16.7% same-direction (rules pre-registered in backtest-sept7-plan.md). Both halves of the sentence are registered separately so neither can be dropped unnoticed.
 
 **Check it yourself — public**
 
@@ -342,7 +342,55 @@ python -c "import json;n=json.load(open('docs/runs/backtest-sept7-matches.json',
 
 ---
 
-## 13. predicted route 8's re-timing within 1.9 minutes (announced route; recommended +5.0 min, MiWay shipped +6.91)
+## 13. 5 of 42 pre-registered recommendations matched within ±3 min (11.9%)
+
+* **Registry id:** `backtest-hit-rate-11-9-pct`
+* **Gate type:** `exact` — none — the résumé figure must match the artifact exactly
+* **Registered value:** `0.119`
+* **Gate status when this page was built:** `OK`
+
+**Where it comes from**
+
+docs/runs/backtest-sept7-matches.json lift_summary.hit_rate = 0.119 (5 matches / 42 scored)
+
+**Check it yourself — public**
+
+Source: [`docs/runs/backtest-sept7-matches.json`](runs/backtest-sept7-matches.json)  
+Run from the root of this repository:
+
+```bash
+python -c "import json;n=json.load(open('docs/runs/backtest-sept7-matches.json',encoding='utf-8'))['lift_summary']['hit_rate'];print(n,0.119<=n<=0.119 and 'PASS' or 'OUT OF RANGE')"
+```
+
+*(Same path and same command in the measurement platform's own repository, so it is not repeated here.)*
+
+---
+
+## 14. 7 of 42 (16.7%) agreed on direction — the 5 strict matches PLUS 2 near-misses (same sign, off magnitude)
+
+* **Registry id:** `backtest-directional-16-7-pct`
+* **Gate type:** `exact` — none — the résumé figure must match the artifact exactly
+* **Registered value:** `2`
+* **Gate status when this page was built:** `OK`
+
+**Where it comes from**
+
+docs/runs/backtest-sept7-matches.json lift_summary.near_misses = 2; 5 matches + 2 near-misses = 7 of 42 = 16.7% same-direction (docs/exhibits/backtest-sept7-onepager.md)
+
+**Check it yourself — public**
+
+Source: [`docs/runs/backtest-sept7-matches.json`](runs/backtest-sept7-matches.json)  
+Run from the root of this repository:
+
+```bash
+python -c "import json;n=json.load(open('docs/runs/backtest-sept7-matches.json',encoding='utf-8'))['lift_summary']['near_misses'];print(n,2<=n<=2 and 'PASS' or 'OUT OF RANGE')"
+```
+
+*(Same path and same command in the measurement platform's own repository, so it is not repeated here.)*
+
+---
+
+## 15. predicted route 8's re-timing within 1.9 minutes (announced route; recommended +5.0 min, MiWay shipped +6.91)
 
 * **Registry id:** `backtest-route8-within-2-min`
 * **Gate type:** `approx` — ±40% — the résumé figure must be within this of the artifact
@@ -366,7 +414,7 @@ python -c "import json;d=json.load(open('docs/runs/backtest-sept7-actual-change.
 
 ---
 
-## 14. Sept 7 was a capacity change, not re-phasing (70 of 84 moved bands changed trip counts)
+## 16. Sept 7 was a capacity change, not re-phasing (70 of 84 moved bands changed trip counts)
 
 * **Registry id:** `backtest-capacity-not-rephase`
 * **Gate type:** `exact` — ±5% — the résumé figure must be within this of the artifact
@@ -390,7 +438,7 @@ python -c "import json;n=json.load(open('docs/runs/backtest-sept7-actual-change.
 
 ---
 
-## 15. operated the 24/7 collector at 95.8% SLO coverage in September (23/24 full days)
+## 17. operated the 24/7 collector at 95.8% SLO coverage in September (23/24 full days)
 
 * **Registry id:** `uptime-slo-95pct`
 * **Gate type:** `exact` — none — the résumé figure must match the artifact exactly
@@ -414,7 +462,7 @@ grep -nE '95\.8%|23/24\ FULL\ days' docs/runs/uptime-2026-09.md
 
 ---
 
-## 16. second standalone collector for Toronto's TTC
+## 18. second standalone collector for Toronto's TTC
 
 * **Registry id:** `ttc-second-collector`
 * **Gate type:** `exact` — none — the résumé figure must match the artifact exactly
@@ -448,5 +496,5 @@ test -f backend/scripts/collect_ttc.py && echo present
 
 The gate also fails when a registered claim stops appearing on the résumé, and when a **retired** figure reappears — numbers that were once true and are now behind (an earlier test-count floor, a superseded departures floor, my own first, wrong ghost-trip estimate) are on an explicit deny-list.
 
-**12 of 16** claims can be checked from this repository alone. The rest are re-derived by the gate against the platform.
+**14 of 18** claims can be checked from this repository alone. The rest are re-derived by the gate against the platform.
 
