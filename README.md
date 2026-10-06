@@ -45,7 +45,8 @@ Weekly, immutable findings snapshots (each frozen, never edited after freezing):
 - [Week of Aug 31–Sep 6](docs/findings-v3-n7-aug31-sep06.md)
 - [Week of Sep 7–13](docs/findings/findings-v4-post-sept7.md)
 - [Week of Sep 14–20](docs/findings/findings-v5-sept14-20.md)
-- [Week of Sep 21–27](docs/findings/findings-v6-sept21-27.md) — current
+- [Week of Sep 21–27](docs/findings/findings-v6-sept21-27.md)
+- [Week of Sep 28 – Oct 4](docs/findings/findings-v7-sept28-oct4.md) — current
 
 Recurring findings, stated conservatively:
 

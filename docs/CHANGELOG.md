@@ -84,7 +84,24 @@ collapsed into the user-visible change they produced.
 
 ---
 
-## Week of Sept 28 – Oct 4, 2026 (in progress)
+## Week of Oct 5 – Oct 11, 2026 (in progress)
+
+## Week of Sept 28 – Oct 4, 2026
+
+### Added
+- **Published test suite** — 157 scrubbed test modules shipped for audit,
+  with the reproducibility framing corrected to match (the public repo runs
+  no CI, so the old "CI-enforced coverage floor" claim is gone).
+- **Referee verification page** — every headline number on the site paired
+  with the command that re-derives it ([verification](claim-verification.md));
+  five more claims backed by published freeze artifacts, the
+  [evidence-freeze manifest](evidence-freeze-manifest.md) published, and the
+  page re-rendered against the 18-claim registry.
+- **v7 findings snapshot frozen** (Sept 28 – Oct 4) — fourth post-change
+  week: ghost rate 1 in 253 (89 of 22,492 verifiable trips), early
+  departures 22.8%, AM peak 28.8% — the cleanest collection week since the
+  change, all 7 days datable after the battery-skip backfill
+  ([v7](findings/findings-v7-sept28-oct4.md)).
 
 ## Week of Sept 21–27, 2026
 

@@ -76,5 +76,5 @@ cut) is unchanged.
 ## Footer
 
 - **Frozen:** 2026-09-28. This snapshot is immutable; it will never be edited.
-- Supersession: this is the current snapshot; [v5](findings-v5-sept14-20.md)
-  is superseded.
+- Supersession: superseded by [v7](findings-v7-sept28-oct4.md) (2026-10-06);
+  [v5](findings-v5-sept14-20.md) was superseded by this snapshot.

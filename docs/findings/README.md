@@ -20,7 +20,8 @@ week of new data changed.
 | [Route 87 redundancy audit](route-87-redundancy-audit.md) | 2017 / 2023 / 2024-01 / 2026 feed vintages | 4 feeds | Current |
 | [Route 34 redundancy audit](route-34-redundancy-audit.md) | schedule arithmetic vs the 35 | — | Current |
 | v5 | Sep 14 – 20, 2026 (n=7: 6 complete + 1 partial day) | 2026-09-21T21:20Z | superseded by v6 | `findings-v5` | [findings-v5-sept14-20.md](findings-v5-sept14-20.md) |
-| v6 | Sep 21 – 27, 2026 (n=7: 5 complete + 1 partial + 1 mid-window copy) | 2026-09-28 | **CURRENT** — third post-change week | `findings-v6` | [findings-v6-sept21-27.md](findings-v6-sept21-27.md) |
+| v7 | Sep 28 – Oct 4, 2026 (n=7) | 2026-10-06 | **CURRENT** — fourth post-change week | `findings-v7` | [findings-v7-sept28-oct4.md](findings-v7-sept28-oct4.md) |
+| v6 | Sep 21 – 27, 2026 (n=7: 5 complete + 1 partial + 1 mid-window copy) | 2026-09-28 | superseded by v7 | `findings-v6` | [findings-v6-sept21-27.md](findings-v6-sept21-27.md) |
 
 Notes:
 
