@@ -4,7 +4,7 @@ An independent, student-run measurement project. Built summer 2026, running 24/7
 
 **The question:** MiWay publishes a timetable and a real-time feed. How well does the actual service match what riders are promised — and what would a small, data-driven re-timing buy them?
 
-**The instrument:** a full-stack analytics platform (Python/FastAPI/React) that polls the GTFS + GTFS-RT feeds every 30 seconds, around the clock, on a cloud VPS I administer. As of October 2026 it has logged **95,000+ polls at 99.2% success** and captured **6.5M+ unique scheduled bus departures** for measurement.
+**The instrument:** a full-stack analytics platform (Python/FastAPI/React) that polls the GTFS + GTFS-RT feeds every 30 seconds, around the clock, on a cloud VPS I administer. As of October 2026 it has logged **130,000+ polls at 99.2% success** and captured **9M+ unique scheduled bus departures** for measurement.
 
 ---
 
@@ -127,7 +127,7 @@ My first public figure for never-run trips was **1 in 32**. Before anyone challe
 
 ## The data, publicly
 
-A 250,000-departure random sample of the observed-lateness corpus (schema, collection method, processing rules, and caveats in [data/README.md](data/README.md)) — download it, run the same computations, check the findings. The full set (3.6M+ deduplicated, dated departures) is in the same deposit — published with a citable DOI: [10.5281/zenodo.22820448](https://doi.org/10.5281/zenodo.22820448).
+A 250,000-departure random sample of the observed-lateness corpus (schema, collection method, processing rules, and caveats in [data/README.md](data/README.md)) — download it, run the same computations, check the findings. The full set (9M+ deduplicated, dated departures) is in the same deposit — published with a citable DOI: [10.5281/zenodo.22820448](https://doi.org/10.5281/zenodo.22820448).
 
 ## Operations postmortem
 
@@ -153,7 +153,7 @@ The findings went to the Ward 9 Councillor's office in August 2026, which **form
 
 **September 7, 2026 — the schedule change.** MiWay's published timetable changed. This is the project's scored event: the predictions were frozen beforehand, so the measurement could not curve-fit to the answer.
 
-**October 2026 — to date:** 95,000+ polls at 99.2% success, 6.5M+ unique scheduled departures measured.
+**October 2026 — to date:** 130,000+ polls at 99.2% success, 9M+ unique scheduled departures measured.
 
 The method is deliberately unglamorous: pin the feed vintage, keep the raw rows, stamp bad rows rather than deleting them, and re-derive every published number from the frozen artifacts. More than one finding here exists because an earlier version of my own analysis was wrong and got corrected on the record.
 
