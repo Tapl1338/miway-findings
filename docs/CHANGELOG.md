@@ -12,6 +12,136 @@ collapsed into the user-visible change they produced.
 
 ---
 
+## Week of Oct 12–18, 2026
+
+### Added
+- **Claim-verified GTFS tools for coding agents** — an MCP server exposing
+  the project's three verification commands (claim check, departures at a
+  stop, trip plan) so an agent answers from the instrument instead of from
+  memory; thin wrappers over the same parsing rules the analyses use.
+- **Two more CI gates** — a design-token ratchet (every UI colour answers to
+  a token or a per-file baseline that can only shrink) and a rider
+  happy-path end-to-end run against the static build.
+- **Two-city window integrity check** — diffs consecutive day-stat counters
+  and cross-checks the observation file's own date column, because the
+  day-stats file cannot tell a complete day from a partial one.
+- **TTC observation retention** — a weekly job whose installer refuses to
+  arm unless the running collector provably started from lock-bearing code;
+  the prune under it classifies rows without holding the lock and takes the
+  lock only to commit.
+
+### Changed
+- **Explicit feed-era labels on the standing GTFS capture** — the wrapper
+  used to inherit the previous era's default, so a capture spanning a
+  changeover could be filed under the old one. It now passes its own id, and
+  a test fails if that id goes missing.
+- **Published floors moved to 9M+ departures / 130,000+ polls** (live
+  9,008,463 and 130,146), with the previous figures added to the retired list
+  so a copy-paste from an older variant fails the gate instead of quietly
+  re-publishing a number weeks behind the instrument.
+
+### Fixed
+- **The day-counter trap** — one in-memory stats dict was re-labelled at
+  midnight without resetting, so each day file held a running total since
+  process start (a day that polled 690 times read 8,738). Day files now
+  reset at the calendar boundary and declare their scope; readers difference
+  legacy files and report a restart day as the lower bound it is.
+- **Dashboard memory** — the in-process memo was unbounded (215 MB to
+  1,328 MB across ten endpoints); it is now an LRU sized by the on-disk
+  pickle, and a healthy-but-huge API worker is recycled rather than trusted.
+- **Analysis chain memory** — the peak report read an 8.9M-row file into a
+  list of dicts (5,780 MB peak); streaming it is 914 MB with byte-identical
+  output, and an explicitly empty window is a no-op rather than a failure.
+- **The post-window cutover is one dated command** — it ships the staged
+  bundle hash-compared, restarts the collector only if the running code
+  predates the ship, proves the restart from systemd facts plus a fresh
+  heartbeat, then arms retention; a dry run ships, restarts and arms nothing.
+
+## Week of Oct 5–11, 2026
+
+### Added
+- **Findings snapshot v7** (Sept 28 – Oct 4) frozen and promoted — the
+  cleanest collection week since the September change, with all seven days
+  datable after a backfill for two battery-skipped days.
+- **Pre-registration for the October 26 change** — prediction bands filed
+  ahead of the change, with a non-author verifier and the basis baselines
+  receipted.
+- **Box-check workflow** — read-only, dispatchable probes for both collector
+  boxes, because the environment blocks SSH and ICMP and every prior
+  diagnosis stalled on access.
+- **Feed-size comparison** — weekly trip counts re-derived per date for both
+  networks (249,592 vs 34,092, a 7.32x difference) after two earlier figures
+  were traced to a calendar_dates omission rather than the feed.
+
+### Fixed
+- **CI lint** — 42 ruff violations and 24 unformatted files cleared, plus
+  two failures the red lint job had been masking; the fixes had been sitting
+  uncommitted while the remote stayed red.
+- **Feed-vintage-brittle tests** — nine backend tests pinned expectations to
+  the live feed; they now derive them at run time or pin the contemporaneous
+  archived feed, so a timetable roll stops breaking the suite.
+- **A same-day wording reversal** — an awards line was swept across the live
+  documents and restored by the owner hours later; the rendered PDF had
+  missed the sweep, and the tracked file now matches the decision.
+
+## Week of Sept 28 – Oct 4, 2026
+
+### Added
+- **Second collector for Toronto's TTC** — cadence gates passed, giving a
+  second network on which to test whether the method generalizes; its
+  calendar-filtered index was rebuilt at a third of the size.
+- **Rider-shaped home** — one surface for what is wrong right now, a
+  favourites store and a trends strip, replacing the 19-view surface frozen
+  as tag `v1.0`.
+- **Referee verification page** — every headline number on one page with the
+  command that re-derives it, generated from the claim registry rather than
+  written by hand.
+- **Public test tree** — a scrubbed copy of 157 of 160 test modules published
+  so the claims can be audited instead of trusted, with a leak-guard and
+  promotion gate around the copy.
+
+### Changed
+- **Collector dedup bounded to a watermark** instead of rewriting the whole
+  corpus each cycle, so memory tracks the window and not the file.
+
+### Fixed
+- **Collector memory, root-caused** — the growth was allocator arena
+  retention rather than the kernel, proven by a probe on a scratch process;
+  a threshold-triggered guard now restarts the unit before it wedges the box
+  instead of letting the kernel pick a victim.
+- **TTC unmatched metric** corrected after an audit found the denominator
+  counted entities that could not be measured.
+- **CI revived** after a week dark, with three gates repaired.
+
+## Week of Sept 21–27, 2026
+
+### Added
+- **v1.1 five-view consolidation** — Home, Map, Plan, Measure and Trust
+  replace the 19-view surface, built to a pre-registered spec, with URL
+  routing and deep links that survive a reload.
+- **Mobile 390 px regression gate** — a scripted audit that replays the
+  manual swipe through all 16 sections on every push, plus the map-sliver,
+  header, tap-target and table-wrapper fixes it found.
+- **Uptime SLO report** — availability defined as full-day coverage with a
+  monthly receipt, so the reliability claim has a number behind it.
+- **Installable frontend** — PWA manifest, offline shell, share metadata and
+  reduced-motion support.
+
+### Changed
+- **Demo fetch layer is live-API-first** — pages probe the evening read-only
+  API and fall back to frozen snapshots per visit, same interface either way.
+- **Route-level code splitting** — every panel except Home is lazy-loaded.
+
+### Fixed
+- **Transfer and trip-check correctness** — terminal-only co-location
+  phantoms no longer rank as missed transfers, a cross-direction stop
+  sequence bug is fixed, and planner clock labels no longer imply a walk leg
+  is a bus.
+- **Collector crash-safety** — writes are atomic and lock-tolerant, and one
+  malformed realtime poll no longer kills a whole collection window.
+
+---
+
 ## Week of Sept 14–20, 2026
 
 ### Added
