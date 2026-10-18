@@ -60,9 +60,11 @@ collapsed into the user-visible change they produced.
 ## Week of Oct 5–11, 2026
 
 ### Added
-- **Findings snapshot v7** (Sept 28 – Oct 4) frozen and promoted — the
-  cleanest collection week since the September change, with all seven days
-  datable after a backfill for two battery-skipped days.
+- **Findings snapshot v7** (Sept 28 – Oct 4) frozen and promoted — ghost rate
+  1 in 253 (89 of 22,492 verifiable trips), early departures 22.8%, AM peak
+  28.8%; the cleanest collection week since the September change, all seven
+  days datable after a backfill for two battery-skipped days
+  ([v7](findings/findings-v7-sept28-oct4.md)).
 - **Pre-registration for the October 26 change** — prediction bands filed
   ahead of the change, with a non-author verifier and the basis baselines
   receipted.
@@ -95,10 +97,15 @@ collapsed into the user-visible change they produced.
   as tag `v1.0`.
 - **Referee verification page** — every headline number on one page with the
   command that re-derives it, generated from the claim registry rather than
-  written by hand.
-- **Public test tree** — a scrubbed copy of 157 of 160 test modules published
-  so the claims can be audited instead of trusted, with a leak-guard and
-  promotion gate around the copy.
+  written by hand ([verification](claim-verification.md)); five more claims
+  were backed by published freeze artifacts and the
+  [evidence-freeze manifest](evidence-freeze-manifest.md) went out with them
+  (the page has since moved to the 27-claim registry).
+- **Public test suite** — 157 scrubbed test modules published so the claims
+  can be audited instead of trusted, with the reproducibility framing
+  corrected to match (the public repo runs no CI, so the old
+  "CI-enforced coverage floor" claim is gone) inside a leak-guard and
+  promotion gate.
 
 ### Changed
 - **Collector dedup bounded to a watermark** instead of rewriting the whole
@@ -116,9 +123,27 @@ collapsed into the user-visible change they produced.
 ## Week of Sept 21–27, 2026
 
 ### Added
-- **v1.1 five-view consolidation** — Home, Map, Plan, Measure and Trust
-  replace the 19-view surface, built to a pre-registered spec, with URL
-  routing and deep links that survive a reload.
+- **v1.1 five-view demo consolidation** — the 19-view surface collapsed
+  into 5 shells (Home, Map, Plan, Measure, Trust), every panel folded as a
+  section with its evidence badge preserved; real URL paths, legacy
+  `#view` links redirect. Live in the [demo](../demo/).
+- **Forecast scoreboard goes FINAL** — every pre-registered prediction now
+  carries its mechanical verdict (3 forecasts, 26 bands); Forecast 1
+  scored from the Sept-22 scorecard receipt, misses published alongside
+  hits ([track record](findings/forecast-track-record.md)).
+- **Forecast 4 pre-registered** (Sept 28–Oct 4) — the first registration
+  built from two frozen weeks of basis instead of one, committed before
+  the window's data exists.
+- **Home trends strip** — week-over-week measured metrics (early
+  departures, ghost rate, volume) on the demo Home, complete weeks only.
+- **Promotion-freshness gate** — nightly check flags any public doc whose
+  private twin was regenerated after its last promotion, closing the
+  twin-drift window the existing content gate can't see.
+- **v6 findings snapshot frozen** (Sept 21–27) — third post-change week:
+  ghost rate 1 in 235, early departures 22.1%, collected through the
+  project's worst instrumentation week (a 23.5h cloud-box outage, then a
+  stalled sync channel) with every caveat stamped pre-publication
+  ([v6](findings/findings-v6-sept21-27.md)).
 - **Mobile 390 px regression gate** — a scripted audit that replays the
   manual swipe through all 16 sections on every push, plus the map-sliver,
   header, tap-target and table-wrapper fixes it found.
@@ -133,12 +158,27 @@ collapsed into the user-visible change they produced.
 - **Route-level code splitting** — every panel except Home is lazy-loaded.
 
 ### Fixed
+- Demo trip-check crash: any API failure 404'd the whole app in demo mode —
+  inline "Check failed" alert + a canonical snapshot replay instead.
+- Demo "Why so slow?" view 404'd (slowness endpoints never snapshotted).
+- Demo base-path incident: ad-hoc rebuilds shipped root-absolute asset
+  URLs, blanking Pages since the prior refresh — rebuilds must set
+  `DEMO_BASE`; rule encoded in the refresh script.
 - **Transfer and trip-check correctness** — terminal-only co-location
   phantoms no longer rank as missed transfers, a cross-direction stop
   sequence bug is fixed, and planner clock labels no longer imply a walk leg
   is a bus.
 - **Collector crash-safety** — writes are atomic and lock-tolerant, and one
   malformed realtime poll no longer kills a whole collection window.
+
+---
+
+### Measured
+- **Sept-7 pre-registration FINAL verdict** — 11/10 required post-change
+  weekdays collected; 4 FAIL (early-departure and AM-peak bands beaten in
+  the improvement direction), 2 UNMEASURABLE (baseline tooling superseded
+  mid-study, documented per-band), 1 fail-low. Verdicts and basis notes in
+  the [scoreboard](../demo/).
 
 ---
 
@@ -211,67 +251,6 @@ collapsed into the user-visible change they produced.
   catch route B? Answered from observed departures with explicit
   uncertainty, and "not enough data" instead of a guess for thin pairs.
   Live in the [demo](../demo/) sidebar.
-
----
-
-## Week of Oct 5 – Oct 11, 2026 (in progress)
-
-## Week of Sept 28 – Oct 4, 2026
-
-### Added
-- **Published test suite** — 157 scrubbed test modules shipped for audit,
-  with the reproducibility framing corrected to match (the public repo runs
-  no CI, so the old "CI-enforced coverage floor" claim is gone).
-- **Referee verification page** — every headline number on the site paired
-  with the command that re-derives it ([verification](claim-verification.md));
-  five more claims backed by published freeze artifacts, the
-  [evidence-freeze manifest](evidence-freeze-manifest.md) published, and the
-  page re-rendered against the 18-claim registry.
-- **v7 findings snapshot frozen** (Sept 28 – Oct 4) — fourth post-change
-  week: ghost rate 1 in 253 (89 of 22,492 verifiable trips), early
-  departures 22.8%, AM peak 28.8% — the cleanest collection week since the
-  change, all 7 days datable after the battery-skip backfill
-  ([v7](findings/findings-v7-sept28-oct4.md)).
-
-## Week of Sept 21–27, 2026
-
-### Added
-- **v1.1 five-view demo consolidation** — the 19-view surface collapsed
-  into 5 shells (Home, Map, Plan, Measure, Trust), every panel folded as a
-  section with its evidence badge preserved; real URL paths, legacy
-  `#view` links redirect. Live in the [demo](../demo/).
-- **Forecast scoreboard goes FINAL** — every pre-registered prediction now
-  carries its mechanical verdict (3 forecasts, 26 bands); Forecast 1
-  scored from the Sept-22 scorecard receipt, misses published alongside
-  hits ([track record](findings/forecast-track-record.md)).
-- **Forecast 4 pre-registered** (Sept 28–Oct 4) — the first registration
-  built from two frozen weeks of basis instead of one, committed before
-  the window's data exists.
-- **Home trends strip** — week-over-week measured metrics (early
-  departures, ghost rate, volume) on the demo Home, complete weeks only.
-- **Promotion-freshness gate** — nightly check flags any public doc whose
-  private twin was regenerated after its last promotion, closing the
-  twin-drift window the existing content gate can't see.
-- **v6 findings snapshot frozen** (Sept 21–27) — third post-change week:
-  ghost rate 1 in 235, early departures 22.1%, collected through the
-  project's worst instrumentation week (a 23.5h cloud-box outage, then a
-  stalled sync channel) with every caveat stamped pre-publication
-  ([v6](findings/findings-v6-sept21-27.md)).
-
-### Fixed
-- Demo trip-check crash: any API failure 404'd the whole app in demo mode —
-  inline "Check failed" alert + a canonical snapshot replay instead.
-- Demo "Why so slow?" view 404'd (slowness endpoints never snapshotted).
-- Demo base-path incident: ad-hoc rebuilds shipped root-absolute asset
-  URLs, blanking Pages since the prior refresh — rebuilds must set
-  `DEMO_BASE`; rule encoded in the refresh script.
-
-### Measured
-- **Sept-7 pre-registration FINAL verdict** — 11/10 required post-change
-  weekdays collected; 4 FAIL (early-departure and AM-peak bands beaten in
-  the improvement direction), 2 UNMEASURABLE (baseline tooling superseded
-  mid-study, documented per-band), 1 fail-low. Verdicts and basis notes in
-  the [scoreboard](../demo/).
 
 ---
 
