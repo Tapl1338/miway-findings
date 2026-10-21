@@ -1,0 +1,148 @@
+#!/bin/sh
+# pre-push guard: REFUSE to publish a commit whose message carries an agent
+# attribution trailer, or whose author/committer is an agent identity.
+#
+# Rationale: every commit in this repo must attribute to the human author only.
+# GitHub reads `Co-Authored-By:` trailers and credits the named account, so one
+# published agent trailer is permanently visible in the history AND in the
+# Contributors panel. The commit-msg hook already strips those lines when a
+# commit is created with hooks enabled; this is the BACKSTOP for the paths that
+# bypass it -- `git commit --no-verify`, a rebase/cherry-pick replay, a commit
+# written by another tool or a web UI, a filter-* rewrite -- and push time is
+# the last moment before the mistake becomes public and costly to undo.
+#
+# Design:
+# - Checks only the OUTGOING range (what this push would publish), so a problem
+#   buried in older history cannot block unrelated work forever. A branch push
+#   whose tip is already reachable from a remote-tracking ref publishes nothing
+#   new, so it is not refused for a trailer that is already public somewhere.
+# - Matches trailer/footer SHAPES naming an agent, never the bare word: a
+#   commit about "the OpenAI client", or a `Co-Authored-By:` naming a human
+#   collaborator, passes. Same rule the commit-msg hook documents.
+# - FAILS OPEN on an internal error (exits 0 and says so) rather than blocking
+#   every push when git hiccups: the commit-msg hook is the primary defense and
+#   this is the backstop, so a broken backstop must not stop shipping.
+# - Refuses with exit 1 on a finding. For a message that merely QUOTES a trailer
+#   as an example, reword it (the match is line-shaped, so a quoted line at the
+#   start of a line still trips). One-off override, after reading the message:
+#       git push --no-verify
+# - Install once with:  git config core.hooksPath .githooks
+#
+# Tested by backend/tests/test_git_hooks.py.
+
+remote="${1:-<remote>}"
+zero=0000000000000000000000000000000000000000
+
+# Agent identities that must never appear as an attribution. One list, so
+# teaching this hook a new agent is a one-line edit.
+AGENT='codebuff|claude|anthropic|openai|chatgpt|copilot|gemini|qwen|devin|aider|cursor|windsurf|replit|tabnine|sourcegraph|augment|supermaven|ollama|grok'
+
+# Trailer/footer SHAPES, anchored at line start through any leading punctuation
+# or spacing (agent footers start with an emoji, a bullet, a backtick...).
+# Case-insensitive via awk's tolower() below.
+PAT='^[^[:alnum:]]*(co-authored-by|signed-off-by|authored-by|generated-by|generated-with|generated with)[[:space:]]*:?.*('"$AGENT"')|^[^[:alnum:]]*(generated|made|built|created|authored|written)[[:space:]]+(with|by)[[:space:]]+.*('"$AGENT"')'
+
+# Git hands the hook "<local-ref> <local-sha> <remote-ref> <remote-sha>" per
+# line on stdin. Deletions (local sha all zeros) carry nothing to publish.
+shas=""
+pushed_lines=0
+unresolved=0
+while read -r _local_ref local_sha _remote_ref remote_sha; do
+    case "$local_sha" in
+        "" | "$zero") continue ;;
+    esac
+    pushed_lines=$((pushed_lines + 1))
+    # What this line PUBLISHES: the precise range when the remote sha is known,
+    # otherwise everything not already reachable from a remote-tracking ref.
+    # `determined` separates "resolved to nothing new to publish" (normal, and
+    # silent) from "could not resolve at all" (worth saying out loud).
+    range=""
+    determined=0
+    if [ -n "$remote_sha" ] && [ "$remote_sha" != "$zero" ]; then
+        range=$(git rev-list "$remote_sha..$local_sha" 2>/dev/null) && determined=1
+    fi
+    if [ "$determined" -eq 0 ]; then
+        range=$(git rev-list "$local_sha" --not --remotes 2>/dev/null) && determined=1
+    fi
+    if [ "$determined" -eq 0 ]; then
+        # Nothing to compare against (or an unknown local object): scan the
+        # reachable history and over-report rather than pass a trailer through
+        # unexamined.
+        range=$(git rev-list "$local_sha" 2>/dev/null) && determined=1
+    fi
+    [ "$determined" -eq 1 ] || unresolved=$((unresolved + 1))
+    if [ -n "$range" ]; then
+        shas="$shas$range
+"
+    fi
+done
+
+shas=$(printf '%s' "$shas" | grep -E '^[0-9a-f]{7,40}$' | sort -u)
+if [ -z "$shas" ]; then
+    if [ "$unresolved" -gt 0 ]; then
+        echo "  [pre-push] could not resolve $unresolved of $pushed_lines pushed ref(s) —"
+        echo "             attribution check SKIPPED for those (not a pass)."
+    fi
+    exit 0
+fi
+
+# --- 1. attribution trailers in the message bodies -------------------------
+trailer_hits=$(git log --no-walk --format='%H%n%B%n@@PREPUSH_END@@' $shas 2>/dev/null |
+    awk -v pat="$PAT" '
+        /^@@PREPUSH_END@@$/ { commit = ""; next }
+        {
+            if (commit == "") { commit = $0; next }
+            line = tolower($0)
+            if (line ~ pat) {
+                printf "    %s: %s\n", substr(commit, 1, 9), $0
+                found++
+            }
+        }
+        END { exit(found ? 1 : 0) }
+    ')
+trailer_rc=$?
+
+# --- 2. an agent as author or committer ------------------------------------
+ident_hits=$(git log --no-walk --format='%h %an <%ae> | committer %cn <%ce>' $shas 2>/dev/null |
+    grep -iE "$AGENT")
+
+if [ "$trailer_rc" -eq 0 ] && [ -z "$ident_hits" ]; then
+    exit 0
+fi
+
+echo ""
+echo "  ** pre-push guard: agent attribution in commits about to be published **"
+echo "     remote: $remote | commits in the outgoing range: $(printf '%s\n' "$shas" | wc -l | tr -d ' ')"
+echo ""
+if [ -n "$trailer_hits" ]; then
+    echo "  Attribution trailer(s) in the message body:"
+    printf '%s\n' "$trailer_hits"
+    echo ""
+fi
+if [ -n "$ident_hits" ]; then
+    echo "  Agent identity as author or committer:"
+    printf '%s\n' "$ident_hits" | sed 's/^/  /'
+    echo ""
+fi
+cat <<'REMEDY'
+  Published history is effectively permanent (rewriting it later means
+  coordinating every clone), so this is refused here rather than discovered
+  after the fact.
+
+  Fix the message before pushing:
+      git commit --amend                   # if it is the tip commit
+      git rebase -i <base>                 # otherwise: reword, then continue
+      python backend/scripts/strip_codebuff_attribution.py --count     # report
+      python backend/scripts/strip_codebuff_attribution.py --rewrite   # rewrite
+
+  --rewrite changes every affected SHA and writes a backup bundle first;
+  coordinate it single-flight before running it with --push.
+
+  If the matched line is a QUOTE inside prose rather than an attribution,
+  reword the message — the match is line-shaped, so an example placed at the
+  start of a line still trips.
+
+  One-off, after actually reading the message:  git push --no-verify
+REMEDY
+echo ""
+exit 1

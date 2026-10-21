@@ -1,0 +1,53 @@
+#!/bin/sh
+# commit-msg guard: strip agent attribution trailers before a commit lands.
+#
+# Rationale: the Codebuff/Freebuff agent appends
+#   "Generated with Codebuff" + "Co-Authored-By: Codebuff <noreply@codebuff.com>"
+# to commit messages. GitHub reads the Co-Authored-By trailer and credits the
+# commit to the codebuff-team account, which pollutes this repo's attribution
+# (the repo is public; every commit must attribute to the human author only).
+#
+# Design:
+# - Never blocks (exit 0 always); it silently removes matching lines so
+#   normal commits pass through byte-identical.
+# - Matches trailer patterns only (case-insensitive), NOT any mention of the
+#   word: a line must contain "generated with codebuff" (the footer, both
+#   emoji orders) or "co-authored-by: codebuff" (the trailer). A subject like
+#   "Version codebuff-attribution tooling" is left alone. No legitimate
+#   message line in this repo's history has matched these patterns except
+#   the trailers themselves (verified 2026-09-05).
+# - Degrades silently if awk is unavailable (exit 0, message untouched).
+# - Install once with:  git config core.hooksPath .githooks
+# - Bypass (not recommended):  git commit --no-verify
+#
+# Pair with backend/scripts/strip_codebuff_attribution.py for cleaning
+# history that already contains trailers.
+
+msgfile="$1"
+[ -n "$msgfile" ] && [ -f "$msgfile" ] || exit 0
+
+# Locate awk: normal PATH first, Git-for-Windows fallback second.
+if command -v awk >/dev/null 2>&1; then
+    AWK=awk
+elif [ -x "/c/Program Files/Git/usr/bin/awk.exe" ]; then
+    AWK="/c/Program Files/Git/usr/bin/awk.exe"
+else
+    exit 0
+fi
+
+# Fast path: no trailer line, leave the message byte-identical.
+if ! "$AWK" 'tolower($0) ~ /generated with codebuff|co-authored-by: *codebuff/ { found=1; exit } END { exit !found }' "$msgfile"; then
+    exit 0
+fi
+
+tmpfile="${msgfile}.notrail"
+"$AWK" 'tolower($0) ~ /generated with codebuff|co-authored-by: *codebuff/ { next } { print }' "$msgfile" > "$tmpfile" \
+    || { rm -f "$tmpfile"; exit 0; }
+if command -v mv >/dev/null 2>&1; then
+    mv "$tmpfile" "$msgfile" || { rm -f "$tmpfile"; exit 0; }
+else
+    cat "$tmpfile" > "$msgfile" || { rm -f "$tmpfile"; exit 0; }
+    rm -f "$tmpfile"
+fi
+echo "  [commit-msg hook] stripped Codebuff attribution trailer line(s) from the commit message."
+exit 0
