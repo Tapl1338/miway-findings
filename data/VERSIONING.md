@@ -60,7 +60,16 @@ stays at v1.
 
 | version | window | n | rules delta | artifact SHA-256 | DOI | status |
 |---|---|---|---|---|---|---|
-| v1.0.0 | 2026-08-23 → 2026-09-15 | 250,000 | initial (dated-actuals, seed 20260911) | `433875dc3cc709931f5213cb8b0449192fc80ebb666de0c833d1500e3f4e4613` | *FILL after publish* | in preparation |
+| v1.0.0 | 2026-08-23 → 2026-09-16 | 250,000 | initial (dated-actuals, seed 20260911) | `433875dc3cc709931f5213cb8b0449192fc80ebb666de0c833d1500e3f4e4613` | 10.5281/zenodo.22820449 | published 2026-09-17 |
+| v1.1.0 | 2026-08-23 → 2026-10-17 | 250,000 sample / 8,031,942 corpus | minor: re-cut from a newer corpus, same rules and seed | `2ece2225d4b515e12911a3f893de59dcba8ebac7e91235524e3df1be50b8c5ad` | 10.5281/zenodo.23444830 | published 2026-10-18 |
+
+The SHA-256 column is the sample file's, verified after download from the
+deposit (v1: 9,338,297 bytes / md5 `4c0d355b…`; v1.1.0: 9,357,100 bytes /
+md5 `414b6663…`). The deposit keeps the SAME basenames across versions —
+so a download URL is stable and each version's bytes stay frozen by
+Zenodo's own immutability — which supersedes step 2's
+`-vX.Y.Z` filename rule for the upload; git history is the repo-side
+archive of the previous cut.
 
 ## One deliberate asymmetry
 

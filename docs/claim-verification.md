@@ -2,14 +2,14 @@
 
 Each figure below is registered in the project's claim registry with the artifact it comes from and the command that re-derives it. The same registry is enforced on every code change by an automated gate, so a figure cannot drift away from its evidence without a build failing.
 
-Registry as of **2026-10-17** — 27 registered claims.
+Registry as of **2026-10-19** — 29 registered claims.
 
 **Two kinds of evidence, stated plainly.**
 
 * **Publicly checkable** — either the artifact is in this repository, or it is a public web resource (a citable DOI). You can run the command yourself and get the number, right now, with no access to anything private.
 * **Requires the instrument** — the figure comes from the running measurement platform (a collector that polls a transit feed around the clock, and the application built on top of it). Those artifacts are not published here, so I am telling you which command re-derives them rather than pretending you could run it.
 
-**Gate status at generation time:** 27/27 claims re-derived from their artifacts.
+**Gate status at generation time:** 29/29 claims re-derived from their artifacts.
 
 **Check all of them at once**, in the platform repository:
 
@@ -67,7 +67,55 @@ python update_departure_floor.py --check   # prints unique departures + floor
 
 ---
 
-## 3. 4.9M+ APC load observations
+## 3. 130,000+ polls
+
+* **Registry id:** `polls-attempted-130k-plus`
+* **Gate type:** `min` — a floor — the artifact must be **at or above** it
+* **Registered value:** `130,000`
+* **Gate status when this page was built:** `OK`
+
+**Where it comes from**
+
+Sum of polls_attempted over the collector's coverage windows (gitignored coverage/window_*.json in the data home). Re-derived 2026-10-19: 135,127 attempted across 386 windows; the counter runs ~2,400 polls/day, 7 days/week, so this floor needs re-declaring at the owner's +5,000 cadence (roughly every 2 days). FLOOR semantics: live must be >= 130,000 for the claim to hold, and a floor above live is an impossible claim - that is what the gate catches.
+
+**Re-derivation command — requires the measurement platform**
+
+*This artifact is not published in this repository.*
+
+Source: `(live collector mirror, gitignored)`  
+Run from the root of the platform repository:
+
+```bash
+python -c "import json,subprocess;out=subprocess.run(['python','backend/scripts/check_resume_claims.py','--json','--skip-network'],capture_output=True,text=True).stdout;print([r['detail'] for r in json.loads(out)['results'] if r['id'] == 'polls-attempted-130k-plus'][0])"
+```
+
+---
+
+## 4. 99.2% poll success
+
+* **Registry id:** `polls-success-99p2-floor`
+* **Gate type:** `min` — a floor — the artifact must be **at or above** it
+* **Registered value:** `99.2`
+* **Gate status when this page was built:** `OK`
+
+**Where it comes from**
+
+Same coverage windows: polls_succeeded / polls_attempted, rounded to 2dp. Re-derived 2026-10-19: 134,380 / 135,127 = 99.45% across 386 windows. FLOOR semantics: quoting 99.2% asserts the live rate is at least 99.2%, so up-rounding past live (or a live rate that has fallen below 99.2%) is drift and the floor must be re-declared.
+
+**Re-derivation command — requires the measurement platform**
+
+*This artifact is not published in this repository.*
+
+Source: `(live collector mirror, gitignored)`  
+Run from the root of the platform repository:
+
+```bash
+python -c "import json,subprocess;out=subprocess.run(['python','backend/scripts/check_resume_claims.py','--json','--skip-network'],capture_output=True,text=True).stdout;print([r['detail'] for r in json.loads(out)['results'] if r['id'] == 'polls-success-99p2-floor'][0])"
+```
+
+---
+
+## 5. 4.9M+ APC load observations
 
 * **Registry id:** `apc-observations-4-9m-plus`
 * **Gate type:** `min` — a floor — the artifact must be **at or above** it
@@ -98,7 +146,7 @@ python -c "import csv;print(sum(int(float(r['n_observations'])) for r in csv.Dic
 
 ---
 
-## 4. 399 on-board check-ins across 14 routes
+## 6. 399 on-board check-ins across 14 routes
 
 * **Registry id:** `apc-checkins-399-routes-14`
 * **Gate type:** `exact` — none — the résumé figure must match the artifact exactly
@@ -129,7 +177,7 @@ python -c "import csv;rs=list(csv.DictReader(open('backend/app/data/ground_truth
 
 ---
 
-## 5. ~9,700 passenger-minutes per weekday
+## 7. ~9,700 passenger-minutes per weekday
 
 * **Registry id:** `optimizer-saved-pax-minutes`
 * **Gate type:** `approx` — ±5% — the résumé figure must be within this of the artifact
@@ -160,7 +208,7 @@ python -c "import json;print(json.load(open('docs/exec-summary.json',encoding='u
 
 ---
 
-## 6. early departures 62.3% → 38.9%, 2.5× the no-school control
+## 8. early departures 62.3% → 38.9%, 2.5× the no-school control
 
 * **Registry id:** `retime-school-stop-win`
 * **Gate type:** `exact` — ±1% — the résumé figure must be within this of the artifact
@@ -184,7 +232,7 @@ grep -n '62\.3%\|38\.9%\|9\.5 pp' docs/findings/school-stop-retime-win.md
 
 ---
 
-## 7. ~1-in-60 missed trips pre-change, improving to 1-in-255 after the changeover and holding at 1-in-272 the second week (two consecutive frozen weeks)
+## 9. ~1-in-60 missed trips pre-change, improving to 1-in-255 after the changeover and holding at 1-in-272 the second week (two consecutive frozen weeks)
 
 * **Registry id:** `ghost-rate-interim`
 * **Gate type:** `exact` — none — the résumé figure must match the artifact exactly
@@ -208,7 +256,7 @@ grep -o '\*\*[0-9]* of [0-9,]* verifiable' docs/findings/findings-v5-sept14-20.m
 
 ---
 
-## 8. published as an open dataset (Zenodo, DOI 10.5281/zenodo.22820448)
+## 10. published as a versioned open dataset (Zenodo, DOI 10.5281/zenodo.22820448)
 
 * **Registry id:** `zenodo-doi-resolves`
 * **Gate type:** `exact` — none — the résumé figure must match the artifact exactly
@@ -217,7 +265,7 @@ grep -o '\*\*[0-9]* of [0-9,]* verifiable' docs/findings/findings-v5-sept14-20.m
 
 **Where it comes from**
 
-Live DOI resolution (verified 2026-09-20: doi.org -> zenodo.org/records/22820449, deposit contains 3,601,272-row corpus + 250k sample). Network check; CI runs it with a 10s timeout and skips (not fails) on network absence — a dead DOI is a manual-page, not a build breaker
+Live DOI resolution. The concept DOI is the stable citation and BY DESIGN resolves to the NEWEST version record, so the assertion is 'lands on a zenodo.org/records/ page, HTTP 200', never a frozen record id. Frozen-id form (records/22820449) went red the moment v1.1.0 published 2026-10-18: concept 22820448 then resolved to records/23444830 and the gate exited 1 on a healthy DOI. Version DOIs are the version-stable ones (v1.1.0 = 10.5281/zenodo.23444830). Network check; CI runs it with a 10s timeout and skips (not fails) on network absence — a dead DOI is a manual-page, not a build breaker
 
 **Check it yourself — public**
 
@@ -239,7 +287,7 @@ curl -sIL -o /dev/null -w '%{url_effective} %{http_code}\n' https://doi.org/10.5
 
 ---
 
-## 9. 1,400+ backend tests
+## 11. 1,400+ backend tests
 
 * **Registry id:** `backend-tests-1300-plus`
 * **Gate type:** `min` — a floor — the artifact must be **at or above** it
@@ -263,7 +311,7 @@ grep -rho '^def test_' backend/tests --include='test_*.py' | wc -l
 
 ---
 
-## 10. 20 sections spanning lateness, crowding, ghost trips, and equity by ward
+## 12. 20 sections spanning lateness, crowding, ghost trips, and equity by ward
 
 * **Registry id:** `ui-sections-20`
 * **Gate type:** `exact` — none — the résumé figure must match the artifact exactly
@@ -287,7 +335,7 @@ sed -n '/export const SHELLS/,/ALL_SECTIONS/p' frontend/src/lib/viewConfig.ts | 
 
 ---
 
-## 11. winning 100% of 500 simulated days
+## 13. winning 100% of 500 simulated days
 
 * **Registry id:** `optimizer-500-days`
 * **Gate type:** `exact` — none — the résumé figure must match the artifact exactly
@@ -311,7 +359,7 @@ grep -n '500\|100%' docs/runs/FQ8-montecarlo-verdict-20260830.md
 
 ---
 
-## 12. the optimized plan hid Ward 9 losses (+2.56 min/stop)
+## 14. the optimized plan hid Ward 9 losses (+2.56 min/stop)
 
 * **Registry id:** `ward9-equity-loss`
 * **Gate type:** `approx` — ±1% — the résumé figure must be within this of the artifact
@@ -342,7 +390,7 @@ python -c "import json;d=json.load(open('docs/equity-report.json',encoding='utf-
 
 ---
 
-## 13. backtested the optimizer against the real Sept 7 service change under pre-registered rules: 5 of 42 scored routes matched within ±3 min (11.9%); 7 of 42 (16.7%) agreed on direction
+## 15. backtested the optimizer against the real Sept 7 service change under pre-registered rules: 5 of 42 scored routes matched within ±3 min (11.9%); 7 of 42 (16.7%) agreed on direction
 
 * **Registry id:** `backtest-agreement-1-in-6`
 * **Gate type:** `exact` — none — the résumé figure must match the artifact exactly
@@ -366,7 +414,7 @@ python -c "import json;n=json.load(open('docs/runs/backtest-sept7-matches.json',
 
 ---
 
-## 14. 5 of 42 pre-registered recommendations matched within ±3 min (11.9%)
+## 16. 5 of 42 pre-registered recommendations matched within ±3 min (11.9%)
 
 * **Registry id:** `backtest-hit-rate-11-9-pct`
 * **Gate type:** `exact` — none — the résumé figure must match the artifact exactly
@@ -390,7 +438,7 @@ python -c "import json;n=json.load(open('docs/runs/backtest-sept7-matches.json',
 
 ---
 
-## 15. 7 of 42 (16.7%) agreed on direction — the 5 strict matches PLUS 2 near-misses (same sign, off magnitude)
+## 17. 7 of 42 (16.7%) agreed on direction — the 5 strict matches PLUS 2 near-misses (same sign, off magnitude)
 
 * **Registry id:** `backtest-directional-16-7-pct`
 * **Gate type:** `exact` — none — the résumé figure must match the artifact exactly
@@ -414,7 +462,7 @@ python -c "import json;n=json.load(open('docs/runs/backtest-sept7-matches.json',
 
 ---
 
-## 16. predicted route 8's re-timing within 1.9 minutes (announced route; recommended +5.0 min, MiWay shipped +6.91)
+## 18. predicted route 8's re-timing within 1.9 minutes (announced route; recommended +5.0 min, MiWay shipped +6.91)
 
 * **Registry id:** `backtest-route8-within-2-min`
 * **Gate type:** `approx` — ±40% — the résumé figure must be within this of the artifact
@@ -438,7 +486,7 @@ python -c "import json;d=json.load(open('docs/runs/backtest-sept7-actual-change.
 
 ---
 
-## 17. Sept 7 was a capacity change, not re-phasing (70 of 84 moved bands changed trip counts)
+## 19. Sept 7 was a capacity change, not re-phasing (70 of 84 moved bands changed trip counts)
 
 * **Registry id:** `backtest-capacity-not-rephase`
 * **Gate type:** `exact` — ±5% — the résumé figure must be within this of the artifact
@@ -462,7 +510,7 @@ python -c "import json;n=json.load(open('docs/runs/backtest-sept7-actual-change.
 
 ---
 
-## 18. operated the 24/7 collector at 95.8% SLO coverage in September (23/24 full days)
+## 20. operated the 24/7 collector at 95.8% SLO coverage in September (23/24 full days)
 
 * **Registry id:** `uptime-slo-95pct`
 * **Gate type:** `exact` — none — the résumé figure must match the artifact exactly
@@ -486,7 +534,7 @@ grep -nE '95\.8%|23/24\ FULL\ days' docs/runs/uptime-2026-09.md
 
 ---
 
-## 19. second standalone collector for Toronto's TTC
+## 21. second standalone collector for Toronto's TTC
 
 * **Registry id:** `ttc-second-collector`
 * **Gate type:** `exact` — none — the résumé figure must match the artifact exactly
@@ -510,7 +558,7 @@ test -f backend/scripts/collect_ttc.py && echo present
 
 ---
 
-## 20. 30M+ observations logged by the second, standalone collector mirroring the measurement on Toronto's TTC surface network (since 2026-09-28)
+## 22. 30M+ observations logged by the second, standalone collector mirroring the measurement on Toronto's TTC surface network (since 2026-09-28)
 
 * **Registry id:** `ttc-observations-30m-plus`
 * **Gate type:** `min` — a floor — the artifact must be **at or above** it
@@ -534,7 +582,7 @@ python -c "import json,subprocess;out=subprocess.run(['python','backend/scripts/
 
 ---
 
-## 21. the Ward 9 councillor's office referred the findings to MiWay staff twice (2026-08-26 and 2026-09-24)
+## 23. the Ward 9 councillor's office referred the findings to MiWay staff twice (2026-08-26 and 2026-09-24)
 
 * **Registry id:** `councillor-referral-receipted`
 * **Gate type:** `exact` — none — the résumé figure must match the artifact exactly
@@ -558,7 +606,7 @@ grep -nE 'request\ will\ be\ sent\ to\ MiWay\ for\ investigation|shared\ your\ e
 
 ---
 
-## 22. 60 personalized cold emails to research labs (send window 2026-06-22 to 2026-07-08)
+## 24. 60 personalized cold emails to research labs (send window 2026-06-22 to 2026-07-08)
 
 * **Registry id:** `outreach-60-emails`
 * **Gate type:** `exact` — none — the résumé figure must match the artifact exactly
@@ -582,7 +630,7 @@ grep -nE 'Cold\-outreach\ emails\ sent|60\ campaign\ threads|Send\ window' docs/
 
 ---
 
-## 23. 26 of the 60 outreach emails drew a reply (28 reply messages in 26 threads)
+## 25. 26 of the 60 outreach emails drew a reply (28 reply messages in 26 threads)
 
 * **Registry id:** `outreach-26-replies`
 * **Gate type:** `exact` — none — the résumé figure must match the artifact exactly
@@ -606,7 +654,7 @@ grep -nE 'Threads\ with\ >=\ 1\ reply|26\ of\ 60\ =\ 43%|Auto\-replies\ among\ t
 
 ---
 
-## 24. a same-day endorsement from a U of T professor
+## 26. a same-day endorsement from a U of T professor
 
 * **Registry id:** `outreach-brown-endorsement`
 * **Gate type:** `exact` — none — the résumé figure must match the artifact exactly
@@ -630,7 +678,7 @@ grep -nE 'your\ message\ is\ right\ on\ the\ mark\ and\ convincing!|Same\-day\ e
 
 ---
 
-## 25. a lab tour offer
+## 27. a lab tour offer
 
 * **Registry id:** `outreach-lab-tour-offer`
 * **Gate type:** `exact` — none — the résumé figure must match the artifact exactly
@@ -654,7 +702,7 @@ grep -nE 'we\ can\ invite\ you\ to|never\ replied|no\ date\ was\ ever\ scheduled
 
 ---
 
-## 26. an offer to arrange summer 2027 research (v21 wording; v20 said "a confirmed research placement")
+## 28. an offer to arrange summer 2027 research (v21 wording; v20 said "a confirmed research placement")
 
 * **Registry id:** `outreach-summer-2027-placement`
 * **Gate type:** `exact` — none — the résumé figure must match the artifact exactly
@@ -678,7 +726,7 @@ grep -nE 'we\ can\ set\ something\ up\ next\ year|\*\*not\*\*\ a\ signed\ placem
 
 ---
 
-## 27. referrals to two university programs (both from one thread)
+## 29. referrals to two university programs (both from one thread)
 
 * **Registry id:** `outreach-two-program-referrals`
 * **Gate type:** `exact` — none — the résumé figure must match the artifact exactly
@@ -712,5 +760,5 @@ grep -nE 'stemfellowship\.org/reo|cpd\.pharmacy\.utoronto\.ca/pages/camp|Campaig
 
 The gate also fails when a registered claim stops appearing on the résumé, and when a **retired** figure reappears — numbers that were once true and are now behind (an earlier test-count floor, a superseded departures floor, my own first, wrong ghost-trip estimate) are on an explicit deny-list.
 
-**14 of 27** claims can be checked from this repository alone. The rest are re-derived by the gate against the platform.
+**14 of 29** claims can be checked from this repository alone. The rest are re-derived by the gate against the platform.
 

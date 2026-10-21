@@ -1,37 +1,40 @@
 # Zenodo deposit metadata — copy-paste ready
 
-> Everything on this page is filled in and verified against the current
-> sample (regenerated 2026-09-15; empty-date fix, see data/README.md rule 3).
-> Only two fields need you at upload time: your **ORCID** and the
-> **related identifier** once Zenodo assigns the concept DOI.
+> **This is now a record of what is published, not a pre-upload kit.**
+> v1.0.0 (2026-09-17, DOI `10.5281/zenodo.22820449`) and v1.1.0
+> (2026-10-18, DOI `10.5281/zenodo.23444830`) are live under concept DOI
+> `10.5281/zenodo.22820448`; the next version is cut by
+> `backend/scripts/publish_zenodo_version.py` in the private repo, which
+> builds the payload, uploads it and writes the metadata — nothing here is
+> pasted by hand any more. Fields below describe the newest published cut.
 
 ## 1. Basic fields
 
 | Zenodo field | Value |
 |---|---|
 | **Resource type** | Dataset |
-| **Title** | Observed bus departure lateness, MiWay (Mississauga, Canada), August–September 2026 |
-| **Publication date** | (today's date at upload) |
-| **Creators** | Lin, Ethan (ORCID: `FILL-IN`) — role: Data collector, Data curator, Project leader |
+| **Title** | Observed bus departure lateness, MiWay (Mississauga, Canada), August–October 2026 |
+| **Publication date** | 2026-10-18 (v1.1.0) |
+| **Creators** | Lin, Ethan — role: Data collector, Data curator, Project leader |
 | **Description** | Paste the **Abstract** below |
 | **Keywords** | `public transit` `bus punctuality` `GTFS-RT` `real-time feed` `departure delay` `early departure` `Mississauga` `MiWay` `open data` |
 | **License** | `MIT License` (the repo's license — same grant for the data) |
 | **Funding** | none — independent, unfunded project |
 | **Access** | Open |
-| **DOI** | leave as *Concept DOI* (minted on first publish) |
+| **DOI** | version DOI `10.5281/zenodo.23444830` (v1.1.0); concept DOI `10.5281/zenodo.22820448` for citations |
 
 ## 2. Abstract (paste into "Description")
 
-Dataset of 250,000 observed bus departures (with the complete 3,601,272-row
+Dataset of 250,000 observed bus departures (with the complete 8,031,942-row
 corpus included as a companion file) recorded from the GTFS-RT
 `TripUpdate` feed of MiWay, the municipal transit agency of Mississauga,
 Ontario, Canada (population ~715,000). The platform polled the agency's
 published real-time feed every 30 seconds, 24/7, from 2026-08-23 to
-2026-09-16, and joined each scheduled departure to the timetable to record
+2026-10-17, and joined each scheduled departure to the timetable to record
 what each bus actually did. Each row is one scheduled bus departure at one
 stop with its observed deviation from schedule, in minutes
 (negative = early). The sample is a uniform random draw (seed 20260911)
-from the 3,601,272 deduplicated recorded actuals (predictions excluded — the
+from the 8,031,942 deduplicated recorded actuals (predictions excluded — the
 vendor's forecasts carry a measured ~4.8-minute early bias; only readings
 taken after the stop was passed are included).
 
@@ -53,8 +56,8 @@ wait depends on differences between consecutive buses.
 
 | file | what it is |
 |---|---|
-| `lateness-actuals-full-dated.csv.gz` | the **complete** dated-actuals corpus — 3,601,272 rows, ~31.5 MB gzipped (upload first: it is the dataset of record) |
-| `lateness-sample-250k.csv` | seed-pinned uniform random sample (250,000 rows, ~9.3 MB) — the approachable, byte-reproducible verification file |
+| `lateness-actuals-full-dated.csv.gz.part01..17` | the **complete** dated-actuals corpus — 8,031,942 rows, ~70 MB gzipped, shipped as 17 byte splits of ONE gzip stream (concatenate in order, then gunzip) |
+| `lateness-sample-250k.csv` | seed-pinned uniform random sample (250,000 rows, ~9.4 MB) — the approachable, byte-reproducible verification file |
 | `README.md` | the data dictionary + processing rules — upload as a file (cleaner than pasting into notes) |
 
 ## 4. Data dictionary (also in README; paste where Zenodo asks or leave in the uploaded README)
@@ -89,7 +92,7 @@ wait depends on differences between consecutive buses.
   leaves their dates empty; they carry no trip anchor to recover one).
   Coverage is continuous from 2026-08-23.
 - **Sampling:** uniform random draw without replacement, seed `20260911`
-  (NumPy `default_rng`), from the 3,601,272-row dated-actual set sorted in
+  (NumPy `default_rng`), from the 8,031,942-row dated-actual set sorted in
   corpus order. The full, unsampled corpus is included as
   `lateness-actuals-full-dated.csv.gz`; the sample exists as the
   byte-reproducible verification artifact. The input corpus SHA-256 is
@@ -106,14 +109,20 @@ wait depends on differences between consecutive buses.
 | `is referenced by` | weekly findings snapshots (linked from the repo README) |
 | `is variant form of` | *(optional)* the repo tag `demo-20260915` or the release that froze the dataset |
 
-## 7. Upload checklist
+## 7. Cutting the next version (what replaced the checklist)
 
-1. Sign in (GitHub ORCID login works), "New upload".
-2. Upload **all three** files: the full corpus `lateness-actuals-full-dated.csv.gz`, the sample `lateness-sample-250k.csv`, and `data/README.md`.
-3. Paste Basic fields (§1), Abstract (§2), Methods (§5).
-4. License: MIT. Keywords: §1 list.
-5. Add related identifier `is supplement to` → the GitHub repo URL.
-6. Communities: consider `zenodo` "Open Aire" none — skip; direct publish.
-7. Publish → copy the **concept DOI** (stable across versions).
-8. Paste the concept DOI back into: `data/README.md` citation block, the
-   resume line, and the fact-pack. Commit + push.
+The upload is scripted (`backend/scripts/publish_zenodo_version.py`, see
+`docs/uni/zenodo-cadence.md` in the private repo): build the corpus once,
+draw the sample from that frozen file, upload the files, PUT the metadata
+and publish. Two things this page cannot do for you, learned the hard way
+on 2026-10-18:
+
+1. **This concept is a legacy Zenodo deposition.** Descriptive metadata is
+   written through `PUT /api/deposit/depositions/{id}` (fields nested under
+   `metadata`, legacy names: `upload_type`, string `license`). The
+   records-side `PUT /api/records/{id}/draft` answers **200 and drops every
+   field** — a write is proven by reading it back, never by the status code.
+2. **Re-cut the versioned copy of this page and `data/README.md`** with the
+   new counts, window, fingerprint trio and version row (§ VERSIONING.md).
+   A reader who downloads the deposit and diffs it against this repo should
+   find the same SHA-256s.

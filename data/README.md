@@ -4,9 +4,13 @@ A 250,000-row uniform random sample of the project's observed-departure
 dataset: **what MiWay buses actually did**, measured from the agency's own
 real-time feed, 24/7, every 30 seconds.
 
-- **Full dataset:** 3,601,272 unique dated recorded departures (as of 2026-09-16; still counting) — shipped in full as `lateness-actuals-full-dated.csv.gz`
-- **This file:** `lateness-sample-250k.csv` — 250,000 rows, ~9.3 MB, uniform random draw (seed `20260911`) from the full set
-- **Span:** Aug 23 – Sep 15, 2026 (all rows)
+- **Version:** v1.1.0, published 2026-10-18 — version DOI `10.5281/zenodo.23444830`;
+  concept DOI `10.5281/zenodo.22820448` always resolves to the newest version
+- **Full dataset:** 8,031,942 unique dated recorded departures (2026-08-23 → 2026-10-17; still counting) —
+  shipped in full as `lateness-actuals-full-dated.csv.gz`, and on the deposit as 17 byte-split
+  parts of that one gzip stream
+- **This file:** `lateness-sample-250k.csv` — 250,000 rows, ~9.4 MB, uniform random draw (seed `20260911`) from the full set
+- **Span:** Aug 23 – Oct 17, 2026 (all rows)
 - **License:** MIT (see repo root)
 
 ## How it was collected
@@ -56,15 +60,15 @@ with the private repo's `backend/scripts/make_public_sample.py`
 
 | provenance | value |
 |---|---|
-| built | 2026-09-16 |
-| input `obs_lateness.csv` SHA-256 | `49ce007775ae8a474d2d144fa36799bc24e20d88240641f976c5195150064821` |
-| input rows | 4,591,161 |
-| → after canonical dedup | 4,252,796 |
-| → after actuals filter (`horizon ≤ 0`) | 3,909,138 |
-| → after dated filter (legacy undated dropped) | **3,601,272** |
+| built | 2026-10-18 (deposit v1.1.0) |
+| input `obs_lateness.csv` SHA-256 | `15ca4683d4933cda62194542ae3fa7065d24fd4c79d569a0e9c99e943560a887` |
+| input rows | 9,231,921 |
+| → after canonical dedup | 9,023,273 |
+| → after actuals filter (`horizon ≤ 0`) | 8,339,808 |
+| → after dated filter (legacy undated dropped) | **8,031,942** (307,866 undated dropped) |
 | seed | `20260911` |
-| output SHA-256 (sample) | `433875dc3cc709931f5213cb8b0449192fc80ebb666de0c833d1500e3f4e4613` |
-| output SHA-256 (full corpus, gz) | `870c2e0ede5c5ad399dd076dfceabd9c30a2b75dae93bf47cbbddc076932608e` |
+| output SHA-256 (sample) | `2ece2225d4b515e12911a3f893de59dcba8ebac7e91235524e3df1be50b8c5ad` |
+| output SHA-256 (full corpus, gz) | `24420718f9017c07ad6408af084df339d8f508ac7af24c72e6cbb2c9b1463fbe` |
 | empty dates / forecast rows in output | 0 / 0 (hard gate) |
 
 Note: the gz output fingerprint is not byte-reproducible (gzip headers
@@ -99,8 +103,8 @@ sample CSV is byte-reproducible given the same input (plain CSV, seed-pinned).
   date did not exist for them, and rather than ship a partially-empty
   column, the sample starts where dating starts.
 - The full dataset carries the same schema and rules; the sample exists
-  because the corpus is the size it is. If you need the full set for
-  replication, open an issue.
+  because the corpus is the size it is. The deposit ships the full set,
+  so no request is needed for replication.
 
 ## Versioning & deposit
 
@@ -115,8 +119,10 @@ sample CSV is byte-reproducible given the same input (plain CSV, seed-pinned).
 
 If you use this data, cite the deposit:
 
-> Lin, E. (2026). *Observed bus departure lateness, MiWay (Mississauga, Canada), August–September 2026* [Dataset]. Zenodo. https://doi.org/10.5281/zenodo.22820448
+> Lin, E. (2026). *Observed bus departure lateness, MiWay (Mississauga, Canada), August–October 2026* (Version v1.1.0) [Dataset]. Zenodo. https://doi.org/10.5281/zenodo.23444830
 
-Findings built on it live in the [weekly snapshots](../README.md#what-the-data-shows),
-Findings built on it live in the [weekly snapshots](../README.md#what-the-data-shows),
-each frozen with a SHA-256 evidence manifest in the private archive.
+Cite the **concept** DOI (`10.5281/zenodo.22820448`) to always point at the
+newest version; cite the version DOI (`10.5281/zenodo.23444830` for v1.1.0)
+when a specific cut matters. Findings built on it live in the
+[weekly snapshots](../README.md#what-the-data-shows), each frozen with a
+SHA-256 evidence manifest in the private archive.

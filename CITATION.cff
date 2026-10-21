@@ -3,20 +3,23 @@
 cff-version: 1.2.0
 title: >-
   Observed bus departure lateness, MiWay (Mississauga, Canada),
-  August–September 2026
+  August–October 2026
 message: >-
   If you use this dataset, please cite it using the metadata below.
 type: dataset
 authors:
   - family-names: Lin
     given-names: Ethan
-version: 1.0.0
+# doi is the CONCEPT DOI on purpose: it always resolves to the newest
+# version. Per-version: v1.0.0 = 10.5281/zenodo.22820449 (2026-09-17),
+# v1.1.0 = 10.5281/zenodo.23444830 (2026-10-18).
+version: 1.1.0
 doi: 10.5281/zenodo.22820448
-date-released: "2026-09-17"
+date-released: "2026-10-18"
 license: MIT
 abstract: >-
   Dataset of 250,000 observed bus departures (with the complete
-  3,601,272-row corpus included as a companion file) recorded from the
+  8,031,942-row corpus included as a companion file) recorded from the
   GTFS-RT TripUpdate feed of MiWay, the municipal transit agency of
   Mississauga, Ontario, Canada. Each row is one scheduled bus departure at
   one stop with its observed deviation from schedule in minutes
