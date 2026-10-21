@@ -3,7 +3,7 @@
   "vintage": "feed 2026-09-22 → 2026-12-20 · captured 2026-10-16",
   "source": "http://127.0.0.1:8000",
   "provenance": {
-    "showcase_commit": "e0caa5c",
+    "showcase_commit": "b452e9b",
     "showcase_url": "https://github.com/Tapl1338/miway-findings",
     "dataset_doi": "10.5281/zenodo.22820448",
     "dataset_url": "https://doi.org/10.5281/zenodo.22820448"
