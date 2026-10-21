@@ -132,6 +132,7 @@ cat <<'REMEDY'
   Fix the message before pushing:
       git commit --amend                   # if it is the tip commit
       git rebase -i <base>                 # otherwise: reword, then continue
+      # (the strip script lives in the miway-transit-optimizer checkout, not here)
       python backend/scripts/strip_codebuff_attribution.py --count     # report
       python backend/scripts/strip_codebuff_attribution.py --rewrite   # rewrite
 
