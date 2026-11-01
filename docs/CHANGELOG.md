@@ -12,6 +12,215 @@ collapsed into the user-visible change they produced.
 
 ---
 
+## Week of Oct 26 – Nov 1, 2026
+
+### Added
+- **The weekly findings freeze runs itself, and the reliability denominators
+  behind October were repaired** — three windows had gone unfrozen (Oct 5–11,
+  Oct 12–18, Oct 19–25) and nothing could have noticed: every nightly check
+  looked at collector health, document quotes and promotion drift, and none
+  looked at whether a snapshot had been produced. A staleness check now answers
+  from the calendar and the snapshot table — a hole behind a current week fails
+  too — and a Monday-morning task works out its own window and label, so a
+  missed week is a failed check instead of a silent gap. It drafts nothing:
+  step one of the weekly procedure is analysis. Snapshots
+  [v8](findings/findings-v8-oct5-11.md),
+  [v9](findings/findings-v9-oct12-18.md) and
+  [v10](findings/findings-v10-oct19-25.md) came out of one shared cut, each
+  pinned with its tag, and the reliability repair carries its own
+  [erratum](findings/erratum-2026-10-26-reliability-denominator.md).
+- **The TTC collector's static index stopped being 395 MiB of dictionaries** —
+  two bind structures held 394.9 MiB of dicts to serve lookups that need
+  integers. The compact rep is 37.9 MiB of columns, serialized per GTFS vintage
+  and memory-mapped back in 0.13–0.16 s, so a restart inside a service day no
+  longer pays a ~30 s rebuild. It shipped behind a shadow audit that re-binds
+  every entity through both reps on every poll and classifies each divergence
+  (`dict_only` / `compact_only` / `diff_tid` / `stopped_diff`), plus an offline
+  row-and-order diff, because candidate order is part of bind semantics.
+  Measured on the collector box after the flip: `MemoryCurrent` 528 → 201.9 MB,
+  host swap 818 → 197 MB, `polls_failed` unchanged, `NRestarts` 0 — the flip
+  runbook's three checks, with rollback one line deleted from the env file. The
+  first version was 14x *slower* than the dicts it replaced, because a
+  scalar-needle `searchsorted` linear-scans a 1.18M-element array; a
+  precomputed extent table brings it to parity (829 vs 833 µs/entity).
+- **The observation archive's history is frozen, so dedup stops rewriting it** —
+  the watermarked dedup bought 290 → 241 s and no more, because most of that
+  pass was copying a prefix the run could not change. Observations now live as
+  immutable `obs/seg-YYYYMMDD-YYYYMMDD-<rows>.csv` segments plus one
+  `obs/active.csv` holding only open service dates; a seal is a variant of the
+  dedup rather than an extra pass — the same read, split into a segment write
+  and an active write, with the segment fsynced before the active file is
+  replaced so a crash there duplicates rows but never loses one. The 160 MB
+  active cap now *bounds* a failure mode that was unbounded: a 24 h gap used to
+  widen the pass to the whole corpus, which on this box is an OOM. A one-time
+  migration dedups, partitions by date, proves per-date equality, and refuses a
+  second run instead of doubling every row.
+- **Skipped-stop announcements are persisted** — one line per (trip, stop) per
+  Toronto service day, carrying the bound static pattern as context, because
+  the feed re-announces a skipped stop on every poll while the trip approaches
+  it, and because a dropped stop has to be distinguishable from a trip that
+  never ran.
+
+### Changed
+- **Every TTC reader goes through the store, and a test keeps it that way** —
+  the derive reads the week it needs (~8 segments) instead of all 26 M rows;
+  the window check answers a per-date count from segment metadata plus the live
+  tail instead of streaming ~700 MB; the prune expires whole segments; the
+  backup archives `obs/` *with its path*, since a flattened copy would restore
+  a corpus the store cannot see; and the guard fails any line under
+  `backend/app` or `backend/scripts` that names the retired file and the TTC
+  tree together. Two rows of the design turned out to read the MiWay corpus,
+  not TTC's, and were recorded as corrections rather than "migrated" into a
+  regression.
+- **The poll loop keeps its configured period** — it slept the interval *after*
+  each poll returned, so a 30 s setting with a 9.6 s median poll produced a
+  42 s cadence that no speed-up could reach. Scheduling against the cycle start
+  brought box 2 to 28–35 s gaps (~31 s mean), 129 polls/hour against 86, poll
+  median unchanged.
+- **Dedup copies the frozen head instead of re-parsing it** — the state file
+  now carries `head_bytes`, the offset where the closed-date prefix ends, and a
+  boundary that is not a newline (or is past EOF) discards the watermark and
+  rescans. Measured on the live 1.65 GB file: 290.4 → 241.0 s. That is 1.2x and
+  not the 10x the laptop fixture implied — parsing was only 49 s of the pass;
+  the rest is a 3.2 GB rewrite on a disk measured at 37 MB/s, an ~80 s floor
+  with no parsing at all. The measurement is the finding: the shape had to
+  change, not the parse.
+
+### Fixed
+- **A partial-day pass could freeze a whole date at ~7% of its schedule** —
+  the ghost ledger's `--since` cutoff made one sliver pass permanent, and the
+  October snapshots inherited it; a full recompute over the same day verifies
+  more trips than were stored, so the stored rows were the defect. Rows are now
+  replaced only by a recompute that verifies at least the stored base, decided
+  per date (a per-route rule let small-base routes through and still moved the
+  day). The report is built from the merged rows rather than the run's fresh
+  ones, so the CSV and the .md stopped disagreeing, and every October date was
+  re-measured with a neighbour day on each side — a poll after midnight carries
+  the previous service date, and one date alone undercounts by ~4%.
+- **The freeze gate was unsatisfiable by construction** — it required a log
+  line `rc=0 failed=0/8`, but the chain's last step exits 1 or 2 *by design* as
+  an advisory, so every run since Oct 5 logged `rc=2 failed=0/8` and no window
+  could freeze. The gate now tests the chain's own success definition. A
+  mistyped PowerShell format string that threw *after* a successful freeze is
+  fixed in the same script — the script had been reporting failure on success.
+- **Compact-only mode silently rebuilt the dictionaries it was meant to
+  replace** — the collector called an inner closure whose non-shadow branch
+  went straight to the dict builder, so the cache directory stayed empty and
+  the 395 MiB rep was rebuilt on every start while the suite stayed green: the
+  wiring test exercised the helper the closure bypassed. A source-level test
+  now pins the delegation and the one surviving direct build.
+- **The retention job could never have run** — the unit set the data directory
+  but not `PYTHONPATH`, and the prune resolves its imports from there by
+  design, so the weekly job would have died with `ModuleNotFoundError` every
+  Sunday. The journal had the same shape from the other side: Python
+  block-buffers stdout under systemd, so startup lines appeared 42 minutes
+  after they were stamped, which is what made a healthy collector look dead
+  after every restart.
+- **Three frozen snapshots still told readers not to quote their reliability
+  figure**, and the only notice withdrawing that instruction lived on an index
+  page nobody opens from a snapshot. Each now carries a dated withdrawal in its
+  header and at its prohibition, naming the re-derived rate — the one edit the
+  freeze rule permits, with the measurements untouched.
+
+## Week of Oct 19–25, 2026
+
+### Added
+- **GitHub's traffic window is archived nightly, because it was the one number
+  here that kept expiring** — the traffic API returns exactly 14 daily buckets
+  ending yesterday and ignores pagination, so every day the window rolls, a day
+  of traffic is gone for good. A nightly job writes a daily series (with
+  observation and revision counts, so a settled day is distinguishable from a
+  churned one) and a run ledger in which a missed night is an explicit row
+  rather than an inference from silence. It prints the window value beside the
+  daily sum on every run, because uniques do not add: one person over three
+  days is 1 unique in the window and 3 summed across buckets. Views are
+  readers; clones are CI.
+- **The Zenodo v1.1.0 payload, and the publisher the notes had been describing**
+  — the release notes claimed a `--staging-dir` flag the repository did not
+  contain, so a fresh clone's scheduled run would have written next month's
+  fingerprints over the directory the v1.1.0 receipt cites as its evidence. The
+  landed script reseats staging before any read or write, refuses `--skip-build`
+  without a dry run instead of reporting a pass it did not earn, splits legacy
+  deposition metadata (depositions API) from files (records API, where a
+  metadata PUT returns 200 and persists nothing), and keeps the two-sitting
+  `--publish-only` / `--resume-draft` shapes that were actually measured. Tests
+  pin the staging protection rather than assuming it.
+- **The lab report has an engine** — the friction-ramps report had been repaired
+  twice by hand, from throwaway scripts, so it could not be rebuilt from its own
+  source. It now builds from a JSON content model, renders the PDF through Word,
+  and then checks the artifact — content parity, glyph and word-spacing
+  integrity, page furniture, figure identity — so a rebuild that drops a
+  paragraph fails instead of shipping. Binary assets stay out of the repository,
+  where a missing one is a loud failure.
+- **A network-level transfer measurement, and a preregistered feel test** — one
+  map tile answers a misleading question, because it slices every route through
+  it: the City-Centre tile's median route carries 4 of its in-tile stops, so
+  72.5% of in-tile pairs look unserved when the network serves them outside the
+  clip. The new measurement works on the whole weekday network, with its
+  modelling choices stated as the audit trail — a boarding is boarding a
+  *pattern*, and a station is a place rather than a platform (at platform level
+  45% of stops are served by exactly one pattern, an artefact of counting both
+  sides of the street). The toy town's roofs became a numeric kind with floors
+  derived from each roof's own seed, and the puzzle board's daily window is now
+  baked into its page and exported as a Lua module for the Roblox port. The
+  shipped `board.json` was deliberately not regenerated: its content already
+  equals the generator's output and only the wall-clock stamp differs.
+- **The public mirror got the attribution guards it had missed** — the published
+  findings clone sat outside the September cleanup and carried four
+  agent-trailer commits, which is why its contributor panel listed an agent
+  account. It now has the hooks, its own `core.hooksPath`, and LF
+  `.gitattributes` (CRLF breaks a shebang); the repository's own hook files are
+  tracked executable, because git ignores a non-executable hook silently.
+
+### Changed
+- **The repository split into three siblings, and this tree keeps one
+  resolver** — 449 MB tracked, 87% of it material nothing here edits: five
+  frozen evidence cuts, thirteen GTFS vintages, and the university/resume stack
+  that also carried identity-bearing documents next to published findings. Each
+  group moved to its own private repo with the history of its paths preserved,
+  reachable through env var → sibling checkout → legacy path, so a migrated
+  checkout, an unmigrated one and a bare CI runner all keep working. The 66
+  in-repo citations were deliberately not rewritten: the path gate resolves them
+  against the sibling and otherwise reports the citation as external, and that
+  exception list is the greppable record of the trade.
+- **The instrument line is published from the claim registry** — one command
+  writes the registered label into every surface that quotes it (32 of them),
+  and a floor that trails the live count is now visible to the drift gate
+  instead of only to a careful reader. The handover gate reads the same
+  registry, and takes the live version from the newest entry rather than from a
+  second copy of the number.
+- **The changeover panel stopped re-paying a 60 s pipeline on every poll** — its
+  cache was keyed on exact CSV mtimes and the collector appends every ~30 s, so
+  each load rebuilt a 10.37M-row aggregation (59.3 s isolated, 151 s while
+  startup warm-up ran), and date normalization made 9.36 M Python calls to
+  produce ~50 distinct values. Normalizing the unique dates once and holding the
+  cache for a 300 s window gives a cold 52.9 s, a post-append load of 0 s, and a
+  repeat request at 0.184 s with an identical body.
+
+### Fixed
+- **CI had not executed a single backend test since the split** — every Backend
+  tests run died at `ruff`, so the change that had just restructured the backend
+  was never exercised by it. Seven check errors (one a live `NameError`:
+  `Sequence` used without being imported) and fifteen unformatted files, two of
+  which carried another lane's uncommitted edits and were formatted from `HEAD`
+  instead of touched.
+- **Five gates were failing on the tool instead of the data** — a template
+  verifier that opened paths from the working directory and crashed when run
+  from the documented one, a path gate that read a query string as part of a
+  path, a publisher that knew 8 of the 14 documents carrying the headline (so
+  six could drift without a gate noticing), and a resume renderer whose QR
+  caption disagreed with the renderer that makes the PDFs; the fifth was a
+  review wrapper that only needed formatting.
+- **The retention installer acted on verdicts it was throwing away** — a unit
+  that `systemd-analyze verify` rejected was installed, printed and armed anyway
+  (`|| true`), and the timer's state was printed without being read, so a failed
+  arming exited 0. Both verdicts are load-bearing now; the observation lock also
+  learned which user owns its sidecar, so a manual run as another user fails
+  loudly instead of writing the CSV unlocked.
+- **The rider happy path reported only the first console error**, and its
+  failure line named a status code without the resource that produced it. An
+  end-to-end run is only as informative as the last error it hides.
+
 ## Week of Oct 12–18, 2026
 
 ### Added
