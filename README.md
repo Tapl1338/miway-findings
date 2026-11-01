@@ -4,7 +4,7 @@ An independent, student-run measurement project. Built summer 2026, running 24/7
 
 **The question:** MiWay publishes a timetable and a real-time feed. How well does the actual service match what riders are promised — and what would a small, data-driven re-timing buy them?
 
-**The instrument:** a full-stack analytics platform (Python/FastAPI/React) that polls the GTFS + GTFS-RT feeds every 30 seconds, around the clock, on a cloud VPS I administer. As of October 2026 it has logged **132,000+ polls at 99.2% success** and captured **9M+ unique scheduled bus departures** for measurement.
+**The instrument:** a full-stack analytics platform (Python/FastAPI/React) that polls the GTFS + GTFS-RT feeds every 30 seconds, around the clock, on a cloud VPS I administer. As of October 2026 it has logged **135,000+ polls at 99.2% success** and captured **9.5M+ unique scheduled bus departures** for measurement.
 
 ---
 
@@ -46,12 +46,16 @@ Weekly, immutable findings snapshots (each frozen, never edited after freezing):
 - [Week of Sep 7–13](docs/findings/findings-v4-post-sept7.md)
 - [Week of Sep 14–20](docs/findings/findings-v5-sept14-20.md)
 - [Week of Sep 21–27](docs/findings/findings-v6-sept21-27.md)
-- [Week of Sep 28 – Oct 4](docs/findings/findings-v7-sept28-oct4.md) — current
+- [Week of Sep 28 – Oct 4](docs/findings/findings-v7-sept28-oct4.md)
+- [Week of Oct 5–11](docs/findings/findings-v8-oct5-11.md)
+- [Week of Oct 12–18](docs/findings/findings-v9-oct12-18.md)
+- [Week of Oct 19–25](docs/findings/findings-v10-oct19-25.md) — current
+- [Erratum: the October reliability denominator](docs/findings/erratum-2026-10-26-reliability-denominator.md) — a correction to the ghost-trip numbers in v8–v10, published rather than quietly re-derived
 
 Recurring findings, stated conservatively:
 
 1. **Early departures.** A large share of recorded departures leave more than two minutes ahead of schedule — and an early bus is a missed bus for anyone following the timetable.
-2. **Ghost trips.** A measurable fraction of scheduled trips never appear in the real-time feed at all — for whatever operational reason (breakdown, pull-from-service, gap in the feed), riders waited at a stop for a bus that never came, invisibly. My first published estimate of this rate (1 in 32) was **wrong**; see *The correction* below.
+2. **Ghost trips.** A measurable fraction of scheduled trips never appear in the real-time feed at all — for whatever operational reason (breakdown, pull-from-service, gap in the feed), riders waited at a stop for a bus that never came, invisibly. My first published estimate of this rate (1 in 32) was **wrong**; see *The correction* below. October added a second correction in the same spirit: the artifact feeding this metric had collapsed denominators for three weeks, which is why v8–v10 originally said the rate was not quotable — the artifact was repaired, the three windows re-measured (0.30–0.53%, 1 in 189 to 1 in 335), and the correction [published](docs/findings/erratum-2026-10-26-reliability-denominator.md).
 3. **Night crowding.** Some late-evening corridors run their worst decile at or over seated capacity — a rider-safety issue that hides outside rush hour.
 4. **Sensor honesty.** MiWay's automatic passenger counters (APCs) report loads in bands far wider than advertised — I characterized the hysteresis from 4.9M+ APC load observations after 399 on-board check-ins across 14 routes showed two different passenger counts reporting identically.
 5. **An equity trap.** The network-level "optimized" schedule quietly makes some wards worse. My own optimizer did this to Ward 9 (+2.56 min/stop) — so I shipped a per-stop guardrail that catches it.
@@ -154,7 +158,7 @@ The findings went to the Ward 9 Councillor's office in August 2026, which **form
 
 **September 7, 2026 — the schedule change.** MiWay's published timetable changed. This is the project's scored event: the predictions were frozen beforehand, so the measurement could not curve-fit to the answer.
 
-**October 2026 — to date:** 132,000+ polls at 99.2% success, 9M+ unique scheduled departures measured.
+**October 2026 — to date:** 135,000+ polls at 99.2% success, 9.5M+ unique scheduled departures measured.
 
 The method is deliberately unglamorous: pin the feed vintage, keep the raw rows, stamp bad rows rather than deleting them, and re-derive every published number from the frozen artifacts. More than one finding here exists because an earlier version of my own analysis was wrong and got corrected on the record.
 
