@@ -4,7 +4,7 @@ An independent, student-run measurement project. Built summer 2026, running 24/7
 
 **The question:** MiWay publishes a timetable and a real-time feed. How well does the actual service match what riders are promised — and what would a small, data-driven re-timing buy them?
 
-**The instrument:** a full-stack analytics platform (Python/FastAPI/React) that polls the GTFS + GTFS-RT feeds every 30 seconds, around the clock, on a cloud VPS I administer. As of October 2026 it has logged **135,000+ polls at 99.2% success** and captured **9.5M+ unique scheduled bus departures** for measurement.
+**The instrument:** a full-stack analytics platform (Python/FastAPI/React) that polls the GTFS + GTFS-RT feeds every 30 seconds, around the clock, on a cloud VPS I administer. As of October 2026 it has logged **145,000+ polls at 99.2% success** and captured **10M+ unique scheduled bus departures** for measurement.
 
 ---
 
@@ -158,7 +158,7 @@ The findings went to the Ward 9 Councillor's office in August 2026, which **form
 
 **September 7, 2026 — the schedule change.** MiWay's published timetable changed. This is the project's scored event: the predictions were frozen beforehand, so the measurement could not curve-fit to the answer.
 
-**October 2026 — to date:** 135,000+ polls at 99.2% success, 9.5M+ unique scheduled departures measured.
+**October 2026 — to date:** 145,000+ polls at 99.2% success, 10M+ unique scheduled departures measured.
 
 The method is deliberately unglamorous: pin the feed vintage, keep the raw rows, stamp bad rows rather than deleting them, and re-derive every published number from the frozen artifacts. More than one finding here exists because an earlier version of my own analysis was wrong and got corrected on the record.
 
