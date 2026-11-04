@@ -2,6 +2,13 @@
 
 > **New in the interactive demo:** *Early departures* (route-level early-leaving, from the public sample) and the *Forecast scoreboard* (every pre-registered prediction, mechanically scored). Both under Network health in the sidebar.
 
+> **Before quoting any ghost rate, read the two denominator documents:** the
+> [Oct-26 erratum](erratum-2026-10-26-reliability-denominator.md) (repairs the
+> partial-day denominator for v8–v10) and the
+> [2026-11-03 addendum](addendum-2026-11-03-denominators.md) — v1's rate is not
+> quotable, v5's published basis is no longer in the artifact, and v6/v8 lose
+> about 9% and 21% of their rate once their partially polled days are excluded.
+
 Every weekly snapshot is **immutable once frozen**: the file is never edited
 after its freeze date; corrections happen in the *next* version (or, for
 typos, are flagged inline without touching numbers). Each version is also
@@ -21,6 +28,9 @@ week of new data changed.
 | [Route 34 redundancy audit](route-34-redundancy-audit.md) | schedule arithmetic vs the 35 | — | Current |
 | v5 | Sep 14 – 20, 2026 (n=7: 6 complete + 1 partial day) | 2026-09-21T21:20Z | superseded by v6 | `findings-v5` | [findings-v5-sept14-20.md](findings-v5-sept14-20.md) |
 | v10 | Oct 19 – 25, 2026 (n=7) | 2026-10-26 | **CURRENT** — seventh post-change week, last pre-change week | `findings-v10` | [findings-v10-oct19-25.md](findings-v10-oct19-25.md) |
+| [v11](findings-v11-oct26-nov01.md) | Oct 26 – Nov 1, 2026 | 2026-11-02 | **DATA GAP — NOT QUOTABLE.** The observation corpus holds 3,697 rows for Oct 26 and no rows for Oct 27 – Nov 1; the collector's static GTFS board expired Oct 25. Carries no metric by design — see the file's §0 | — | [findings-v11-oct26-nov01.md](findings-v11-oct26-nov01.md) |
+| [TTC W2](findings-ttc-w2-oct26-nov01.md) | Oct 26 – Nov 1, 2026 (**TTC**) | 2026-11-03 | **PARTLY QUOTABLE.** Oct 26 is F4 PARTIAL (586 polls vs floor 633) and acknowledged in the registry, not re-labelled. Silent-trip rates for Oct 29–31 (47.5% → 83.1%) and the weekday aggregate are **NOT QUOTABLE** — the verifiable base collapses while polls and obs stay healthy, the same shape as v11's §0.6. Earliness and instrument health remain quotable under the standing caveats | — | [findings-ttc-w2-oct26-nov01.md](findings-ttc-w2-oct26-nov01.md) |
+| [TTC W1](findings-ttc-w1-oct12-18.md) | Oct 12 – Oct 18, 2026 (**TTC**) | 2026-10-28 | Superseded as the newest TTC window by W2 — first TTC snapshot, instrument-validation window | — | [findings-ttc-w1-oct12-18.md](findings-ttc-w1-oct12-18.md) |
 | v9 | Oct 12 – 18, 2026 (n=7) | 2026-10-26 (backfilled) | superseded by v10 | `findings-v9` | [findings-v9-oct12-18.md](findings-v9-oct12-18.md) |
 | v8 | Oct 5 – 11, 2026 (n=7) | 2026-10-26 (backfilled) | superseded by v9 | `findings-v8` | [findings-v8-oct5-11.md](findings-v8-oct5-11.md) |
 | v7 | Sep 28 – Oct 4, 2026 (n=7) | 2026-10-06 | superseded by v8 | `findings-v7` | [findings-v7-sept28-oct4.md](findings-v7-sept28-oct4.md) |
