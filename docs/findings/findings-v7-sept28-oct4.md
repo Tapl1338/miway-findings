@@ -21,6 +21,8 @@
 
 ---
 
+> **2026-11-03 (dated addendum):** the rate below reproduces exactly. One day (Oct 3) was only partially polled (polls 01:39–18:59, 1,795 verifiable); excluding it moves the rate by under 2%. Body unchanged. See [the denominator addendum](addendum-2026-11-03-denominators.md) §3.
+
 ## 1. Reliability (fourth post-change week)
 
 - Ghost trips: **89 of 22,492 verifiable trips never ran (0.396%, "1 in

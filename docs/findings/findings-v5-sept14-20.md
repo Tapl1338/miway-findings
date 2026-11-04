@@ -18,6 +18,8 @@
 
 ---
 
+> **2026-11-03 (dated addendum):** the ghost figures below were computed on a basis the artifact no longer holds (those ledger rows were rewritten on 2026-10-07, per their `last_run`); the live artifact reads **125 of 32,477 = 0.39% (1 in 260)**. One day (Sep 19) is a partially polled lower bound. Body unchanged. See [the denominator addendum](addendum-2026-11-03-denominators.md) §3.
+
 ## 0. Pre-registered comparison — Sept 14–20 bands (THE core table)
 
 | Metric | Pre-registered band | Observed (frozen cut) | Verdict |

@@ -45,6 +45,8 @@
 
 ---
 
+> **2026-11-03 (dated addendum):** the erratum's corrected rate above still rests on Oct 5, which was polled only 01:59–23:59 and verifies 4,380 of 5,589 — excluding that partial day the window reads **0.39% (1 in 258)**, not 0.49%. Body unchanged. See [the denominator addendum](addendum-2026-11-03-denominators.md) §3.
+
 ## 1. Reliability
 
 - The frozen artifact (do not quote as this window's rate): 52 of 5,892
