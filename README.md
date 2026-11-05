@@ -164,11 +164,11 @@ The method is deliberately unglamorous: pin the feed vintage, keep the raw rows,
 
 ## Test suite
 
-The measurement code is held to **1,400+ backend unit and property-based tests across 160 test modules**. Property-based tests assert invariants over generated inputs rather than fixed examples — that is how the deduplication and drift-detection logic earned its edge-case coverage. The complete matrix is **1,644 collected tests**; the push gate runs 1,495 of them and excludes the `slow`-marked solver tests.
+The measurement code is held to **2,000+ backend unit and property-based tests across 204 test modules**. Property-based tests assert invariants over generated inputs rather than fixed examples — that is how the deduplication and drift-detection logic earned its edge-case coverage. The complete matrix is **2,342 collected tests** (2026-11-05); the push gate runs 2,193 of them and excludes the `slow`-marked solver tests.
 
-A scrubbed copy of **157 of those 160 modules** is published in [`tests/`](tests), so the claims above can be audited rather than taken on trust. Three modules are withheld: their fixtures encode private-tooling details (local filesystem paths, third-party names) that do not belong in a public repository, and they test the leak-guard and promotion-gate tooling rather than the transit analysis.
+A scrubbed copy of **157 test modules, as of the 2026-10-20 sync** — the last published subset — is in [`tests/`](tests), so the claims above can be audited rather than taken on trust. Three modules are withheld: their fixtures encode private-tooling details (local filesystem paths, third-party names) that do not belong in a public repository, and they test the leak-guard and promotion-gate tooling rather than the transit analysis.
 
-One caveat stated plainly: **the published tree is not runnable standalone.** 141 of the 160 modules import the private platform package, which stays private while the pilot work continues. The tests are here to be read and audited, not executed — a CI badge over this subset would report a misleading number, so there isn't one.
+One caveat stated plainly: **the published tree is not runnable standalone.** 141 of that same 2026-10-20 subset import the private platform package, which stays private while the pilot work continues. The tests are here to be read and audited, not executed — a CI badge over this subset would report a misleading number, so there isn't one.
 
 ## Reproducibility
 
@@ -176,7 +176,7 @@ One caveat stated plainly: **the published tree is not runnable standalone.** 14
 
 Read [how every number is measured](docs/findings/methodology.md) — the data, the pipelines, and the four verification layers behind every figure.
 
-Every figure in the snapshots regenerates from frozen artifacts: SHA-256 evidence manifests, dedup rules pinned as code constants, and regeneration commands in each snapshot's header. The analysis behind these findings is covered by the 1,400+ backend tests described above. The full platform source remains private while I finish the pilot work; this repository contains the evidence layer and an auditable subset of the tests.
+Every figure in the snapshots regenerates from frozen artifacts: SHA-256 evidence manifests, dedup rules pinned as code constants, and regeneration commands in each snapshot's header. The analysis behind these findings is covered by the 2,000+ backend tests described above. The full platform source remains private while I finish the pilot work; this repository contains the evidence layer and an auditable subset of the tests.
 
 ---
 

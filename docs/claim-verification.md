@@ -300,15 +300,15 @@ curl -sIL -o /dev/null -w '%{url_effective} %{http_code}\n' https://doi.org/10.5
 
 ---
 
-## 12. 1,400+ backend tests
+## 12. 2,000+ backend tests
 
-* **Registry id:** `backend-tests-1300-plus`
+* **Registry id:** `backend-tests-2000-plus`
 * **Gate type:** `min` — a floor — the artifact must be **at or above** it
-* **Registered value:** `1,400`
+* **Registered value:** `2,000`
 
 **Where it comes from**
 
-Count of '^def test_' functions under backend/tests: 1,447 (2026-10-03). Floor 1,400 holds with headroom. History: 1,100+ floor -> 1,200 (2026-09-22) -> 1,300 (2026-09-23, live 1,305) -> 1,400 (2026-10-03, live 1,447)
+Count of 'def test_' functions under backend/tests at any indentation: 2,238 defined (2026-11-05; `grep -rho '^ *def test_' backend/tests/*.py | wc -l`), and pytest collects 2,193 of them (149 deselected by the default markers). The verifier used to anchor on '^def test_' at column 0, which missed 275 INDENTED tests inside test classes -- the same blind spot that produced the old 1,447 reading. Floor 2,000 holds with 238 of headroom (10.6%), and it is the SAME floor the application and the demo card state, so the three surfaces agree. History: 1,100+ -> 1,200 (2026-09-22) -> 1,300 (2026-09-23, live 1,305) -> 1,400 (2026-10-03, live 1,447) -> 2,000 (2026-11-05, live 2,238; the 1,400 floor had been 791 behind live, which made the resume the weakest of the three surfaces)
 
 **Re-derivation command — requires the measurement platform**
 
@@ -560,15 +560,15 @@ test -f backend/scripts/collect_ttc.py && echo present
 
 ---
 
-## 23. 30M+ observations logged by the second, standalone collector mirroring the measurement on Toronto's TTC surface network (since 2026-09-28)
+## 23. 80M+ observations logged by the second, standalone collector mirroring the measurement on Toronto's TTC surface network (since 2026-09-28)
 
-* **Registry id:** `ttc-observations-30m-plus`
+* **Registry id:** `ttc-observations-80m-plus`
 * **Gate type:** `min` — a floor — the artifact must be **at or above** it
-* **Registered value:** `30,000,000`
+* **Registered value:** `80,000,000`
 
 **Where it comes from**
 
-Sum of the resolved per-day `obs` counter over <data-home>/ttc/day-*.json, read through app/ttc_counters.py (the ONE owner of those semantics): 36,071,653 as of 2026-10-14 across 17 day files (36,068,512 an hour earlier - the collector is live, which is exactly why this is a floor and not an exact figure). A LOWER BOUND by construction: 2026-09-28 has no preceding day file (unresolvable, never counted as zero) and 2026-09-30 / 10-01 / 10-02 / 10-03 are restart days (box 2's deployment window, its counters resetting), so each reports only the count since its restart. Construct is observations LOGGED - rows appended per poll, every horizon the feed carried - NOT the deduped unique-departure count the MiWay claim uses; a unique-departure analogue needs a memory-bounded external sort over the 666 MB mirror and has NOT been run. Kept a SEPARATE claim from the MiWay counter by owner decision 2026-10-02 (no coherent combined basis). Registered ahead of its resume line on purpose - the scholarship-application gate opened 2026-10-13 - so it carries no RESUME_PATTERNS entry and the gate does not require it in a resume until a variant adopts this wording.
+Sum of the resolved per-day `obs` counter over <data-home>/ttc/day-*.json, read through app/ttc_counters.py (the ONE owner of those semantics): 82,037,544 as of 2026-11-05 across 42 day files (2026-09-28 -> 2026-11-05), resolved with `ttc_counters.resolve_dir`; it was 36,071,653 on 2026-10-14 across 17 files. The collector is live, which is exactly why this is a floor and not an exact figure. A LOWER BOUND by construction: 2026-09-28 has no preceding day file (unresolvable, never counted as zero) and 2026-09-30 / 10-01 / 10-02 / 10-03 are restart days (box 2's deployment window, its counters resetting), so each reports only the count since its restart. Construct is observations LOGGED - rows appended per poll, every horizon the feed carried - NOT the deduped unique-departure count the MiWay claim uses; a unique-departure analogue needs a memory-bounded external sort over the 666 MB mirror and has NOT been run. Kept a SEPARATE claim from the MiWay counter by owner decision 2026-10-02 (no coherent combined basis). The resume line ADOPTED it on 2026-11-05 (all five variants carry '80M+ observations logged'), so RESUME_PATTERNS pins that wording; still not required_in_all_resumes, because the v20-v23 archive files predate it. Floor history: 30M (2026-10-14, live 36.07M) -> 80M (2026-11-05, live 82.04M).
 
 **Re-derivation command — requires the measurement platform**
 
