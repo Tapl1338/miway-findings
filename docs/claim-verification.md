@@ -2,7 +2,7 @@
 
 Each figure below is registered in the project's claim registry with the artifact it comes from and the command that re-derives it. The same registry is enforced on every code change by an automated gate, so a figure cannot drift away from its evidence without a build failing.
 
-Registry as of **2026-10-25** — 30 registered claims.
+Registry as of **2026-11-05** — 30 registered claims.
 
 **Two kinds of evidence, stated plainly.**
 
